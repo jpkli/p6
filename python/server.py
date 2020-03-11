@@ -12,6 +12,7 @@ from analytics import Analytics
 
 import pandas as pd
 import numpy as np
+from sklearn.datasets import load_digits
 
 define("http", default=8888, help="run on the given port", type=int)
 define("stream", default=8000, help="streaming on the given port", type=int)
@@ -40,6 +41,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 class AnalyticsHandler(tornado.web.RequestHandler):
   program = None
+  data = None
 
   def set_default_headers(self):
     self.set_header("Access-Control-Allow-Origin", "*")
@@ -47,11 +49,12 @@ class AnalyticsHandler(tornado.web.RequestHandler):
     self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
 
   def get(self, opt):
-    print(opt)
+    
     if (opt == 'metadata'):
       print(AnalyticsHandler.program.metadata())
       self.write(json.dumps(AnalyticsHandler.program.metadata()))
     else:
+      AnalyticsHandler.program = Analytics(AnalyticsHandler.data)
       params = self.get_argument("spec", None, True)
       specs = json.loads(params)
       print(specs)
@@ -69,7 +72,11 @@ def main():
 
   if (os.path.isfile(options.datafile)):
     data = pd.read_csv(options.datafile)
-    AnalyticsHandler.program = Analytics(data)
+  else: 
+    digits = load_digits()
+    data = digits.data
+    
+  AnalyticsHandler.data = data
     # print(dict(data.dtypes))
 
   app = Application(options.appdir)

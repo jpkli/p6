@@ -3,10 +3,20 @@ import axios from 'axios';
 import {fetchFromUrl} from './numpyArrayLoader';
 
 const analysisMethods = {
-  KMeans: 'clustering',
-  DBSCAN: 'clustering',
-  PCA: 'decomposition',
-  KernelPCA: 'decomposition',
+  clustering: ['KMeans', 'DBSCAN'],
+  decomposition: ['PCA', 'ICA', 'KernelPCA'],
+  manifold: ['MDS', 'LocallyLinearEmbedding']
+}
+
+let getMethodType = (methodName) => {
+  let methodType = null
+  Object.keys(analysisMethods).forEach(mt => {
+    let methodIdx = analysisMethods[mt].indexOf(methodName)
+    if (methodIdx !== -1) {
+      methodType = mt
+    }
+  })
+  return methodType
 }
 
 export default function(arg = {}) {
@@ -18,8 +28,8 @@ export default function(arg = {}) {
     p6.analyses = methods.map(method => {
       let analysis = {}
       let methodName = Object.keys(method)[0]
-      let methodType = analysisMethods[methodName]
-      if (methodType === undefined) {
+      let methodType = getMethodType(methodName)
+      if (methodType === null) {
         return method
       }
       analysis[methodType] = {methodName}
@@ -53,6 +63,11 @@ export default function(arg = {}) {
       return p6
     }
   })
+
+  p6.interact = (spec) => {
+    p4x.interact(spec)
+    return p6
+  }
 
   p6.execute = async () => {
     console.log(p6.analyses)

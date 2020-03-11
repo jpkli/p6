@@ -7,6 +7,7 @@ from sklearn.decomposition import PCA
 
 import sklearn.cluster as Clustering
 import sklearn.decomposition as Decomposition
+import sklearn.manifold as Manifold
 
 DATA_TYPES = {
   'numerical': ['int', 'float'],
@@ -99,15 +100,6 @@ class Analytics:
     # self.schema = new_schema
     return self
 
-  def kmeans(self, k = 3, columns = None, out = None):
-    input_data = self.data if columns == None else self.data[columns]
-    kmeans = KMeans(k, random_state=0).fit(input_data)
-    output_name = 'kmeans' if out == None else out
-    self.data[output_name] = kmeans.labels_
-    # self.schema['kmeans'] = 'int'
-    self._result = kmeans.labels_
-    return self
-
   def clustering(self, methodName, parameters = {}, columns = None, out = None):
     method = getattr(Clustering, methodName)
     input_data = self.data if columns == None else self.data[columns]
@@ -117,22 +109,6 @@ class Analytics:
     self._result = output.labels_
     return self
 
-  def pca(self, columns = None, n_components = 2, out = None):
-    pca = PCA(n_components)
-    # print(self.data.dtypes)
-    input_data = self.data.values if columns == None else self.data[columns].values
-    std_data = StandardScaler().fit_transform(input_data)
-    pcs = pca.fit_transform(std_data)
-    output_name = 'pca' if out == None else out
-    pca_result =  pd.DataFrame(data = pcs, columns = ['%s%d'%(output_name, x) for x in range(0, n_components)])
-
-    for pc in pca_result.columns.values:
-      print('adding new attributes ', pc)
-      self.data[pc] = pca_result[pc].values
-    # self.data = pd.concat([self.data, pca_result], axis=1, sort=False)
-    self._result = pca_result
-    return self
-  
   def decomposition(self, methodName, parameters = {}, columns = None,  out = None):
     method = getattr(Decomposition, methodName)
     input_data = self.data.values if columns == None else self.data[columns].values
@@ -149,11 +125,18 @@ class Analytics:
     self._result = result
     return self
 
-  def dbscan(self, columns = None, eps = 0.3, min_samples = 3):
-    input_data = self.data if columns == None else self.data[columns]
-    X = StandardScaler().fit_transform(input_data)
-    dbs = DBSCAN(eps=0.3, min_samples=3).fit(X)
-    self.data['dbscan'] = dbs.labels_
-    # self.schema['dbscan'] = 'int'
-    self._result = dbs.labels_
+  def manifold(self, methodName, parameters = {}, columns = None,  out = None):
+    method = getattr(Manifold, methodName)
+    input_data = self.data.values if columns == None else self.data[columns].values
+    std_data = StandardScaler().fit_transform(input_data)
+    output = method(**parameters).fit_transform(std_data)
+    output_name = methodName if out == None else out
+    n_components = 2
+    if 'n_components' in parameters:
+      n_components = parameters['n_components'] 
+    result  = pd.DataFrame(data = output, columns = ['%s%d'%(output_name, x) for x in range(0,  n_components)])
+
+    for dim in result.columns.values:
+      self.data[dim] = result[dim].values
+    self._result = result
     return self
