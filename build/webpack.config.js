@@ -3,18 +3,19 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    "p6": "./index.js"
+    p6: './index.js',
+    app: './apps/index.js'
   },
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
   cache: false,
   target: 'web',
   resolve: {
     modules: ['../node_modules', path.resolve(__dirname, '../..')]
   },
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "[name].js"
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].js'
   },
   module: {
     exprContextCritical: false,
@@ -28,7 +29,7 @@ module.exports = {
   devServer: {
     compress: true,
     publicPath: '/dist/',
-    // clientLogLevel: "none",
+    // clientLogLevel: 'none',
     // historyApiFallback: true,
     proxy: {
 

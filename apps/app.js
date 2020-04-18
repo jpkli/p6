@@ -4,12 +4,16 @@
     viewport: [1000, 1000],
     padding: {left: 100, right: 30, top: 50, bottom: 50},
   })
+
+  app.data('./Nat1k.csv')
+
+
   app.analyze([
-    { LocallyLinearEmbedding:  {n_components: 2, method: 'modified', out: 'lle'} },
-    { MDS:  {n_components: 2, max_iter: 50, out: 'MDS'} },
-    // { select: {columns: ['mds0', 'mds1']}},
+    { LocallyLinearEmbedding:  {n_components: 2, in: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain'],  method: 'modified', out: 'lle'} },
+    { PCA:  {n_components: 2, in: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain'],  out: 'PCA'} },
+    // { select: {columns: ['PCA0', 'PCA1']}},
     { KMeans: {n_clusters: 3, in: ['lle0', 'lle1'], out: 'lle3means'} },
-    { KMeans: {n_clusters: 3, in: ['MDS0', 'MDS1'], out: 'MDS3means'} },
+    { KMeans: {n_clusters: 3, in: ['PCA0', 'PCA1'], out: 'PCA3means'} },
   ])
   .view([
     {
@@ -37,18 +41,18 @@
     {
       id: 'c2',
       mark: 'circle',
-      x: 'MDS0',
-      y: 'MDS1',
+      x: 'PCA0',
+      y: 'PCA1',
       size: 10,
-      color: 'MDS3means',
+      color: 'PCA3means',
       opacity: 0.5,
     },
     {
       id: 'c3',
       mark: 'line',
       y: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain'],
-      color: 'steelblue',
-      opacity: '0.6',
+      color: 'PCA3means',
+      opacity: 0.5,
     },
   ])
   .interact({

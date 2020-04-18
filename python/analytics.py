@@ -8,6 +8,7 @@ from sklearn.decomposition import PCA
 import sklearn.cluster as Clustering
 import sklearn.decomposition as Decomposition
 import sklearn.manifold as Manifold
+import ruptures as rpt
 
 DATA_TYPES = {
   'numerical': ['int', 'float'],
@@ -134,9 +135,35 @@ class Analytics:
     n_components = 2
     if 'n_components' in parameters:
       n_components = parameters['n_components'] 
-    result  = pd.DataFrame(data = output, columns = ['%s%d'%(output_name, x) for x in range(0,  n_components)])
+    result = pd.DataFrame(data = output, columns = ['%s%d'%(output_name, x) for x in range(0,  n_components)])
 
     for dim in result.columns.values:
       self.data[dim] = result[dim].values
     self._result = result
     return self
+
+  def CPD(self, attribute, n = 3,  method = 'Binseg', model = 'l2', width = 2, out = None, gradient = False):
+    # methods: Pelt, Window, 
+    cpdMethod = getattr(rpt, method)
+    input_data = self.data[attribute].values
+    if gradient == True:
+      input_data = np.gradient(input_data)
+
+    if method == 'Window':
+      algo = cpdMethod(width=width, model=model).fit(input_data)
+    else:
+      algo = cpdMethod(model=model).fit(input_data)
+    
+    changePoints = algo.predict(n_bkps=n)
+
+    output_name = 'CPD' if out == None else out
+    output = np.zeros(input_data.size)
+    offset = 0
+    for idx in changePoints[:-1]:
+      output[idx] = 1 + offset
+      offset += 1
+    self.data[output_name] = output
+    self._result = output
+    return self
+
+
