@@ -4,9 +4,9 @@ import axios from 'axios';
 import {fetchFromUrl} from './numpyArrayLoader';
 
 const analysisMethods = {
-  clustering: ['KMeans', 'DBSCAN'],
+  clustering: ['KMeans', 'DBSCAN', 'AgglomerativeClustering'],
   decomposition: ['PCA', 'ICA', 'KernelPCA'],
-  manifold: ['MDS', 'LocallyLinearEmbedding']
+  manifold: ['MDS', 'LocallyLinearEmbedding', 'Isomap']
 }
 
 let getMethodType = (methodName) => {
@@ -28,11 +28,43 @@ export default function(arg = {}) {
   p6.dataSchema = null
   p6.metadata = null
   p6.analyses = []
-  p6.analysisResult = []
+  p6.dataFrame = []
   let pipeline = []
-
+  p6.width = arg.viewport[0]
+  p6.height = arg.viewport[1]
+  p6.padding = arg.padding || {left: 0, right: 0, top: 0, bottom: 0}
+  
   p4x.operations.forEach(ops => {
     p6[ops] = (params) => {
+      if (ops === 'visualize' && params.repeat && Array.isArray(params.repeat.$value)) {
+        let repeatedOpts = []
+        p6.generateViews({
+          count: params.repeat.$value.length,
+          layout: params.repeat.layout,
+          padding: p6.padding,
+          gridlines: {y: true}
+        })
+       
+        params.repeat.$value.forEach((value, vi) => {
+          let opt = JSON.parse(
+            JSON.stringify({ops, params: Object.assign({}, params)})
+              .replace(/\$value/g, value)
+          )
+          delete opt.repeat
+          opt.params.id = 'p6-view-' + vi
+          if (opt.params.transform) {
+            let extraOpts = Object.keys(opt.params.transform).map(ops => {
+              return {ops, params: opt.params.transform[ops]}
+            })
+            repeatedOpts = repeatedOpts.concat(extraOpts)
+          }
+          repeatedOpts.push(opt)
+        })
+        
+        pipeline = pipeline.concat(repeatedOpts)
+        
+        return p6
+      }
       if (params.transform) {
         let extraOpts = Object.keys(params.transform).map(ops => {
           return {ops, params: params.transform[ops]}
@@ -40,6 +72,7 @@ export default function(arg = {}) {
         pipeline = pipeline.concat(extraOpts)
       }
       pipeline.push({ops, params})
+      
       return p6
     }
   })
@@ -52,6 +85,31 @@ export default function(arg = {}) {
   p6.view = (vp) => {
     p4x.view(vp)
     return p6
+  }
+
+  p6.generateViews = ({
+    layout = 'rows',
+    count = 1,
+    padding = {left: 0, right: 0, top: 0, bottom: 0},
+    gridlines = {x: false, y: false}
+  }) => {
+      let views = new Array(count)
+      let calcOffset
+      let height = p6.height
+      let width = p6.width
+      if (layout == 'rows') {
+          height = height / count
+          calcOffset = (index) => [0, index * height]
+      } else {
+          width = width / count
+          calcOffset = (index) => [index * width, 0]
+      }
+      for (let i = 0; i < count; i++) {
+          let offset = calcOffset(i)
+          views[i] = {width, height, padding, offset, gridlines, id: 'p6-view-'+i}
+      }
+  
+      return p6.view(views)
   }
 
   p6.result = p4x.result
@@ -124,6 +182,7 @@ export default function(arg = {}) {
     return p6
   }
 
+
   p6.execute = async () => {
     if (p6.dataProps) {
       await p6.requestData(p6.dataProps)
@@ -160,13 +219,12 @@ export default function(arg = {}) {
         name: metadata.data.columns[i]
       })
     }
-    p6.analysisResult = cData.data()
-    
+    p6.dataFrame = cData.data()
     if (p6.dataSchema) {
-      p6.analysisResult.schema = p6.dataSchema
+      p6.dataFrame.schema = p6.dataSchema
     }
-    console.log(pipeline)
-    let execution = p4x.data(p6.analysisResult)
+    
+    let execution = p4x.data(p6.dataFrame)
     pipeline.forEach(p => {
       execution[p.ops](p.params)
     })

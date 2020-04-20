@@ -7,9 +7,8 @@
 
   app.data('./Nat1k.csv')
 
-
   app.analyze([
-    { LocallyLinearEmbedding:  {n_components: 2, in: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain'],  method: 'modified', out: 'lle'} },
+    { LocallyLinearEmbedding: {n_components: 2, in: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain'],  method: 'modified', out: 'lle'} },
     { PCA:  {n_components: 2, in: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain'],  out: 'PCA'} },
     // { select: {columns: ['PCA0', 'PCA1']}},
     { KMeans: {n_clusters: 3, in: ['lle0', 'lle1'], out: 'lle3means'} },
