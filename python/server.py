@@ -16,6 +16,8 @@ from sklearn.datasets import load_digits
 
 from dask.distributed import Client
 import joblib
+from importlib import import_module
+
 client = Client(processes=False)
 # client = Client('35.202.164.129:8786') 
 
@@ -56,15 +58,18 @@ class DataManagement(tornado.web.RequestHandler):
     res = {}
     if opt == 'upload':
       AnalyticsHandler.data = pd.DataFrame.from_dict(params['data'])
-      AnalyticsHandler.program = Analytics(AnalyticsHandler.data)
+      AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.predictors)
       res = AnalyticsHandler.program.metadata()
     else:
       try:
         nrows = None 
         if 'nrows' in params and not np.isnan(params['nrows']):
           nrows = int(params['nrows'])
-        AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows)
-        AnalyticsHandler.program = Analytics(AnalyticsHandler.data)
+        if 'sample' in params:
+          AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows).sample(n=int(params['sample']))
+        else:
+          AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows)
+        AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.predictors)
         res = AnalyticsHandler.program.metadata()
       except:
         self.set_status(400)
@@ -80,6 +85,7 @@ class DataManagement(tornado.web.RequestHandler):
 class AnalyticsHandler(tornado.web.RequestHandler):
   program = None
   data = None
+  predictors = {}
   
   def set_default_headers(self):
     self.set_header("Access-Control-Allow-Origin", "*")
@@ -91,18 +97,55 @@ class AnalyticsHandler(tornado.web.RequestHandler):
       print(AnalyticsHandler.program.metadata())
       self.write(json.dumps(AnalyticsHandler.program.metadata()))
     else:
-      params = self.get_argument("spec", None, True)
+      params = self.get_argument('spec', None, True)
       specs = json.loads(params)
       print(specs)
       with joblib.parallel_backend('dask'):
         for spec in specs:
           opt = list(spec)[0]
-          method = getattr(AnalyticsHandler.program, opt)
-          print(spec[opt])
-          result = method(**spec[opt])
+          if opt[0] == '$':
+            print(opt, opt in AnalyticsHandler.program.predictors[opt])
+            if opt in AnalyticsHandler.program.predictors:
+              result = AnalyticsHandler.program.predict(opt, spec[opt]['out'])
+            else:
+              self.set_status(400)
+
+          else:
+            method = getattr(AnalyticsHandler.program, opt)
+            print(spec[opt])
+            result = method(**spec[opt])
       
       # result = AnalyticsHandler.program.result()
       self.write(result.numpyArray())
+
+  def post(self, spec):
+    spec = tornado.escape.json_decode(self.request.body)
+
+    # try:
+    data = pd.read_csv(spec['data'])
+    for col in data.select_dtypes(include=['object']).columns:
+      categoryColumn = data[col].astype('category').cat
+      data[col] = categoryColumn.codes
+      # ategories[col] = list(categoryColumn.categories)
+
+    y = data[spec['target']]
+    X =  data[spec['features']] if 'features' in spec else data[filter(lambda x: x != spec['target'], data.columns)]
+    module = import_module('sklearn.' + spec['module'])
+    method = getattr(module, spec['method'])
+    parameters = spec['parameters'] if 'parameters' in spec else {} 
+    model = method(**parameters).fit(X.values, y.values)
+    print(X.columns)
+    AnalyticsHandler.predictors[spec['id']] = {
+      'model': model,
+      'features': X.columns.values
+    }
+    print('training complete for %s' % spec['id'])
+    # except:
+    #   self.set_status(400)
+    #   print(spec)
+
+    self.write('ok')
+
 
 def main():
   tornado.options.parse_command_line()

@@ -1,13 +1,14 @@
 import io
 import numpy as np
 import pandas as pd
-from sklearn.cluster import KMeans, DBSCAN
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
+# import sklearn 
+# from sklearn.cluster import KMeans, DBSCAN
+from importlib import import_module
 
-import sklearn.cluster as Clustering
-import sklearn.decomposition as Decomposition
-import sklearn.manifold as Manifold
+from sklearn.preprocessing import StandardScaler
+
+# import sklearn.cluster as Clustering
+# import sklearn.manifold as Manifold
 import ruptures as rpt
 
 DATA_TYPES = {
@@ -16,17 +17,19 @@ DATA_TYPES = {
 }
 
 class Analytics:
-  def __init__(self, data, index = None, excludes = []):
+  def __init__(self, data, predictors = {}, index = None, excludes = []):
     self.data = pd.DataFrame(data).drop(excludes, axis=1)
     self._result = self.data
     self.useDictForResult = False
     self.categories = {}
+    self.predictors = predictors
+    self.resultColumns = []
     for col in self.data.select_dtypes(include=['object']).columns:
       categoryColumn = self.data[col].astype('category').cat
       self.data[col] = categoryColumn.codes
       self.categories[col] = list(categoryColumn.categories)
 
-    print(self.data.dtypes)
+    # print(self.data.dtypes)
     if index is not None:
       self.data.set_index(index)
 
@@ -65,7 +68,8 @@ class Analytics:
     return dict(
       columns = list(self.data.columns),
       dtypes =  [str(x) for x in self.data.dtypes],
-      categories = self.categories
+      categories = self.categories,
+      results = self.resultColumns
     )
 
   def numpyArray(self):
@@ -101,18 +105,46 @@ class Analytics:
     # self.schema = new_schema
     return self
 
+
+  def predict(self, predictorName, out = None):
+    if predictorName in self.predictors:
+      model = self.predictors[predictorName]['model']
+      features = self.predictors[predictorName]['features']
+      data = self.data[features]
+      outputName = predictorName if out == None else out
+      self.data[outputName] = model.predict(data)
+    
+    return self
+
   def clustering(self, methodName, parameters = {}, columns = None, out = None):
-    method = getattr(Clustering, methodName)
-    input_data = self.data if columns == None else self.data[columns]
+    module = import_module('sklearn.cluster')
+    method = getattr(module, methodName)
+
+    if columns == None:
+      features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
+      input_data = self.data[features]
+    else:
+      input_data = self.data[columns]
+      
     output = method(**parameters).fit(input_data)
     output_name = methodName if out == None else out
     self.data[output_name] =  output.labels_
     self._result = output.labels_
+    if output_name not in self.resultColumns:
+      self.resultColumns.append(output_name)
+
     return self
 
   def decomposition(self, methodName, parameters = {}, columns = None,  out = None):
-    method = getattr(Decomposition, methodName)
-    input_data = self.data.values if columns == None else self.data[columns].values
+    module = import_module('sklearn.decomposition')
+    method = getattr(module, methodName)
+
+    if columns == None:
+      features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
+      input_data = self.data[features]
+    else:
+      input_data = self.data[columns]
+
     std_data = StandardScaler().fit_transform(input_data)
     output = method(**parameters).fit_transform(std_data)
     output_name = methodName if out == None else out
@@ -123,12 +155,22 @@ class Analytics:
 
     for pc in result.columns.values:
       self.data[pc] = result[pc].values
+      if pc in self.resultColumns:
+        self.resultColumns.append(pc)
+
     self._result = result
     return self
 
   def manifold(self, methodName, parameters = {}, columns = None,  out = None):
-    method = getattr(Manifold, methodName)
-    input_data = self.data.values if columns == None else self.data[columns].values
+    module = import_module('sklearn.manifold')
+    method = getattr(module, methodName)
+
+    if columns == None:
+      features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
+      input_data = self.data[features]
+    else:
+      input_data = self.data[columns]
+
     std_data = StandardScaler().fit_transform(input_data)
     output = method(**parameters).fit_transform(std_data)
     output_name = methodName if out == None else out
@@ -139,10 +181,13 @@ class Analytics:
 
     for dim in result.columns.values:
       self.data[dim] = result[dim].values
+      if dim not in self.resultColumns:
+        self.resultColumns.append(dim)
+
     self._result = result
     return self
 
-  def CPD(self, attribute, n = 3,  method = 'Binseg', model = 'l2', width = 2, out = None, gradient = False):
+  def CPD(self, attribute, n = 7,  method = 'Binseg', model = 'l2', width = 3, out = None, gradient = False):
     # methods: Pelt, Window, 
     cpdMethod = getattr(rpt, method)
     input_data = self.data[attribute].values
@@ -154,7 +199,10 @@ class Analytics:
     else:
       algo = cpdMethod(model=model).fit(input_data)
     
-    changePoints = algo.predict(n_bkps=n)
+    if method == 'Pelt':
+      changePoints = algo.predict(pen=n)
+    else:
+      changePoints = algo.predict(n_bkps=n)
 
     output_name = 'CPD' if out == None else out
     output = np.zeros(input_data.size)
