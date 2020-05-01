@@ -1,7 +1,7 @@
 {
   "name": "p6",
-  "version": "0.2.0",
-  "description": "Process Design for Visual Analytics Systems",
+  "version": "0.2.1",
+  "description": "Declarative Specifications of Visual Analytics Processes",
   "main": "index.js",
   "directories": {
     "example": "example"
