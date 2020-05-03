@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>P6</title>
+    <style>
+    .app-header {
+      padding-top: .75rem;
+      padding-bottom: .75rem;
+      font-size: 1rem;
+      background-color: teal;
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+    }
+    </style>
+  </head>
+  <body>
+    <div id="app-ui"></div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow app-header">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">P6 Exploratory Visual Analytics</a>
+    </nav>
+    
+    <div class="container-fluid" id="page-container">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky px-3 py-3">
+            <strong>Data Attributes:</strong>
+            <div id="data-attributes" class="my-2"></div>
+            <div class="form-group row my-5">
+              <label for="inputPassword" class="col-sm-4 col-form-label">Samples: </label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="sample-size" value="3000">
+              </div>
+            </div>
+            <div class="dropdown my-3" id="clustering-methods">
+              Clustering: 
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                K-Means
+              </button>
+            
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">K-Means</a>
+                <a class="dropdown-item" href="#">DBSCAN</a>
+                <a class="dropdown-item" href="#">Agglomerative</a>
+              </div>
+              <input type="text" class="form-control my-2"  aria-describedby="emailHelp" placeholder="parameters">
+            </div>
+            <button id="update-pipeline" type="button" class="btn btn-primary btn-block  my-5">Update</button>
+          </div>
+        </nav>
+    
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="row py-3">
+            <div class="col-sm px-4">
+              <div class="dropdown show">
+                1st Method: 
+                <a class="btn btn-secondary dropdown-toggle px-2" href="#" role="button" id="ProjLeft-value" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  SpectralEmbedding
+                </a>
+                <div id="ProjLeft" class="dropdown-menu" aria-labelledby="ProjLeft-value"></div>
+              </div>
+            </div>
+            <div class="col-sm px-4">
+              <div class="dropdown show">
+                2nd Method: 
+                <a class="btn btn-secondary dropdown-toggle px-2" href="#" role="button" id="ProjRight-value" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  PCA
+                </a>
+                <div id="ProjRight" class="dropdown-menu" aria-labelledby="ProjRight-value"></div>
+              </div>
+            </div>
+          </div>
+          <div id="app"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/dist/p6.js"></script>
+    <script src="/dist/app.js"></script>
+    <script>
+      p6Apps.eva()
+    </script>
+    
+  </body>
+
+</html>
