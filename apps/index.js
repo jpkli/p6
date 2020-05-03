@@ -1,10 +1,10 @@
-import natality from './natality.js'
-import covid19 from './covid19.js'
+import covid19 from './covid19/main'
+import eva from './eva/main'
 
-let app = window.location.hash.slice(1)
+export default {eva, covid19}
 
-if (app === 'natality') {
-  natality()
-} else if (app === 'covid19') {
-  covid19()
-}
+var root = typeof self == 'object' && self.self === self && self ||
+           typeof global == 'object' && global.global === global && global ||
+           this
+
+root.p6Apps = {eva, covid19}

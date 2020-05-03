@@ -63,12 +63,10 @@ export default function(arg = {}) {
       return target[property]
     },
     set: function(target, property, value) {
-      console.log(target, property, value)
       p6.spec.vis[target.id][property] = value
       let vis = {}
       vis[target.id] = p6.spec.vis[target.id]
       let pipeline = setupVis(vis)
-      console.log(pipeline)
       pipeline.forEach(p => {
         p6.client[p.ops](p.params)
       })
@@ -78,16 +76,13 @@ export default function(arg = {}) {
   };
 
   p4x.operations.forEach(ops => {
-
     p6[ops] = (spec) => {
       let params = Object.assign({}, spec)
-      console.log(spec)
-     
       if (ops === 'visualize') {
         p6.spec.vis = spec
         if (typeof params === 'object' && !params.id && !params.repeat) {
           Object.keys(params).map(viewId => {
-            console.log(viewId)
+            // console.log(viewId)
             p6.vis[viewId] = new Proxy(
               {id: viewId, ...params[viewId]},
               reactiveVisHandler
@@ -194,7 +189,7 @@ export default function(arg = {}) {
     let trainSpec = Object.keys(specs).map(k => {
       return {id: k, ...specs[k]}
     })
-    console.log(trainSpec)
+    // console.log(trainSpec)
     let jobs = trainSpec.map(spec => axios.post('/api/analysis/train', spec))
     return Promise.all(jobs)
   }
@@ -219,7 +214,7 @@ export default function(arg = {}) {
     return Object.keys(specs).map(outputKey => {
       let analysis = {}
       if (typeof specs[outputKey] === 'string') {
-        console.log(specs[outputKey])
+        // console.log(specs[outputKey])
         analysis[specs[outputKey]] = {out: outputKey}
       } else {
         let spec = Object.assign({}, specs[outputKey])
@@ -233,9 +228,9 @@ export default function(arg = {}) {
           analysis[methodType].parameters = spec
 
         }
-        if (spec.includes) {
-          analysis[methodType].columns = spec.includes
-          delete spec.includes
+        if (spec.features) {
+          analysis[methodType].columns = spec.features
+          delete spec.features
         }
         delete spec.technique
         delete spec.algorithm
@@ -248,10 +243,8 @@ export default function(arg = {}) {
   const setupVis = (specs) => {
     let pipeline = []
     let ops = 'visualize'
-    Object.keys(specs).forEach(viewId => {
-      
+    Object.keys(specs).forEach(viewId => {      
       let params = Array.isArray(specs[viewId]) ? specs[viewId] : [specs[viewId]]
-      console.log(params)
       params.forEach(param => {
         if (viewId === '$forEach' && Array.isArray(param.$value)) {
           let repeatedOpts = []
@@ -307,7 +300,7 @@ export default function(arg = {}) {
     }
     let analysisSpec = spec || p6.spec.analyses
     let analyses = setupAnalytics(analysisSpec)
-    console.log(analyses)
+    // console.log(analyses)
     let url = '/api/analysis/result?spec=' + JSON.stringify(analyses)
     let analysisResults = await fetchFromUrl(url)
     let metadata = await axios.get('/api/analysis/metadata')
@@ -339,7 +332,7 @@ export default function(arg = {}) {
     }
  
     let GpuDataFrame = cData.data()
-    console.log(GpuDataFrame)
+    // console.log(GpuDataFrame)
     if (p6.dataSchema) {
       GpuDataFrame.schema = p6.dataSchema
     }
@@ -350,7 +343,7 @@ export default function(arg = {}) {
     }
     p6.dataFrame = GpuDataFrame
     let pipeline = setupVis(p6.spec.vis).concat(p6.pipeline)
-    console.log(pipeline)
+    // console.log(pipeline)
     pipeline.forEach(p => {
       p6.client[p.ops](p.params)
     })

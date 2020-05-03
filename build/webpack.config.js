@@ -4,7 +4,8 @@ const path = require('path');
 module.exports = {
   entry: {
     p6: './index.js',
-    app: './apps/index.js'
+    app: './apps/index.js',
+    example: './examples/index.js'
   },
   mode: 'development',
   devtool: 'source-map',
