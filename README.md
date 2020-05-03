@@ -4,7 +4,7 @@ P6 is a research project for developing a declarative language to specify visual
 
 ## Installation
 
-For running P6, both the JavaScript and Python dependencies and libraries need to be installed:
+To run P6, first install both the JavaScript and Python dependencies and libraries:
 
 ```
 npm install
@@ -19,4 +19,36 @@ For development and trying the example applications, use the following commands 
 npm run server && npm run client
 ```
 
-The example applications can be accessed via http://localhost:8080/examples/
+The example applications can be accessed at http://localhost:8080/examples/
+
+## Usage 
+
+```javascript
+  //config 
+  let app = p6({
+    container: "app", // id of the div
+    viewport: [800, 400]
+  })
+  .data({url: 'data/babies.csv'}) // input data
+  
+  // analyze the data using Scikit-Learn function sklearn.decomposition.PCA
+  // store the results in the new variable 'PC'
+  app.analyze({
+    PC: {
+      module: 'decomposition',
+      algorithm: 'PCA',
+      n_components: 2,
+      features: ['BabyWeight', 'MotherWeight', 'MotherHeight', 'MotherWgtGain', 'MotherAge'] 
+    }
+  })
+
+  // setup a view and visualize to it
+  app.view({chart: {width: 400, height: 400}})
+  .visualize({
+    chart: {
+      mark: 'circle', size: 8,
+      x: 'PC1', y: 'PC0',
+      color: 'clusters', opacity: 0.5,
+    })
+
+  ```
