@@ -1,14 +1,21 @@
 export default function () {
   let app = p6({
     container: "app",
-    viewport: [1200, 600],
+    viewport: [800, 400],
     padding: {left: 80, right: 30, top: 30, bottom: 50},
   })
 
-  app.data({url: '../p4/data/Nat2015result-200k.csv', nrows: 10000})
+  app.data({url: 'data/babies.csv'})
     .view({
-      c1: { width: 400, height: 400, gridlines: {x: true, y: true}, padding: {left: 70, right: 30, top: 50, bottom: 50}},
-      c2: { width: 400, height: 400, offset: [400, 0], gridlines: {x: true}},
+      c1: {
+        width: 400, height: 400, 
+        gridlines: {x: true, y: true}, 
+        padding: {left: 70, right: 30, top: 50, bottom: 50}
+      },
+      c2: {
+        width: 400, height: 400,
+        offset: [400, 0], 
+        gridlines: {x: true}}
     })
 
   app.analyze({
@@ -25,9 +32,8 @@ export default function () {
   })
   .visualize({
     c1: {
-      mark: 'circle',
+      mark: 'circle', size: 8,
       x: 'PC1', y: 'PC0',
-      size: 8,
       color: 'clusters', opacity: 0.5,
     },
     c2: {

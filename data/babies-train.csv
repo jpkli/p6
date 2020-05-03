@@ -1,0 +1,1001 @@
+BirthMonth,BabyGender,BabyWeight,MotherAge,MotherRace,MotherStatus,MotherEdu,MotherHeight,MotherWeight,MotherWgtGain,FatherAge,FatherRace,FatherEdu
+02,F,6.94014376,23,White,Married,Some College,59,137,27,24,White,Some College
+02,F,7.95647358,32,White,Unmarried,8th Grade,61,156,22,33,White,8th Grade
+01,M,8.2893712,27,White,Married,Some College,64,228,16,29,White,High School Grad.
+01,M,8.36212366,41,White,Unmarried,9-12th Grade,63,135,35,45,White,9-12th Grade
+01,M,7.96308744,24,Black,Unmarried,Associate,68,120,38,33,Black,Some College
+01,M,8.48558238,29,White,Married,High School Grad.,66,124,34,34,White,Some College
+02,F,5.1147184,31,White,Married,9-12th Grade,63,211,00,33,White,9-12th Grade
+01,M,7.43618326,25,White,Unmarried,High School Grad.,62,220,40,28,White,High School Grad.
+01,F,6.26993928,32,White,Unmarried,Bachelor,61,205,27,29,,Some College
+02,M,6.1178205,21,White,Unmarried,High School Grad.,57,165,19,21,White,High School Grad.
+02,F,8.76777374,32,White,Married,Doctorate,67,175,73,36,White,Master
+02,F,7.55523274,32,White,Married,Master,67,165,21,41,White,Bachelor
+01,M,6.4374904,24,Asian,Married,High School Grad.,63,140,40,29,Asian,High School Grad.
+02,F,6.2611208000000005,42,White,Married,Some College,62,110,18,43,White,High School Grad.
+02,F,6.29859934,31,White,Married,8th Grade,60,135,30,34,White,9-12th Grade
+02,F,7.25981366,21,White,Unmarried,9-12th Grade,64,150,36,26,White,High School Grad.
+01,F,7.3744539,30,Mixed,Unmarried,Some College,63,136,38,25,White,Bachelor
+01,F,8.09536464,26,White,Married,High School Grad.,62,120,36,30,White,8th Grade
+02,M,8.47896852,28,White,Unmarried,High School Grad.,63,124,28,34,White,High School Grad.
+02,F,8.06670458,27,White,Married,Some College,65,300,28,32,White,Master
+02,M,7.6720776,36,White,Married,Some College,61,200,94,30,White,9-12th Grade
+02,M,6.6248831,28,White,Unmarried,Some College,63,168,41,28,White,High School Grad.
+02,F,4.7730023,38,White,Married,Some College,68,200,35,41,White,Some College
+02,F,5.291088,38,White,Married,Some College,68,195,40,41,White,Some College
+02,F,7.2091074,26,Asian,Unmarried,Some College,61,150,14,24,White,Bachelor
+02,F,7.2091074,34,White,Married,High School Grad.,60,163,16,38,White,High School Grad.
+02,M,7.68750994,29,White,Married,Bachelor,66,132,26,27,Mixed,High School Grad.
+02,M,6.72188638,35,White,Unmarried,High School Grad.,65,212,30,33,White,High School Grad.
+02,M,7.0613978600000005,24,Mixed,Married,Associate,62,120,24,25,Mixed,Associate
+02,M,7.3744539,27,White,Unmarried,Some College,62,110,28,27,White,8th Grade
+02,F,8.4657408,31,White,Unmarried,High School Grad.,65,240,33,30,White,High School Grad.
+02,M,8.50101472,26,White,Married,Some College,62,143,39,26,White,Some College
+02,F,7.936632,21,White,Unmarried,Some College,63,105,38,23,White,High School Grad.
+02,M,6.37576104,20,White,Unmarried,9-12th Grade,66,245,30,21,White,High School Grad.
+02,F,8.046863,26,White,Married,Some College,62,129,33,27,White,Some College
+02,F,6.12443436,23,White,Married,Some College,60,100,42,24,White,9-12th Grade
+02,M,7.4516156,30,White,Unmarried,9-12th Grade,64,150,44,29,White,Some College
+02,F,5.62398562,36,White,Married,8th Grade,63,148,31,43,White,9-12th Grade
+02,F,6.31182706,34,White,Unmarried,High School Grad.,59,100,35,31,White,8th Grade
+02,M,7.50011724,22,White,Unmarried,High School Grad.,62,132,33,25,White,9-12th Grade
+02,F,6.87400516,22,White,Unmarried,Associate,64,143,43,27,White,High School Grad.
+02,F,5.9194047,34,White,Married,Bachelor,62,134,10,44,White,Some College
+02,F,7.2972922,35,White,Married,High School Grad.,62,110,35,39,White,Associate
+02,M,6.12443436,26,White,Unmarried,Bachelor,60,130,37,25,White,High School Grad.
+02,M,7.87490264,18,White,Unmarried,9-12th Grade,67,105,35,18,White,9-12th Grade
+02,M,7.12533184,29,White,Married,9-12th Grade,60,110,39,27,White,9-12th Grade
+02,M,6.0186126,38,Asian,Married,Bachelor,67,130,35,45,Asian,Bachelor
+02,F,6.75054644,32,White,Married,Associate,65,110,28,31,White,High School Grad.
+02,M,6.68661246,31,White,Unmarried,9-12th Grade,61,120,29,42,White,9-12th Grade
+02,F,6.9996685,30,White,Married,High School Grad.,64,140,13,31,White,High School Grad.
+02,M,6.49921976,23,White,Married,High School Grad.,62,166,30,25,White,Some College
+02,M,7.62578058,24,White,Unmarried,9-12th Grade,62,133,31,27,White,Associate
+02,M,7.1870612000000005,34,White,Unmarried,Some College,65,143,41,36,White,High School Grad.
+02,F,7.68750994,39,Asian,Unmarried,Bachelor,66,112,40,59,White,Doctorate
+02,F,6.74393258,20,White,Unmarried,9-12th Grade,63,150,48,18,Black,9-12th Grade
+02,M,5.9194047,18,White,Unmarried,High School Grad.,63,160,00,21,White,Some College
+02,F,6.4374904,25,White,Married,High School Grad.,63,117,35,25,White,High School Grad.
+02,F,6.49921976,38,White,Married,Associate,64,229,22,43,White,Some College
+02,F,6.55653988,32,White,Married,Bachelor,62,170,35,35,White,Bachelor
+02,F,5.7430351,32,White,Married,Bachelor,62,170,35,35,White,Bachelor
+02,M,7.0613978600000005,28,White,Married,Some College,69,220,30,25,White,9-12th Grade
+02,F,5.84444762,39,Asian,Married,Master,66,130,45,39,Asian,Master
+02,M,7.7271931,27,Asian,Married,High School Grad.,67,125,25,32,Asian,8th Grade
+02,M,7.2972922,34,Asian,Married,Bachelor,66,162,32,46,Asian,Master
+02,M,6.6910217,37,Asian,Married,Bachelor,63,120,18,42,Asian,Some College
+02,M,7.5618466,32,Asian,Married,Associate,61,126,27,34,Asian,Bachelor
+02,M,8.046863,34,Asian,Married,Unknown,65,135,37,37,Asian,Unknown
+02,M,8.1240247,31,Asian,Married,Bachelor,68,160,20,33,Asian,Master
+02,M,7.24879056,23,White,Unmarried,High School Grad.,63,135,45,24,White,High School Grad.
+02,M,7.7382162,40,White,Unmarried,9-12th Grade,67,171,36,39,White,8th Grade
+02,F,7.5243680600000005,35,Asian,Unmarried,8th Grade,68,115,20,41,Asian,Some College
+02,M,6.1288436,41,Asian,Married,High School Grad.,62,100,30,51,Asian,Some College
+02,M,7.1980843,34,Asian,Married,Bachelor,63,137,33,35,Asian,Bachelor
+02,F,8.035839900000001,35,Asian,Unmarried,8th Grade,60,138,25,43,Asian,Some College
+02,M,8.68840742,39,White,Married,Bachelor,63,165,27,40,White,Associate
+02,F,6.37576104,32,Asian,Married,Master,64,128,22,31,White,Master
+02,M,6.68661246,26,White,Unmarried,9-12th Grade,60,148,14,30,White,Some College
+02,F,7.81317328,25,White,Married,High School Grad.,67,155,32,25,White,High School Grad.
+02,M,10.43667108,33,White,Unmarried,Some College,65,210,37,41,White,Some College
+02,F,8.18795868,33,White,Married,Bachelor,66,180,44,35,White,9-12th Grade
+02,F,6.49921976,21,White,Unmarried,Some College,68,220,22,24,White,Some College
+02,M,7.7492393,28,White,Married,Some College,63,134,19,23,,Some College
+02,F,6.8122758,40,White,Unmarried,Master,69,150,32,35,White,Bachelor
+02,F,5.3131342,27,White,Married,High School Grad.,62,142,17,29,White,High School Grad.
+02,F,6.00097564,32,White,Unmarried,Some College,64,190,33,33,White,9-12th Grade
+02,F,7.62578058,30,White,Unmarried,Some College,62,135,35,40,White,8th Grade
+02,F,7.0613978600000005,26,White,Unmarried,High School Grad.,62,101,23,27,White,Some College
+02,M,3.81178798,26,White,Married,Bachelor,70,176,07,33,White,Master
+02,F,6.1178205,18,White,Unmarried,Unknown,62,174,26,20,White,Unknown
+02,M,7.3127245400000005,43,White,Unmarried,8th Grade,62,150,06,38,White,8th Grade
+02,F,7.29949682,38,Asian,Married,Bachelor,64,126,33,38,White,Master
+02,M,7.81317328,27,White,Unmarried,Some College,65,095,70,28,White,Unknown
+02,M,7.68089608,27,White,Married,High School Grad.,65,125,21,32,White,High School Grad.
+02,M,8.75013678,34,White,Unmarried,8th Grade,60,187,14,34,White,8th Grade
+02,F,6.56315374,29,White,Married,Master,65,125,21,28,White,Doctorate
+02,F,6.062705,22,White,Married,High School Grad.,65,144,20,26,White,Unknown
+02,M,7.29949682,16,White,Unmarried,9-12th Grade,64,125,39,18,White,High School Grad.
+02,F,6.96880382,26,White,Married,9-12th Grade,60,099,22,31,,High School Grad.
+02,F,5.62398562,27,White,Unmarried,High School Grad.,65,175,29,28,White,High School Grad.
+02,M,7.8616749200000005,21,White,Unmarried,Unknown,60,146,08,23,White,Unknown
+02,M,7.89474422,23,White,Unmarried,8th Grade,62,140,44,30,,8th Grade
+02,F,7.0878533,24,White,Unmarried,High School Grad.,64,132,28,30,,High School Grad.
+02,M,7.3744539,28,White,Married,Bachelor,65,140,32,26,White,Bachelor
+02,F,8.487787,32,White,Married,Master,66,185,25,36,,Master
+02,F,10.11259194,30,White,Married,Some College,64,196,06,31,White,High School Grad.
+02,M,8.5759718,40,Asian,Married,Master,66,140,35,44,Asian,Doctorate
+02,F,1.4991416,16,White,Unmarried,9-12th Grade,61,110,11,18,White,High School Grad.
+02,M,9.0830344,37,Black,Married,High School Grad.,64,189,26,46,Black,High School Grad.
+02,F,6.9776223,34,Asian,Married,Doctorate,66,125,15,34,White,Bachelor
+02,M,5.9634971,26,White,Married,High School Grad.,65,160,34,26,White,High School Grad.
+02,F,6.2280515,33,White,Married,High School Grad.,62,214,16,37,White,High School Grad.
+02,F,6.7902296,24,White,Married,High School Grad.,62,155,23,24,White,Some College
+02,M,4.739933,25,White,Unmarried,Some College,68,230,50,33,White,High School Grad.
+02,M,4.960395,25,White,Unmarried,Some College,68,230,50,33,White,High School Grad.
+02,F,5.5005269,41,White,Married,Bachelor,63,189,11,40,White,8th Grade
+02,F,8.3114174,37,Asian,Married,Some College,64,154,20,37,White,Associate
+02,F,6.0296357,37,Asian,Married,Bachelor,63,115,22,41,Asian,Bachelor
+02,M,8.5759718,28,White,Married,Bachelor,61,153,29,27,White,High School Grad.
+02,F,6.9114837,27,White,Unmarried,High School Grad.,65,177,17,28,White,High School Grad.
+02,F,6.8673913,40,White,Married,Some College,68,150,35,43,White,Master
+02,M,8.1130016,29,White,Married,Bachelor,64,140,20,29,White,Associate
+02,F,9.0609882,35,White,Married,Some College,63,137,40,34,White,Some College
+02,F,7.3634308,27,White,Unmarried,Some College,64,140,14,27,White,Some College
+02,F,6.3272594,34,White,Married,Bachelor,63,120,32,26,White,9-12th Grade
+02,F,7.2421767,26,White,Unmarried,Some College,67,140,72,23,White,Some College
+02,F,5.6658734,39,White,Married,Some College,62,212,03,40,White,9-12th Grade
+02,M,9.0940575,27,White,Unmarried,Some College,66,156,35,30,White,Some College
+02,M,6.5807907,39,White,Married,Master,63,146,26,42,White,Associate
+02,M,8.1350478,25,White,Married,Some College,63,200,29,31,,Bachelor
+02,F,7.2091074,38,White,Married,Bachelor,61,166,05,36,White,Master
+02,M,7.4516156,33,Asian,Married,Bachelor,65,160,41,33,Asian,Bachelor
+02,M,7.9807244,28,White,Married,Some College,66,189,26,29,White,Some College
+02,F,7.3083153,24,White,Unmarried,Some College,62,141,29,24,White,High School Grad.
+02,M,5.7209889,24,White,Married,Some College,61,130,32,25,White,Some College
+02,F,6.7571603,38,White,Unmarried,Some College,66,170,73,40,,Some College
+02,M,8.708249,30,White,Married,8th Grade,63,150,37,54,White,8th Grade
+02,F,6.9335299,22,White,Married,Some College,63,148,15,24,White,Some College
+02,M,6.36253332,41,White,Married,Master,70,168,29,45,,Some College
+02,F,9.479866,22,Mixed,Unmarried,Some College,66,120,61,24,White,9-12th Grade
+02,M,7.08564868,30,White,Unmarried,Associate,62,135,29,43,White,Some College
+02,F,8.5098332,39,White,Married,Bachelor,68,215,50,42,White,Bachelor
+02,M,7.73160234,17,Asian,Unmarried,9-12th Grade,64,131,26,19,Asian,9-12th Grade
+02,F,6.9070744600000005,21,White,Unmarried,9-12th Grade,63,103,12,24,White,9-12th Grade
+02,F,5.62398562,35,Asian,Married,Doctorate,64,124,17,46,,Doctorate
+02,F,7.65664526,21,Black,Unmarried,Some College,69,192,29,23,Black,High School Grad.
+02,M,7.38327238,35,Black,Unmarried,Some College,62,136,29,36,Black,Some College
+02,F,6.51024286,38,Asian,Married,Doctorate,62,106,32,38,Asian,Some College
+02,M,6.17954986,32,Asian,Married,Bachelor,66,143,23,33,White,Associate
+02,M,6.6359062,35,White,Married,Associate,63,151,26,30,White,Bachelor
+02,M,8.56053946,34,Mixed,Married,Some College,61,190,30,29,White,9-12th Grade
+01,M,6.89605136,40,White,Married,Some College,63,225,23,42,White,Some College
+02,M,8.39298834,22,White,Unmarried,Some College,65,164,38,29,White,Associate
+02,F,6.9225068,30,White,Married,Unknown,66,122,23,29,,Unknown
+02,F,8.29818968,24,White,Unmarried,Some College,61,190,04,25,White,Some College
+02,M,8.708249,34,White,Married,Doctorate,66,110,27,37,,Unknown
+02,M,7.1870612000000005,38,White,Married,Some College,62,150,12,37,White,Some College
+02,M,8.5318794,32,White,Married,Unknown,66,166,99,56,White,Unknown
+02,F,8.01820294,33,White,Unmarried,High School Grad.,67,178,20,34,White,High School Grad.
+02,M,7.21351664,32,White,Married,Bachelor,69,177,26,32,White,Bachelor
+02,F,8.653133500000001,47,White,Married,Doctorate,63,182,04,49,White,Doctorate
+01,M,8.064499960000001,33,Black,Married,Some College,62,125,28,32,Black,Bachelor
+02,M,9.49970758,31,White,Married,Master,58,142,45,33,White,Bachelor
+02,F,7.01730546,34,White,Married,Bachelor,62,140,22,45,White,Associate
+02,M,8.3003943,35,White,Married,Bachelor,69,135,36,37,White,Master
+02,M,7.40311396,34,Black,Married,Bachelor,74,167,13,45,Black,Bachelor
+02,F,8.32023588,30,Mixed,Married,High School Grad.,70,163,35,41,White,High School Grad.
+02,F,6.4044211,33,Asian,Unmarried,Bachelor,65,163,17,34,Asian,Doctorate
+02,F,7.7271931,38,White,Married,Master,66,125,18,44,White,Bachelor
+01,F,7.2421767,19,White,Unmarried,Some College,66,190,20,21,White,Some College
+01,F,6.75936492,35,White,Married,Bachelor,62,130,39,39,White,Associate
+02,F,5.24258636,32,White,Married,Some College,65,140,39,35,White,Some College
+02,F,7.6941238,24,NHOPI,Unmarried,High School Grad.,65,198,45,26,NHOPI,High School Grad.
+02,M,6.03184032,36,Asian,Married,Master,64,166,10,36,Asian,Bachelor
+02,F,7.2201305,36,Asian,Married,Bachelor,66,122,21,37,Asian,Bachelor
+01,F,8.12182008,27,Asian,Unmarried,Some College,59,195,22,30,Asian,Some College
+01,F,6.41985344,31,White,Married,Some College,62,116,17,40,White,Associate
+02,M,7.11651336,35,White,Married,Associate,63,170,17,43,White,Some College
+01,M,7.1098995,21,White,Unmarried,Associate,65,149,42,19,White,High School Grad.
+02,M,6.89825598,30,White,Married,Associate,63,117,25,33,White,Some College
+02,F,7.35902156,26,White,Unmarried,Some College,61,175,15,27,,High School Grad.
+02,F,7.02391932,20,Mixed,Unmarried,Some College,63,132,30,22,Black,Some College
+02,M,8.90225556,20,White,Unmarried,9-12th Grade,64,134,26,23,White,Some College
+02,F,6.64252006,37,Black,Married,Some College,65,175,26,34,Black,Some College
+02,M,6.27434852,28,White,Married,Associate,65,261,07,31,White,Associate
+02,M,6.21482378,35,Mixed,Married,Associate,66,204,25,32,Mixed,Bachelor
+02,M,6.834322,21,White,Unmarried,High School Grad.,63,179,21,20,White,High School Grad.
+02,M,7.51554958,36,White,Married,Bachelor,64,163,46,35,White,Some College
+02,F,7.88592574,35,Asian,Married,Some College,62,136,12,43,Asian,High School Grad.
+01,F,6.1839591,29,White,Unmarried,8th Grade,63,180,00,45,White,Unknown
+02,M,7.35902156,21,White,Unmarried,High School Grad.,61,130,60,25,,Some College
+02,F,7.3524077,32,Black,Married,High School Grad.,63,171,29,41,Black,High School Grad.
+02,M,6.19718682,29,White,Married,High School Grad.,66,120,68,37,White,High School Grad.
+02,F,5.33077116,29,White,Married,High School Grad.,66,120,68,37,White,High School Grad.
+02,F,10.80704724,28,White,Married,Some College,72,180,58,30,White,Master
+02,F,7.57948356,26,White,Unmarried,High School Grad.,63,198,30,30,White,9-12th Grade
+02,F,8.45251308,43,Black,Married,Bachelor,65,174,13,53,Black,Bachelor
+01,M,6.9776223,33,Asian,Married,Bachelor,65,148,14,33,Asian,Bachelor
+02,M,7.05919324,21,White,Unmarried,Some College,64,179,11,22,White,9-12th Grade
+02,M,6.9996685,33,Mixed,Unmarried,Some College,62,125,48,39,Mixed,9-12th Grade
+02,M,7.19587968,23,White,Married,Some College,65,103,33,32,Mixed,Some College
+02,F,7.95647358,30,White,Married,Master,64,136,28,31,White,Bachelor
+02,M,6.283167,22,White,Married,8th Grade,61,147,41,21,White,9-12th Grade
+02,M,8.1350478,30,White,Married,Some College,67,298,39,31,White,8th Grade
+02,F,8.0027706,19,White,Unmarried,9-12th Grade,60,198,12,26,White,8th Grade
+02,M,6.88282364,26,White,Married,High School Grad.,62,110,27,25,White,9-12th Grade
+02,F,8.99925884,27,White,Married,High School Grad.,61,204,33,28,White,High School Grad.
+02,M,7.3127245400000005,26,Mixed,Married,Some College,65,209,25,30,White,High School Grad.
+02,F,7.68750994,25,White,Married,Bachelor,63,145,30,27,Mixed,Some College
+02,F,6.6579524,28,White,Married,9-12th Grade,60,180,16,29,White,High School Grad.
+02,F,8.928711,42,White,Married,9-12th Grade,63,148,21,44,White,9-12th Grade
+02,F,6.062705,28,White,Married,Associate,66,109,39,24,Mixed,Associate
+02,M,6.71086328,32,White,Married,Some College,62,159,20,36,White,Bachelor
+02,F,6.2170284,28,White,Married,8th Grade,57,120,36,27,White,8th Grade
+02,F,6.97982692,26,White,Unmarried,Some College,60,137,23,32,White,Bachelor
+02,M,7.4295694,23,White,Married,8th Grade,62,135,24,26,White,8th Grade
+02,F,9.20869774,21,White,Married,High School Grad.,62,125,35,23,White,High School Grad.
+02,M,10.12581966,35,White,Married,9-12th Grade,62,196,34,44,White,8th Grade
+02,M,8.71486286,35,White,Married,9-12th Grade,67,179,11,46,White,High School Grad.
+01,M,7.5618466,23,White,Unmarried,Some College,63,160,50,23,Mixed,Some College
+02,F,8.99925884,28,White,Married,Associate,64,242,20,28,White,Bachelor
+02,M,8.30480354,22,White,Married,Some College,66,174,15,24,White,Some College
+02,F,8.6310873,33,White,Married,Bachelor,65,160,29,32,White,Bachelor
+02,M,7.2421767,27,White,Married,High School Grad.,63,146,19,28,White,High School Grad.
+02,M,5.9965664,23,White,Unmarried,Some College,63,156,21,23,White,High School Grad.
+02,F,6.93793914,34,White,Married,Doctorate,68,144,22,35,Asian,Master
+01,M,9.56143694,28,White,Married,Some College,62,184,04,29,White,Some College
+02,F,7.1870612000000005,21,White,Unmarried,9-12th Grade,59,128,19,21,White,9-12th Grade
+02,M,7.7823086,24,White,Married,8th Grade,63,115,24,31,White,High School Grad.
+02,M,9.06319282,29,White,Married,Bachelor,65,125,32,31,White,Master
+02,F,8.39519296,21,White,Unmarried,9-12th Grade,60,175,25,32,White,9-12th Grade
+02,M,8.76556912,22,White,Unmarried,9-12th Grade,62,165,44,32,White,9-12th Grade
+02,F,7.9807244,25,White,Unmarried,Associate,63,120,35,29,White,Some College
+02,M,9.2263347,29,White,Married,Some College,65,193,33,31,White,8th Grade
+02,M,7.89474422,34,White,Married,High School Grad.,64,197,00,37,White,9-12th Grade
+02,M,7.4075232,35,White,Married,Some College,64,227,18,35,White,Some College
+02,M,6.3713518,36,White,Married,High School Grad.,63,134,17,24,White,Bachelor
+02,F,6.18836834,29,White,Unmarried,8th Grade,60,095,12,34,White,8th Grade
+02,F,7.2311536,28,White,Married,8th Grade,59,160,30,42,White,9-12th Grade
+02,M,6.86298206,27,White,Married,High School Grad.,67,153,32,29,White,Some College
+02,M,7.1870612000000005,25,White,Unmarried,8th Grade,61,162,27,33,White,9-12th Grade
+02,F,6.0186126,26,White,Unmarried,High School Grad.,63,218,37,28,White,8th Grade
+02,F,7.4295694,26,White,Unmarried,8th Grade,65,105,37,25,White,8th Grade
+02,M,7.29288296,30,White,Married,Associate,62,145,25,31,White,Some College
+01,F,7.3744539,21,White,Unmarried,High School Grad.,60,104,36,23,White,Some College
+02,F,7.1870612000000005,33,White,Unmarried,Some College,68,175,80,31,White,Some College
+02,F,7.7492393,23,White,Unmarried,9-12th Grade,74,136,50,26,White,9-12th Grade
+02,M,7.9145858,30,White,Unmarried,Bachelor,60,108,38,25,White,Associate
+02,M,6.3603287,43,White,Married,High School Grad.,67,184,10,46,White,9-12th Grade
+02,F,7.275246,23,White,Married,8th Grade,65,143,41,32,White,8th Grade
+02,M,5.93704166,27,White,Married,9-12th Grade,66,161,24,27,White,Some College
+02,F,7.8043548000000005,27,White,Unmarried,9-12th Grade,58,110,18,27,White,8th Grade
+02,M,5.81137832,33,White,Married,Bachelor,65,120,30,35,White,Bachelor
+02,F,9.3255426,32,White,Unmarried,High School Grad.,66,200,30,28,White,Some College
+02,F,7.4957080000000005,29,White,Married,Some College,62,116,25,26,White,Some College
+02,F,7.12533184,33,White,Married,9-12th Grade,63,162,40,34,White,Bachelor
+02,M,5.24920022,25,White,Unmarried,Some College,61,150,16,24,White,High School Grad.
+02,F,7.2972922,26,White,Unmarried,9-12th Grade,63,235,22,35,White,9-12th Grade
+02,M,7.6941238,32,White,Married,High School Grad.,59,141,22,32,White,9-12th Grade
+01,F,6.062705,16,White,Unmarried,9-12th Grade,67,158,33,27,White,9-12th Grade
+02,F,8.06229534,20,White,Married,Some College,65,118,24,21,White,Some College
+02,F,7.6390083,20,White,Unmarried,High School Grad.,65,165,25,22,White,High School Grad.
+01,F,7.5618466,29,White,Married,Bachelor,62,114,32,30,White,Associate
+02,M,8.18795868,24,White,Married,High School Grad.,64,186,45,34,White,High School Grad.
+01,M,7.8043548000000005,37,White,Married,Associate,64,125,30,35,Mixed,Bachelor
+01,M,8.046863,29,White,Unmarried,High School Grad.,59,128,23,33,White,8th Grade
+01,F,8.8625724,23,White,Married,High School Grad.,68,135,25,22,White,High School Grad.
+01,F,7.34799846,30,White,Married,High School Grad.,69,195,21,33,White,High School Grad.
+01,M,8.0027706,34,White,Unmarried,Bachelor,60,170,10,29,White,High School Grad.
+01,M,7.165015,26,White,Married,Bachelor,65,098,32,26,Mixed,Bachelor
+01,M,7.2311536,46,White,Married,Master,67,145,35,42,White,Bachelor
+01,F,7.1209226,28,White,Unmarried,8th Grade,60,133,46,30,White,High School Grad.
+02,F,7.4957080000000005,28,White,Married,9-12th Grade,66,200,07,31,White,8th Grade
+01,F,7.3413846000000005,29,White,Unmarried,High School Grad.,62,155,40,39,White,High School Grad.
+01,F,7.71617,35,White,Married,Some College,62,155,30,37,White,Some College
+01,M,8.5539256,39,White,Unmarried,8th Grade,65,185,28,41,White,8th Grade
+01,M,6.42426268,21,White,Unmarried,High School Grad.,66,250,01,28,White,8th Grade
+01,M,4.6076558,31,AIAN,Married,Bachelor,60,110,24,33,White,Bachelor
+02,F,5.6438272000000005,21,White,Unmarried,Some College,67,105,40,21,White,Some College
+02,M,8.1681171,30,White,Unmarried,9-12th Grade,69,165,55,25,White,Unknown
+02,M,6.0406588,32,White,Unmarried,High School Grad.,65,155,05,32,White,High School Grad.
+01,M,8.06229534,27,White,Married,Associate,68,160,25,26,White,Some College
+01,M,7.3744539,33,White,Married,Bachelor,64,130,40,37,White,Bachelor
+01,F,6.75054644,17,White,Unmarried,9-12th Grade,64,127,45,20,White,High School Grad.
+02,M,5.37486356,28,White,Married,Some College,64,168,33,28,White,9-12th Grade
+02,M,6.71527252,27,White,Married,Bachelor,62,110,34,28,White,High School Grad.
+02,M,6.87400516,30,White,Married,Bachelor,65,150,57,30,Mixed,Bachelor
+02,F,6.5697676000000005,23,White,Married,High School Grad.,62,107,28,25,White,High School Grad.
+02,M,6.49921976,33,White,Married,Master,65,122,25,33,White,Master
+02,M,10.1522751,34,White,Married,Master,61,125,43,35,White,Bachelor
+02,F,6.7814111200000005,37,White,Married,Bachelor,66,140,32,37,White,Doctorate
+02,F,6.97541768,31,White,Married,Bachelor,69,165,42,30,White,High School Grad.
+02,F,8.24307418,30,White,Married,Associate,67,135,39,29,White,High School Grad.
+02,F,6.4044211,29,White,Married,Some College,63,175,20,26,White,High School Grad.
+02,F,9.72678344,32,White,Married,High School Grad.,67,340,20,33,White,High School Grad.
+02,M,7.1319457,26,White,Married,Some College,59,140,34,27,White,Some College
+02,M,6.3272594,23,Asian,Married,Bachelor,64,195,99,33,Asian,Bachelor
+02,M,6.7020448,39,Asian,Unmarried,High School Grad.,62,110,99,42,Asian,High School Grad.
+02,M,9.8326052,34,White,Unmarried,8th Grade,60,162,22,32,White,8th Grade
+02,M,6.5697676000000005,25,White,Married,Master,63,106,29,28,White,Master
+02,F,6.5984276600000005,21,White,Married,Some College,61,096,25,35,White,High School Grad.
+02,F,6.503629,33,White,Married,Bachelor,66,185,25,34,White,8th Grade
+02,F,7.3634308,30,White,Married,Some College,64,115,43,35,White,Master
+02,F,7.275246,32,White,Married,Bachelor,68,130,27,33,White,Bachelor
+02,M,7.6941238,21,White,Unmarried,High School Grad.,67,180,38,26,White,High School Grad.
+02,F,7.0437609,30,Asian,Married,Bachelor,65,126,32,30,Asian,Bachelor
+02,F,6.1067974000000005,35,White,Unmarried,Some College,64,157,24,41,White,Some College
+02,F,6.61386,27,White,Unmarried,Some College,61,110,40,30,White,High School Grad.
+02,F,7.9476551,31,White,Married,Bachelor,64,126,55,30,White,High School Grad.
+02,M,9.32113336,33,White,Married,Associate,69,130,50,40,White,Bachelor
+01,F,6.36694256,38,White,Married,High School Grad.,66,095,24,31,White,Some College
+02,F,9.87890222,22,White,Unmarried,High School Grad.,64,135,52,25,White,Some College
+01,F,7.3965001,28,White,Married,Associate,67,180,29,36,White,Some College
+01,M,7.48248028,32,Asian,Married,Master,62,125,43,35,White,Doctorate
+01,F,4.739933,33,White,Unmarried,Unknown,56,100,18,38,White,Unknown
+01,M,8.38416986,36,Asian,Married,Bachelor,65,135,45,36,Asian,Bachelor
+01,M,9.03453276,27,White,Unmarried,Bachelor,69,130,34,37,White,Associate
+01,M,2.9872601,41,Asian,Married,Unknown,66,120,20,51,,Unknown
+01,F,6.80786656,20,White,Unmarried,Some College,62,125,25,25,White,High School Grad.
+01,M,6.49481052,34,White,Married,Bachelor,59,137,38,33,White,Some College
+02,F,7.0900579200000005,26,White,Married,Bachelor,64,130,24,33,White,Some College
+01,M,7.7823086,36,White,Married,High School Grad.,63,140,38,38,White,High School Grad.
+02,F,7.32815688,30,White,Unmarried,Unknown,64,160,44,24,,Unknown
+02,F,7.14958266,29,White,Married,High School Grad.,64,120,52,41,White,High School Grad.
+02,F,6.70645404,31,White,Unmarried,High School Grad.,58,174,07,28,White,8th Grade
+01,M,9.0058727,34,White,Married,High School Grad.,64,147,48,30,White,High School Grad.
+02,M,7.01951008,29,White,Married,Some College,61,109,31,31,White,Some College
+02,F,6.88061902,36,White,Unmarried,Unknown,60,226,99,41,White,High School Grad.
+01,F,7.46043408,32,White,Married,8th Grade,61,150,24,35,White,9-12th Grade
+02,F,8.50762858,31,White,Married,Bachelor,68,154,37,31,White,Bachelor
+01,M,6.82991276,40,Asian,Married,Bachelor,65,116,17,43,Asian,Bachelor
+02,F,7.1319457,19,White,Married,High School Grad.,64,115,31,19,White,High School Grad.
+02,M,6.29639472,25,White,Married,High School Grad.,64,150,30,30,White,High School Grad.
+02,M,5.8312199,25,White,Married,High School Grad.,64,150,30,30,White,High School Grad.
+02,F,8.82729848,20,White,Unmarried,Some College,59,160,20,21,White,Some College
+02,F,8.51203782,28,Asian,Married,Some College,63,132,21,32,Asian,Bachelor
+02,F,6.44189964,40,Asian,Married,Associate,63,130,27,38,Asian,Associate
+02,M,10.8687766,29,White,Married,8th Grade,65,140,80,36,White,High School Grad.
+02,M,7.29067834,32,White,Married,Bachelor,68,150,33,33,White,Master
+02,M,7.5618466,21,White,Unmarried,9-12th Grade,64,130,22,33,White,8th Grade
+01,F,8.0137937,22,White,Married,High School Grad.,64,200,20,22,White,High School Grad.
+02,M,6.1949822,41,White,Married,Some College,67,154,35,32,White,9-12th Grade
+02,F,7.7823086,28,Asian,Unmarried,Bachelor,65,118,32,27,Asian,Bachelor
+02,F,6.9335299,36,White,Married,Unknown,62,134,13,35,White,Unknown
+02,F,6.8784144000000005,18,White,Unmarried,9-12th Grade,65,127,21,18,White,High School Grad.
+02,M,6.8563682,32,White,Married,Associate,64,108,33,32,White,High School Grad.
+02,M,8.0578861,23,White,Married,Associate,67,130,43,31,White,Some College
+02,F,6.7902296,31,Asian,Married,Bachelor,60,100,73,33,Asian,Associate
+02,F,8.0248168,28,White,Unmarried,High School Grad.,65,126,53,30,White,High School Grad.
+02,F,7.6831007,29,White,Married,Some College,63,136,44,32,White,Master
+02,M,7.5287773,25,White,Married,Associate,62,150,28,27,White,Some College
+02,M,7.6610545,27,White,Married,Some College,63,141,26,27,White,Some College
+02,F,7.0217147,19,White,Unmarried,Unknown,62,112,34,18,White,Unknown
+02,M,7.4846849,21,White,Unmarried,High School Grad.,61,110,20,28,White,9-12th Grade
+02,F,9.4908891,37,White,Unmarried,8th Grade,62,210,00,34,White,9-12th Grade
+02,M,6.7130679,36,White,Unmarried,9-12th Grade,61,174,00,53,White,8th Grade
+02,F,7.98513364,29,White,Married,High School Grad.,57,160,12,26,,9-12th Grade
+02,F,8.0689092,24,White,Unmarried,Some College,63,145,41,27,White,High School Grad.
+02,M,5.0485798,16,Mixed,Unmarried,9-12th Grade,62,125,25,17,White,9-12th Grade
+02,M,6.9555761,20,White,Unmarried,High School Grad.,61,165,42,21,White,9-12th Grade
+02,M,6.1178205,31,White,Unmarried,High School Grad.,64,143,28,40,White,8th Grade
+02,F,9.83701444,28,White,Married,Some College,67,162,41,31,White,Some College
+02,F,6.4485135,18,White,Unmarried,Some College,61,098,25,20,White,Some College
+02,F,8.2232326,28,White,Married,High School Grad.,63,185,45,33,White,Bachelor
+02,M,5.070626,32,White,Married,High School Grad.,65,130,20,32,White,Some College
+02,F,9.7223742,32,White,Unmarried,High School Grad.,71,150,65,35,White,Bachelor
+02,M,8.377556,26,White,Married,Associate,64,130,60,31,White,High School Grad.
+02,F,5.5335962,29,White,Unmarried,9-12th Grade,61,158,07,22,White,9-12th Grade
+02,F,5.0485798,44,White,Married,9-12th Grade,58,158,36,39,White,9-12th Grade
+02,M,7.7602624,34,White,Unmarried,High School Grad.,69,170,33,40,White,High School Grad.
+02,M,6.834322,28,White,Unmarried,Some College,60,110,41,32,White,Some College
+02,M,6.3713518,43,White,Married,Bachelor,70,163,00,47,White,Doctorate
+02,F,8.3996022,17,White,Unmarried,9-12th Grade,63,130,40,19,White,High School Grad.
+02,F,7.6941238,18,White,Unmarried,9-12th Grade,62,170,57,20,White,High School Grad.
+02,F,9.1712192,27,White,Married,Some College,65,238,50,30,White,9-12th Grade
+02,M,6.72850024,28,Asian,Married,Bachelor,62,110,28,32,Asian,Some College
+02,M,8.50101472,39,White,Married,Some College,63,135,45,47,White,High School Grad.
+02,M,8.15048014,28,White,Married,High School Grad.,66,215,15,33,White,High School Grad.
+02,M,7.13855956,33,White,Married,Bachelor,65,147,35,34,White,High School Grad.
+02,M,6.18836834,31,Asian,Married,Bachelor,61,100,30,33,Asian,Bachelor
+02,M,5.00228278,31,White,Married,Some College,63,132,20,41,White,Some College
+02,F,7.85285644,22,White,Unmarried,Some College,62,168,00,22,White,Some College
+02,F,7.66325912,27,White,Married,Bachelor,66,105,24,30,Black,Associate
+02,M,7.57066508,39,Asian,Married,Some College,62,168,99,41,Asian,Some College
+02,M,6.5697676000000005,19,White,Unmarried,Some College,60,118,99,18,White,Some College
+02,M,7.054784,35,White,Married,Some College,63,185,15,39,White,Some College
+02,M,8.3555098,28,White,Married,High School Grad.,66,135,33,34,White,High School Grad.
+02,M,8.708249,29,White,Married,High School Grad.,66,238,04,32,White,High School Grad.
+02,M,6.4815828,32,White,Unmarried,High School Grad.,64,165,99,37,Black,High School Grad.
+02,F,7.1870612000000005,23,White,Married,Some College,61,145,30,27,White,Some College
+02,M,9.08744364,34,White,Married,High School Grad.,71,134,47,34,White,Doctorate
+02,F,7.5287773,28,Asian,Married,Bachelor,64,140,26,30,Asian,Master
+02,F,8.1130016,37,White,Married,Master,67,128,18,31,White,High School Grad.
+02,M,10.912869,29,White,Married,High School Grad.,64,186,26,29,White,High School Grad.
+02,F,7.7602624,22,White,Unmarried,9-12th Grade,66,173,27,27,,9-12th Grade
+02,M,9.700328,29,White,Married,High School Grad.,66,140,50,34,White,High School Grad.
+02,M,7.5949159,33,White,Married,Some College,67,189,15,33,Mixed,High School Grad.
+02,F,8.0248168,25,White,Married,8th Grade,65,160,11,44,White,Some College
+02,M,7.6279852,34,White,Unmarried,Some College,64,112,28,33,White,Bachelor
+02,F,7.7602624,31,White,Married,High School Grad.,62,148,99,33,White,High School Grad.
+02,F,6.3272594,27,White,Married,High School Grad.,65,173,11,26,White,High School Grad.
+02,M,7.4957080000000005,29,White,Married,Bachelor,65,137,43,30,White,Bachelor
+02,F,6.47937818,21,White,Married,Some College,61,123,99,26,White,Some College
+02,F,7.64341754,32,White,Married,Master,68,140,18,33,White,Bachelor
+02,F,9.6011201,29,White,Married,Bachelor,67,135,39,30,White,Bachelor
+02,F,7.75144392,39,White,Married,9-12th Grade,61,128,19,32,White,Some College
+02,F,8.34007746,32,White,Married,High School Grad.,61,128,55,36,White,Bachelor
+02,M,10.1302289,44,White,Unmarried,Some College,65,195,30,43,White,Some College
+02,M,9.18665154,24,Asian,Unmarried,Some College,66,180,30,29,White,Some College
+02,F,7.57727894,23,White,Unmarried,Some College,69,150,99,52,Black,Doctorate
+02,F,5.27124642,35,White,Married,High School Grad.,70,290,18,36,White,9-12th Grade
+02,F,5.35061274,35,White,Married,High School Grad.,70,290,18,36,White,9-12th Grade
+02,M,10.38596482,26,White,Married,9-12th Grade,57,125,46,26,White,9-12th Grade
+02,F,6.12443436,26,White,Married,Bachelor,63,132,36,28,White,Bachelor
+02,M,7.93222276,25,White,Married,Some College,65,096,34,34,White,Bachelor
+02,M,8.08654616,24,White,Unmarried,Some College,59,095,31,25,White,Some College
+02,F,6.503629,31,White,Married,Doctorate,62,108,25,35,White,Doctorate
+02,F,7.95426896,35,White,Married,Bachelor,67,140,37,45,White,Doctorate
+02,F,7.29288296,33,White,Married,Bachelor,63,108,24,33,White,Master
+02,F,6.30300858,36,White,Married,Bachelor,67,120,33,42,White,Master
+02,F,8.94414334,35,White,Married,Bachelor,68,300,11,35,White,Master
+02,M,6.32285016,32,White,Married,Some College,63,115,99,35,White,Bachelor
+01,M,7.9917475,25,White,Married,Some College,70,200,26,29,White,High School Grad.
+01,M,9.2153116,37,White,Unmarried,Bachelor,62,195,17,42,Mixed,Bachelor
+01,F,6.5256752,27,White,Married,Bachelor,67,170,55,27,White,Associate
+01,F,7.2421767,38,White,Unmarried,Some College,64,140,51,24,White,Some College
+01,F,6.0296357,26,White,Married,High School Grad.,60,195,06,29,White,High School Grad.
+01,M,6.9335299,34,White,Married,Some College,67,128,28,36,Black,Bachelor
+01,F,6.2280515,33,White,Unmarried,Bachelor,65,148,27,35,White,Master
+01,F,6.5697676000000005,31,White,Married,Some College,69,133,18,44,White,Some College
+01,F,6.1949822,29,White,Unmarried,Some College,63,256,06,31,White,Bachelor
+01,F,5.8863354,37,White,Unmarried,Master,62,152,25,27,White,Associate
+01,M,4.9714181,21,Mixed,Married,High School Grad.,60,125,99,21,White,High School Grad.
+01,M,8.0248168,38,White,Married,Some College,65,144,40,38,White,9-12th Grade
+01,F,8.2783481,37,White,Married,Associate,65,124,20,39,White,Bachelor
+01,M,6.8012527,26,Asian,Married,High School Grad.,62,112,30,34,Asian,Master
+01,M,4.3210552,31,Mixed,Married,Bachelor,64,148,41,31,White,Bachelor
+01,F,3.0974911,31,Mixed,Married,Bachelor,64,148,41,31,White,Bachelor
+01,M,7.7602624,34,White,Married,Master,68,173,72,34,White,Bachelor
+01,M,7.6720776,34,White,Married,Master,68,173,72,34,White,Bachelor
+02,M,8.2783481,31,White,Married,Associate,64,130,24,27,White,Some College
+02,M,9.149173,32,White,Married,Some College,65,273,37,32,White,Bachelor
+02,M,7.5398004,29,White,Married,Some College,63,182,24,36,White,High School Grad.
+02,M,7.2421767,29,White,Married,Bachelor,64,125,50,28,White,Bachelor
+02,F,6.3493056,36,Mixed,Married,Bachelor,71,236,06,36,White,Bachelor
+02,F,7.9697013,26,White,Married,Some College,62,155,26,26,White,9-12th Grade
+02,M,9.7333973,32,White,Married,Some College,64,147,59,31,Asian,High School Grad.
+02,M,6.5587445,42,Asian,Married,Master,65,124,35,33,Asian,Doctorate
+01,F,6.6689755,30,Asian,Married,Bachelor,62,127,25,30,Asian,Doctorate
+01,F,5.56225626,35,White,Married,Master,68,130,50,37,White,Bachelor
+01,M,6.944553,35,Mixed,Unmarried,Some College,65,140,85,23,Mixed,High School Grad.
+01,M,4.6958406,35,Mixed,Unmarried,Some College,65,140,85,23,Mixed,High School Grad.
+01,F,5.5997348,37,White,Unmarried,High School Grad.,64,125,06,52,White,High School Grad.
+01,M,6.6579524,27,White,Married,Bachelor,66,236,38,28,White,Bachelor
+01,F,1.0802638,20,AIAN,Married,Some College,63,172,08,22,White,Some College
+01,M,6.4815828,31,Asian,Married,Doctorate,60,089,28,33,Asian,Doctorate
+01,M,8.4106253,30,White,Unmarried,Bachelor,68,111,38,32,Black,Associate
+01,M,9.038942,23,White,Married,Some College,60,119,37,29,White,Bachelor
+01,F,7.2421767,23,White,Unmarried,Associate,60,130,26,31,White,Some College
+01,M,9.0720113,35,Asian,Married,Master,66,150,34,36,Asian,Bachelor
+01,F,7.8815165,32,White,Married,Some College,66,330,00,31,White,Some College
+01,M,6.5807907,25,Mixed,Married,Bachelor,64,130,27,28,White,Associate
+01,F,3.5714844,21,White,Married,High School Grad.,67,165,31,27,White,High School Grad.
+01,F,3.1085142,21,White,Married,High School Grad.,67,165,31,27,White,High School Grad.
+01,M,6.5366983,26,White,Unmarried,Some College,64,130,46,32,White,Some College
+01,M,6.944553,28,Asian,Married,Master,60,130,34,30,Asian,Doctorate
+01,F,6.4705597,28,Black,Unmarried,High School Grad.,67,148,41,26,Black,High School Grad.
+01,M,7.4185463,25,Mixed,Married,Some College,64,130,40,30,,Associate
+02,M,7.8704934,28,Asian,Married,Bachelor,62,148,44,29,Asian,Associate
+02,M,7.6941238,40,White,Unmarried,Doctorate,67,164,36,40,White,Doctorate
+02,F,8.5539256,23,White,Married,Associate,65,109,46,23,White,Associate
+02,F,6.283167,30,Black,Unmarried,High School Grad.,64,180,00,30,Black,High School Grad.
+02,M,6.61386,35,White,Married,Some College,62,120,32,34,White,Some College
+01,M,3.9352467,22,Black,Unmarried,High School Grad.,63,079,31,22,Black,9-12th Grade
+02,F,4.9273257,27,Black,Unmarried,High School Grad.,64,158,40,33,White,Some College
+02,M,6.9776223,34,Black,Married,Associate,65,131,31,36,Black,Bachelor
+02,F,6.4705597,17,White,Unmarried,9-12th Grade,67,187,53,17,White,9-12th Grade
+01,F,5.9634971,27,Black,Married,Bachelor,65,141,16,29,Black,Bachelor
+02,M,6.6689755,21,Asian,Unmarried,High School Grad.,59,115,34,23,Asian,High School Grad.
+02,F,6.6248831,26,Asian,Unmarried,Some College,60,094,30,26,Asian,Some College
+01,F,6.4374904,34,Asian,Married,Associate,64,110,26,35,Asian,Associate
+02,M,8.6090411,34,Black,Married,High School Grad.,66,150,28,37,Black,High School Grad.
+02,F,7.8153779,23,White,Unmarried,Some College,63,145,40,22,White,High School Grad.
+02,M,5.842243,22,Black,Unmarried,High School Grad.,66,137,25,24,Black,High School Grad.
+01,M,8.18795868,35,White,Married,High School Grad.,64,153,26,37,White,High School Grad.
+01,F,8.43708074,26,White,Married,Associate,67,120,40,27,White,Some College
+01,M,6.63149696,29,White,Married,9-12th Grade,64,199,00,36,White,9-12th Grade
+01,F,5.30652034,27,White,Unmarried,9-12th Grade,60,112,08,32,Mixed,High School Grad.
+01,M,6.93793914,30,White,Married,Associate,64,164,24,33,White,9-12th Grade
+02,F,7.0613978600000005,21,White,Unmarried,High School Grad.,59,125,13,23,White,High School Grad.
+02,M,6.87400516,25,White,Unmarried,High School Grad.,66,230,08,24,White,Some College
+01,F,7.5618466,39,White,Married,9-12th Grade,68,160,11,43,White,8th Grade
+01,M,8.3114174,31,White,Married,8th Grade,64,192,10,35,White,9-12th Grade
+01,F,7.21792588,29,White,Unmarried,High School Grad.,63,150,25,37,White,High School Grad.
+01,F,8.93752948,19,White,Unmarried,9-12th Grade,65,150,58,29,White,High School Grad.
+02,M,5.85767534,28,White,Married,High School Grad.,60,154,26,31,White,High School Grad.
+02,F,7.62578058,26,White,Unmarried,High School Grad.,61,158,13,29,White,High School Grad.
+01,F,5.2359725,31,White,Married,High School Grad.,63,110,41,31,White,High School Grad.
+02,F,6.7351141,29,Black,Married,High School Grad.,59,229,13,32,Black,Some College
+02,M,6.7020448,27,AIAN,Married,Some College,62,179,23,34,White,Some College
+02,M,6.6469293,19,White,Married,Some College,62,121,23,20,White,Some College
+02,F,7.4516156,28,Black,Married,Bachelor,64,250,27,35,Black,High School Grad.
+02,F,6.172936,32,White,Married,Some College,61,136,51,26,White,8th Grade
+02,F,9.8766976,21,White,Married,Some College,61,225,20,20,White,9-12th Grade
+02,M,8.0799323,32,White,Married,Bachelor,62,168,28,30,White,Some College
+02,F,6.7571603,28,White,Married,Some College,61,184,24,33,White,High School Grad.
+02,F,9.2814502,24,White,Unmarried,Some College,63,157,23,29,White,Bachelor
+02,M,7.4957080000000005,29,Mixed,Unmarried,Master,64,162,27,35,Black,Some College
+02,M,9.1271268,28,White,Married,High School Grad.,65,159,06,28,White,Some College
+02,F,8.0137937,28,White,Unmarried,Associate,62,134,43,24,White,Some College
+02,M,4.2549166,33,White,Unmarried,8th Grade,66,193,07,35,White,8th Grade
+02,M,4.2659397,38,Asian,Married,Bachelor,66,130,42,42,Asian,Bachelor
+02,M,7.6279852,35,White,Married,Bachelor,63,140,20,37,,Bachelor
+02,M,6.1508898,39,Mixed,Married,Some College,60,170,40,38,Mixed,High School Grad.
+02,M,2.9431677,28,White,Unmarried,9-12th Grade,64,357,01,32,White,High School Grad.
+02,F,2.7778212,28,White,Unmarried,9-12th Grade,64,357,01,32,White,High School Grad.
+02,F,6.9886454,32,Asian,Married,Doctorate,62,128,20,40,Asian,Doctorate
+02,F,6.3713518,25,Asian,Unmarried,Some College,60,120,33,23,White,9-12th Grade
+02,F,6.4154442000000005,26,White,Married,Some College,63,130,38,37,White,Some College
+02,M,8.2232326,24,White,Unmarried,High School Grad.,63,156,24,26,White,High School Grad.
+02,F,8.3996022,31,White,Married,Bachelor,68,155,32,35,White,High School Grad.
+02,F,8.5098332,31,White,Married,High School Grad.,67,160,75,34,White,9-12th Grade
+02,M,6.3493056,20,White,Unmarried,High School Grad.,61,104,23,20,White,9-12th Grade
+02,F,7.18485658,28,White,Married,9-12th Grade,62,165,16,32,White,8th Grade
+02,M,8.6862028,26,White,Unmarried,High School Grad.,62,139,19,26,White,High School Grad.
+02,F,6.53008444,17,White,Married,High School Grad.,62,140,51,23,White,8th Grade
+02,F,6.79243422,19,White,Unmarried,9-12th Grade,64,120,10,20,White,9-12th Grade
+02,M,7.4736618,36,White,Married,9-12th Grade,61,180,40,35,White,9-12th Grade
+02,M,7.8704934,31,White,Married,9-12th Grade,63,178,37,32,White,High School Grad.
+02,M,7.4295694,24,White,Unmarried,Some College,63,125,50,25,White,Some College
+02,M,6.7681834,19,Black,Unmarried,9-12th Grade,68,140,43,27,Black,9-12th Grade
+02,F,7.96308744,23,White,Married,High School Grad.,65,107,40,22,White,Some College
+02,M,6.09356968,30,White,Married,High School Grad.,61,154,30,30,Asian,Associate
+02,M,5.3131342,33,Black,Unmarried,Some College,63,223,30,52,Black,High School Grad.
+02,M,8.7743876,35,White,Unmarried,9-12th Grade,63,182,19,38,,Some College
+02,F,9.550413840000001,31,Asian,Married,Bachelor,64,170,08,55,Asian,Master
+02,M,6.8122758,22,White,Married,9-12th Grade,60,135,34,35,White,High School Grad.
+02,M,8.1130016,32,Asian,Married,Bachelor,65,124,44,33,Asian,Bachelor
+02,M,7.33697536,40,Asian,Married,Bachelor,65,150,24,43,Asian,Bachelor
+02,F,6.30741782,37,White,Unmarried,8th Grade,61,124,41,49,White,8th Grade
+02,M,7.054784,42,Asian,Married,Some College,63,127,30,46,Asian,High School Grad.
+02,M,4.38278456,28,White,Married,High School Grad.,63,151,07,30,White,Bachelor
+02,F,7.4736618,30,White,Married,Master,65,108,37,32,White,Bachelor
+02,M,8.60022262,32,White,Married,Bachelor,64,156,34,27,White,High School Grad.
+02,F,6.9886454,24,White,Unmarried,High School Grad.,64,113,41,31,,Unknown
+02,F,6.4595366,28,White,Married,Bachelor,65,135,45,30,Black,Master
+02,M,7.3413846000000005,31,White,Married,Master,63,131,40,31,White,Bachelor
+02,M,9.3475888,19,White,Unmarried,High School Grad.,67,143,47,18,White,High School Grad.
+02,M,6.0406588,30,White,Married,High School Grad.,60,200,10,35,White,Bachelor
+02,F,8.7302952,29,White,Married,High School Grad.,70,160,45,32,White,Bachelor
+02,F,4.0675239,44,Black,Unmarried,High School Grad.,55,145,05,44,Black,High School Grad.
+02,M,6.54110754,17,Black,Unmarried,High School Grad.,65,120,37,19,Black,High School Grad.
+02,F,5.5225731,22,White,Unmarried,9-12th Grade,60,128,25,39,White,High School Grad.
+02,F,6.93793914,22,Black,Unmarried,High School Grad.,58,174,20,27,Black,9-12th Grade
+02,F,6.9070744600000005,20,White,Unmarried,High School Grad.,59,130,38,23,White,High School Grad.
+02,M,7.2091074,32,White,Married,Associate,66,144,16,31,White,Associate
+02,F,6.68661246,26,White,Married,High School Grad.,68,210,20,28,White,High School Grad.
+02,M,7.81978714,29,White,Married,Bachelor,59,200,05,25,White,High School Grad.
+02,F,8.624473440000001,23,White,Unmarried,High School Grad.,63,180,43,25,Black,Some College
+02,M,9.88110684,31,White,Married,High School Grad.,71,259,36,33,Black,High School Grad.
+02,F,9.3034964,24,White,Married,Some College,63,132,43,23,White,High School Grad.
+02,M,8.1791402,32,White,Married,High School Grad.,65,118,44,34,Asian,Some College
+02,F,8.2563019,24,White,Unmarried,High School Grad.,62,133,46,28,White,High School Grad.
+02,F,10.6703608,27,Black,Unmarried,Some College,69,193,62,27,Black,High School Grad.
+02,M,8.5759718,24,Mixed,Married,Associate,63,135,30,26,Mixed,High School Grad.
+02,F,6.6579524,26,Asian,Married,Bachelor,65,150,15,27,Asian,Bachelor
+02,F,8.13725242,35,Asian,Married,Bachelor,67,178,09,38,Asian,Master
+02,M,7.8704934,22,White,Unmarried,9-12th Grade,63,130,26,22,White,9-12th Grade
+02,F,8.3555098,31,White,Unmarried,High School Grad.,64,140,63,36,White,Some College
+02,F,5.97892944,36,Asian,Married,Bachelor,65,110,48,29,Asian,Bachelor
+02,M,6.64252006,23,Asian,Married,Bachelor,60,120,16,25,Asian,Master
+02,M,7.0658071,36,Asian,Married,Bachelor,63,120,14,34,Asian,High School Grad.
+02,M,7.85726568,33,Asian,Married,Bachelor,62,130,05,35,Asian,Bachelor
+02,M,7.47586642,35,Asian,Married,Master,62,135,07,34,Asian,Master
+02,F,8.60022262,26,White,Married,9-12th Grade,64,136,21,32,White,8th Grade
+02,M,7.4626387,30,White,Married,Bachelor,61,138,30,33,,Bachelor
+02,M,7.29949682,22,White,Married,High School Grad.,62,126,11,26,White,High School Grad.
+02,M,6.6910217,31,Mixed,Unmarried,High School Grad.,66,153,26,35,Asian,Bachelor
+02,F,6.3052132,27,White,Married,Bachelor,64,130,39,32,White,High School Grad.
+02,F,6.2060053,40,White,Married,High School Grad.,60,157,23,49,White,Unknown
+02,M,8.287166580000001,30,White,Married,Doctorate,67,125,33,31,White,Bachelor
+02,F,6.1508898,34,Asian,Married,Some College,61,115,27,35,Asian,Unknown
+02,M,7.7271931,23,White,Married,9-12th Grade,67,153,30,33,White,Unknown
+02,F,5.1147184,37,Asian,Married,Bachelor,62,130,30,41,White,Master
+02,F,8.78100146,27,White,Married,High School Grad.,62,156,36,27,White,High School Grad.
+02,M,6.55653988,24,White,Unmarried,High School Grad.,61,136,25,24,White,High School Grad.
+02,M,7.6390083,29,White,Married,High School Grad.,60,174,20,32,White,High School Grad.
+02,M,8.9397341,31,White,Married,Associate,63,130,54,32,White,Associate
+02,F,6.4264673,19,White,Married,High School Grad.,64,150,40,19,Black,High School Grad.
+02,M,7.9476551,19,White,Unmarried,Some College,62,100,33,22,White,9-12th Grade
+02,F,8.6751797,30,White,Married,Bachelor,65,240,26,27,White,Some College
+02,F,8.47896852,27,White,Unmarried,High School Grad.,68,175,29,41,White,High School Grad.
+02,F,8.6421104,38,White,Married,Some College,65,163,35,39,Asian,Some College
+02,M,7.3303615,39,White,Married,High School Grad.,63,185,29,43,White,High School Grad.
+02,M,7.42075092,22,White,Unmarried,Associate,66,150,32,24,White,Associate
+02,F,7.17162886,32,White,Married,Bachelor,67,130,23,33,White,Some College
+02,F,5.97672482,31,Black,Unmarried,Some College,67,194,25,31,Black,Some College
+02,F,6.5477214,30,White,Married,Associate,62,185,09,33,,Some College
+02,F,7.4075232,33,Black,Unmarried,Some College,66,249,04,29,Black,Some College
+02,F,8.5759718,28,White,Married,Master,62,197,28,27,White,Bachelor
+02,M,6.4264673,24,Black,Married,Master,62,106,24,27,Black,Some College
+02,F,6.8122758,18,White,Unmarried,9-12th Grade,66,125,43,20,White,High School Grad.
+02,F,8.9948496,28,White,Married,Associate,64,158,49,31,Black,9-12th Grade
+02,F,4.2328704,29,White,Married,Some College,61,109,25,27,White,Some College
+02,M,8.1130016,38,White,Married,Some College,64,165,10,44,White,Some College
+02,F,5.51155,41,White,Married,9-12th Grade,63,171,04,46,White,8th Grade
+02,F,4.1667318,20,White,Married,High School Grad.,65,138,26,21,White,High School Grad.
+02,M,10.7364994,27,White,Married,Associate,63,238,32,34,White,High School Grad.
+02,F,7.1319457,35,White,Married,9-12th Grade,62,122,41,45,White,8th Grade
+02,F,8.11520622,39,Asian,Married,Bachelor,63,118,31,50,Asian,Bachelor
+02,M,8.3996022,31,White,Married,Bachelor,60,139,25,31,White,High School Grad.
+02,M,8.30259892,24,White,Unmarried,9-12th Grade,61,150,43,24,Mixed,High School Grad.
+02,F,7.66766836,38,White,Unmarried,High School Grad.,67,170,24,38,White,High School Grad.
+02,M,7.4957080000000005,25,White,Unmarried,High School Grad.,67,170,40,27,White,High School Grad.
+02,M,7.74703468,29,White,Married,Bachelor,61,125,37,29,White,Bachelor
+02,F,6.283167,23,White,Married,Associate,66,107,26,26,White,Bachelor
+02,F,5.6658734,23,White,Married,Some College,65,164,09,24,White,High School Grad.
+02,M,8.56274408,35,White,Married,8th Grade,58,162,20,34,White,8th Grade
+02,M,3.2848838000000002,30,Black,Married,Master,63,110,23,33,Black,Some College
+02,F,7.1539919,28,White,Married,High School Grad.,64,159,30,32,White,Some College
+02,F,8.1240247,27,White,Married,Some College,64,155,36,29,White,Bachelor
+02,M,7.3193384,33,White,Married,Bachelor,65,178,43,30,White,High School Grad.
+02,F,7.1539919,29,White,Married,Associate,64,138,23,30,White,Some College
+02,M,8.0248168,24,White,Married,Some College,63,165,44,26,White,9-12th Grade
+02,F,6.3493056,26,White,Unmarried,Bachelor,62,206,06,24,White,High School Grad.
+02,F,8.6751797,26,White,Married,Associate,62,255,00,30,White,9-12th Grade
+02,M,7.0988764,35,White,Married,Bachelor,62,160,30,46,White,Bachelor
+02,F,7.1870612000000005,38,Black,Unmarried,Some College,61,250,13,45,Black,High School Grad.
+02,M,5.84444762,21,White,Married,Associate,66,122,33,28,White,Associate
+02,F,2.98505548,20,Black,Unmarried,High School Grad.,63,215,21,25,Black,High School Grad.
+02,M,7.53759578,33,White,Married,High School Grad.,64,173,99,36,White,Bachelor
+02,F,7.43177402,26,White,Married,Some College,68,225,99,32,White,Some College
+02,M,8.5759718,35,White,Married,Doctorate,64,163,99,48,White,Some College
+02,F,8.0689092,20,White,Married,High School Grad.,65,191,99,23,White,High School Grad.
+02,M,6.7681834,29,White,Married,Bachelor,62,216,99,30,White,Bachelor
+02,F,6.9335299,34,White,Married,Bachelor,68,360,99,32,White,Associate
+02,F,6.4374904,34,Asian,Married,Doctorate,60,145,99,34,Asian,Doctorate
+02,M,6.75054644,23,Black,Unmarried,Some College,68,135,29,25,Black,Some College
+02,F,6.0406588,36,White,Married,9-12th Grade,60,134,30,37,White,Unknown
+02,M,7.9145858,25,White,Married,Some College,62,226,24,23,White,Some College
+02,M,8.6090411,33,White,Married,Some College,63,185,08,47,White,8th Grade
+02,F,7.165015,26,White,Unmarried,9-12th Grade,66,179,00,24,White,9-12th Grade
+02,F,5.5887117,19,Black,Unmarried,Some College,63,134,26,20,Black,9-12th Grade
+02,M,6.6359062,27,White,Married,High School Grad.,60,109,30,34,White,Some College
+02,F,8.2893712,25,White,Unmarried,High School Grad.,65,270,00,22,Black,High School Grad.
+01,M,8.3555098,20,White,Unmarried,High School Grad.,66,176,20,38,White,Unknown
+02,F,8.0248168,28,White,Unmarried,9-12th Grade,65,162,24,32,White,8th Grade
+02,F,7.2421767,22,White,Unmarried,9-12th Grade,62,238,15,25,White,9-12th Grade
+02,M,9.2042885,21,White,Married,8th Grade,63,140,21,26,White,8th Grade
+02,M,6.8784144000000005,28,White,Married,Associate,63,115,29,33,Asian,Bachelor
+02,M,7.054784,29,White,Married,Some College,67,180,44,38,White,Some College
+02,M,7.0106916,34,Asian,Married,Some College,60,112,21,36,Asian,Bachelor
+02,M,5.8532661,36,Asian,Married,Bachelor,64,140,20,35,Asian,Associate
+02,M,9.0168958,35,White,Married,Master,63,165,35,37,White,Bachelor
+02,F,7.9917475,32,White,Unmarried,Some College,61,128,43,32,White,Some College
+02,M,6.9665992,23,White,Unmarried,Some College,66,140,25,50,White,High School Grad.
+02,M,7.1319457,23,White,Unmarried,Some College,62,152,43,24,White,Some College
+02,M,8.1240247,35,White,Unmarried,Some College,66,140,98,28,White,High School Grad.
+02,F,7.1429688,23,White,Unmarried,High School Grad.,67,145,30,35,White,High School Grad.
+02,M,6.7902296,28,White,Unmarried,Some College,67,134,17,29,White,Some College
+02,M,9.0279189,40,Asian,Married,Associate,63,118,44,42,Asian,Associate
+02,F,8.9397341,31,White,Married,Bachelor,62,120,25,30,White,Some College
+02,M,6.393398,32,White,Married,Master,62,132,24,40,White,Bachelor
+02,F,6.8012527,29,Black,Unmarried,Master,67,148,17,36,Black,Bachelor
+02,M,7.826401,28,White,Unmarried,Associate,60,150,38,26,White,Some College
+02,F,7.3083153,28,White,Married,Bachelor,65,162,30,36,White,Some College
+02,F,10.0640903,24,White,Unmarried,8th Grade,60,140,23,25,White,8th Grade
+02,M,7.7051469,35,White,Unmarried,9-12th Grade,61,130,43,37,White,9-12th Grade
+02,M,6.7020448,33,White,Married,High School Grad.,62,140,32,36,White,Some College
+02,M,8.046863,26,White,Unmarried,Master,66,180,18,31,White,Master
+02,F,7.0988764,28,White,Married,8th Grade,61,112,25,34,White,9-12th Grade
+02,F,6.834322,26,White,Unmarried,High School Grad.,61,200,36,27,White,Some College
+02,M,7.2201305,32,Asian,Married,Bachelor,60,110,50,34,Asian,Bachelor
+02,F,4.19759648,25,White,Unmarried,Some College,66,178,22,29,White,Some College
+02,M,6.1619129,22,White,Married,High School Grad.,62,188,00,30,White,8th Grade
+02,F,7.5949159,20,White,Unmarried,High School Grad.,62,170,07,24,White,9-12th Grade
+02,F,8.0137937,28,White,Married,High School Grad.,62,115,29,27,White,High School Grad.
+02,M,6.5697676000000005,22,White,Married,Associate,62,095,15,24,White,Some College
+01,F,6.7902296,25,White,Unmarried,9-12th Grade,62,164,28,28,Black,Unknown
+02,F,7.0878533,33,White,Married,8th Grade,65,150,28,36,White,9-12th Grade
+01,M,8.3224405,25,White,Unmarried,Some College,64,180,50,25,White,High School Grad.
+01,F,6.9335299,33,White,Unmarried,9-12th Grade,65,168,42,21,White,High School Grad.
+01,F,7.1539919,18,White,Unmarried,9-12th Grade,58,122,25,18,White,Unknown
+02,M,7.1539919,29,White,Married,Some College,65,168,15,28,White,High School Grad.
+01,F,6.283167,15,White,Unmarried,9-12th Grade,60,110,22,17,White,9-12th Grade
+01,F,3.39291018,39,White,Unmarried,Unknown,64,171,11,44,White,Unknown
+02,M,5.8753123,37,White,Married,Some College,61,110,20,40,,Some College
+02,F,8.82288924,24,White,Unmarried,High School Grad.,65,185,18,21,White,High School Grad.
+02,M,6.82991276,22,White,Unmarried,High School Grad.,61,112,35,24,White,High School Grad.
+02,F,7.25099518,22,White,Unmarried,Some College,67,130,53,24,White,Some College
+02,M,7.936632,24,White,Unmarried,Some College,64,137,32,25,White,High School Grad.
+02,F,10.18754902,17,White,Unmarried,9-12th Grade,62,120,36,18,White,9-12th Grade
+02,M,8.1240247,25,Black,Unmarried,High School Grad.,65,112,38,25,Black,High School Grad.
+02,F,7.62578058,26,White,Unmarried,Some College,68,150,32,26,White,High School Grad.
+02,M,8.68840742,22,Black,Unmarried,Some College,67,230,34,20,Black,Some College
+02,M,7.1870612000000005,23,White,Unmarried,Some College,68,175,49,32,White,High School Grad.
+02,M,4.87441482,27,White,Married,Associate,64,127,38,30,White,9-12th Grade
+02,M,4.3122367200000005,31,White,Unmarried,High School Grad.,62,210,35,26,White,High School Grad.
+01,M,6.31182706,24,White,Unmarried,High School Grad.,59,140,03,26,White,High School Grad.
+02,M,10.43667108,19,White,Married,High School Grad.,63,130,25,21,White,High School Grad.
+02,M,10.74972712,20,White,Unmarried,Some College,62,160,36,20,White,9-12th Grade
+02,M,8.93752948,39,Mixed,Married,Bachelor,73,290,99,39,Black,Associate
+02,M,5.3131342,29,White,Unmarried,9-12th Grade,62,135,34,29,White,9-12th Grade
+02,M,6.87400516,25,White,Married,Some College,65,145,42,24,White,Some College
+02,M,8.00056598,24,Mixed,Married,Some College,68,122,43,27,NHOPI,High School Grad.
+02,F,6.56315374,32,Mixed,Married,High School Grad.,62,170,21,35,White,Some College
+02,F,9.81276362,19,White,Unmarried,9-12th Grade,64,130,60,22,White,High School Grad.
+02,M,7.87490264,25,White,Married,High School Grad.,60,100,30,24,White,Some College
+02,M,7.0613978600000005,28,White,Married,Some College,61,105,32,28,White,Some College
+02,M,6.8122758,33,White,Unmarried,Some College,64,256,00,34,White,Some College
+02,F,5.74964896,44,White,Married,Unknown,59,160,23,49,,Unknown
+02,F,4.06311466,44,White,Married,Unknown,59,160,23,49,,Unknown
+02,F,7.43838788,42,NHOPI,Married,High School Grad.,67,249,11,45,NHOPI,High School Grad.
+02,F,7.3744539,36,White,Unmarried,Bachelor,62,130,37,31,White,High School Grad.
+02,F,9.49970758,31,White,Married,High School Grad.,62,156,21,34,White,High School Grad.
+02,F,7.50011724,22,White,Unmarried,9-12th Grade,63,222,33,24,White,9-12th Grade
+02,F,7.5177542,33,Mixed,Married,Bachelor,62,155,30,33,Black,Master
+02,F,6.6689755,38,White,Married,High School Grad.,61,206,40,42,White,Bachelor
+02,M,7.3413846000000005,33,Black,Married,Some College,67,178,12,42,Black,Some College
+02,M,7.8043548000000005,31,White,Married,Bachelor,65,111,37,30,White,Some College
+02,M,7.0437609,22,White,Married,High School Grad.,64,125,27,20,White,High School Grad.
+02,F,4.2879859,28,AIAN,Married,Some College,64,167,22,27,White,High School Grad.
+02,F,3.2297683,31,White,Married,Bachelor,66,170,32,38,White,Some College
+02,M,8.5318794,28,Asian,Married,Bachelor,62,116,60,38,Asian,Bachelor
+02,M,9.42034126,41,Asian,Married,Bachelor,64,130,22,32,Asian,Bachelor
+02,F,6.44189964,26,Asian,Married,Associate,63,133,19,28,Asian,Associate
+02,M,6.30962244,38,Asian,Married,Bachelor,62,125,18,38,Asian,Bachelor
+02,F,7.05257938,33,Asian,Married,Master,64,123,39,37,Asian,Master
+02,F,6.61386,27,White,Married,9-12th Grade,62,142,38,27,White,9-12th Grade
+02,M,6.63811082,20,White,Married,High School Grad.,61,110,31,20,White,High School Grad.
+02,M,7.42295554,35,Asian,Married,Master,64,150,12,42,Asian,Master
+02,F,5.59532556,26,Asian,Married,High School Grad.,63,140,11,25,Asian,Associate
+02,M,7.3634308,37,White,Married,High School Grad.,61,136,24,35,White,High School Grad.
+02,M,8.13063856,19,Mixed,Unmarried,High School Grad.,62,144,40,20,Mixed,High School Grad.
+02,M,7.92781352,37,White,Married,8th Grade,63,200,18,39,White,High School Grad.
+01,M,8.43708074,37,White,Unmarried,High School Grad.,67,135,50,35,White,Bachelor
+02,M,7.4516156,36,White,Married,Bachelor,62,141,33,41,White,Bachelor
+02,F,7.6169621,21,White,Married,Some College,66,125,44,21,White,High School Grad.
+02,F,7.6500314000000005,25,White,Unmarried,Doctorate,63,110,47,29,White,High School Grad.
+02,M,6.172936,22,White,Unmarried,Bachelor,58,089,37,42,White,Master
+02,M,7.8484472,23,White,Unmarried,9-12th Grade,65,205,30,30,White,Unknown
+02,F,6.4154442000000005,34,White,Married,Associate,60,138,26,32,White,Some College
+02,M,8.157094,24,White,Unmarried,8th Grade,63,187,27,26,White,8th Grade
+02,M,8.1901633,30,White,Married,High School Grad.,67,222,14,32,White,High School Grad.
+02,M,6.1619129,35,White,Married,Bachelor,64,121,33,42,White,Bachelor
+02,M,8.5539256,39,White,Unmarried,Master,64,132,17,37,White,Master
+02,M,7.0878533,20,White,Unmarried,High School Grad.,65,132,10,22,White,High School Grad.
+02,M,6.8563682,34,White,Married,Bachelor,64,128,38,37,White,Master
+02,M,6.834322,19,White,Unmarried,9-12th Grade,62,143,32,28,White,9-12th Grade
+02,F,6.5477214,25,White,Married,Bachelor,65,150,37,32,White,Bachelor
+02,M,7.8043548000000005,18,White,Unmarried,9-12th Grade,65,179,36,24,White,High School Grad.
+02,M,8.267325,24,White,Unmarried,Bachelor,62,117,27,23,White,High School Grad.
+02,M,6.503629,23,White,Married,Bachelor,64,141,27,24,White,High School Grad.
+02,F,6.944553,20,White,Unmarried,High School Grad.,63,104,46,23,Mixed,High School Grad.
+02,F,8.0137937,34,White,Unmarried,High School Grad.,67,163,41,63,White,Bachelor
+02,F,7.1429688,19,White,Unmarried,9-12th Grade,63,118,50,18,White,9-12th Grade
+02,M,5.621781,22,White,Unmarried,Some College,61,095,47,25,White,Bachelor
+02,F,8.4988101,38,White,Married,9-12th Grade,61,250,40,42,White,8th Grade
+02,M,6.6359062,36,White,Married,Bachelor,64,250,05,36,White,Some College
+02,M,7.3083153,22,White,Unmarried,Associate,66,130,22,23,White,High School Grad.
+02,F,7.68971456,21,White,Unmarried,High School Grad.,68,160,21,21,White,Some College
+02,M,8.82729848,36,White,Unmarried,High School Grad.,62,190,20,53,White,8th Grade
+02,M,7.64341754,33,White,Unmarried,8th Grade,61,151,45,25,White,8th Grade
+02,M,8.4657408,20,Asian,Married,Unknown,67,175,08,22,,Unknown
+02,F,7.8043548000000005,20,White,Unmarried,Some College,64,164,30,22,White,Some College
+02,F,8.13284318,23,Mixed,Unmarried,High School Grad.,64,135,54,25,Mixed,High School Grad.
+02,F,7.2311536,21,White,Married,Associate,62,215,11,23,White,Associate
+02,M,7.99395212,24,White,Married,Some College,62,156,35,27,White,8th Grade
+02,M,7.6500314000000005,22,White,Married,Bachelor,63,134,20,25,AIAN,Some College
+02,M,7.385477,27,White,Unmarried,High School Grad.,61,127,33,19,,Unknown
+02,F,7.25099518,29,White,Married,Bachelor,67,230,18,27,White,Bachelor
+02,F,7.054784,37,White,Married,High School Grad.,63,200,27,34,White,8th Grade
+02,M,8.1791402,35,White,Married,9-12th Grade,62,155,20,39,White,8th Grade
+02,F,9.06319282,34,White,Married,9-12th Grade,66,230,33,27,White,9-12th Grade
+02,F,8.9507572,30,White,Married,Bachelor,66,160,25,33,White,High School Grad.
+02,M,8.9728034,36,White,Unmarried,Some College,68,230,12,36,Asian,Some College
+02,F,7.8484472,27,White,Married,Some College,65,125,40,29,White,High School Grad.
+02,M,7.8704934,29,White,Married,Bachelor,66,175,27,33,White,Bachelor
+02,F,8.0909554,37,White,Married,Master,61,120,23,41,White,Master
+02,F,8.37535138,30,White,Unmarried,8th Grade,60,142,18,32,White,8th Grade
+02,M,7.5067311,27,White,Married,High School Grad.,64,141,11,30,White,High School Grad.
+02,F,7.62578058,26,AIAN,Married,High School Grad.,64,250,29,32,AIAN,High School Grad.
+02,M,8.5539256,21,White,Married,High School Grad.,58,089,26,28,White,High School Grad.
+02,M,5.0485798,28,White,Married,Some College,62,160,21,30,White,Some College
+02,M,8.81848,26,White,Married,High School Grad.,64,254,34,23,White,High School Grad.
+02,M,6.9886454,25,Black,Married,Some College,66,165,09,30,Black,Some College
+02,M,7.3744539,25,White,Unmarried,High School Grad.,64,150,25,38,White,High School Grad.
+02,M,7.5508235,35,White,Married,Master,64,120,39,35,White,Bachelor
+02,F,7.71837462,25,White,Married,High School Grad.,63,169,20,27,Mixed,High School Grad.
+02,F,6.5697676000000005,34,White,Married,Associate,62,110,27,35,White,High School Grad.
+02,F,6.7461372,28,AIAN,Married,Bachelor,64,120,34,31,AIAN,Bachelor
+02,M,6.68661246,21,White,Unmarried,High School Grad.,63,121,43,20,White,High School Grad.
+02,F,6.87400516,21,White,Married,High School Grad.,60,103,20,23,White,9-12th Grade
+02,M,7.8704934,22,White,Unmarried,Some College,63,190,48,26,White,Some College
+02,F,6.2611208000000005,20,White,Unmarried,High School Grad.,60,148,28,20,White,Some College
+02,M,7.3303615,34,White,Married,Bachelor,65,135,34,46,White,High School Grad.
+02,F,7.68750994,22,White,Married,Some College,65,133,27,24,White,Associate
+02,M,7.2311536,20,White,Unmarried,Some College,64,118,42,20,White,High School Grad.
+02,F,5.180857,36,Asian,Married,Master,63,089,26,36,Asian,Doctorate
+01,F,7.6279852,37,White,Married,Master,62,173,44,39,White,Master
+01,M,6.3823749,37,White,Married,Master,62,173,44,39,White,Master
+02,F,5.99436178,22,White,Unmarried,Some College,59,117,27,21,White,Some College
+02,M,6.88723288,29,White,Married,High School Grad.,63,120,13,32,White,High School Grad.
+02,M,7.0988764,23,White,Married,Some College,64,125,27,32,White,Some College
+02,M,7.35020308,30,White,Unmarried,Some College,61,145,25,36,White,High School Grad.
+02,F,6.42426268,25,White,Unmarried,Bachelor,62,120,33,25,White,High School Grad.
+02,M,8.26952962,33,White,Married,9-12th Grade,65,185,25,34,White,High School Grad.
+02,F,6.9114837,29,White,Married,Master,62,089,26,28,White,Bachelor
+02,M,7.2862691,36,Asian,Married,Some College,64,130,22,49,White,Some College
+02,M,6.9114837,33,Mixed,Married,Master,64,160,20,32,White,High School Grad.
+02,F,6.9004606,21,White,Unmarried,High School Grad.,60,125,35,22,White,9-12th Grade
+02,M,5.00007816,34,White,Married,Master,66,126,29,32,White,Bachelor
+02,F,7.5838928,32,White,Married,Unknown,61,169,21,37,,Unknown
+02,M,8.84934468,34,Asian,Married,Bachelor,61,119,39,30,Asian,Bachelor
+02,F,1.9951811,31,White,Married,9-12th Grade,58,147,10,31,White,8th Grade
+02,M,8.0578861,23,White,Married,Some College,61,127,24,29,White,Some College
+02,M,5.7209889,37,Mixed,Married,Master,62,156,16,42,Mixed,Master
+02,M,7.9256089,40,White,Married,Master,66,114,26,49,White,Some College
+02,F,7.9256089,20,White,Unmarried,High School Grad.,65,165,31,22,White,High School Grad.
+02,F,8.08654616,28,Black,Married,Unknown,66,110,20,32,Black,Some College
+02,F,7.07462558,28,AIAN,Married,Bachelor,67,178,27,28,White,Master
+02,M,6.59401842,33,Asian,Married,Master,66,150,40,37,Asian,Master
+02,M,7.95647358,28,White,Married,Bachelor,62,112,31,30,White,Bachelor
+02,F,8.18134482,32,White,Married,Bachelor,65,168,22,33,White,Bachelor
+02,M,7.76908088,34,White,Married,Master,64,135,30,32,White,Bachelor
+02,F,6.31182706,34,White,Married,9-12th Grade,70,167,10,44,White,High School Grad.
+02,F,7.25099518,19,White,Unmarried,High School Grad.,63,150,30,21,White,High School Grad.
+02,M,7.9807244,35,Asian,Married,Bachelor,66,136,44,36,Asian,Bachelor
+02,M,8.0248168,41,White,Married,High School Grad.,64,150,15,40,White,Some College
+02,F,8.7743876,22,White,Married,9-12th Grade,67,160,35,31,White,9-12th Grade
+02,M,8.00056598,23,White,Married,Unknown,67,145,45,25,,Unknown
+02,M,8.0027706,34,White,Married,Some College,62,125,43,35,White,Master
+02,M,7.2091074,27,Asian,Married,Some College,61,124,38,26,Asian,High School Grad.
+02,F,7.826401,24,White,Unmarried,High School Grad.,64,145,26,25,White,9-12th Grade
+02,M,6.6799986,37,White,Married,Bachelor,67,175,57,36,White,Bachelor
+02,M,7.5949159,34,White,Married,Master,65,133,45,35,White,Bachelor
+02,M,8.5318794,24,Mixed,Unmarried,Some College,67,146,28,26,Asian,High School Grad.
+02,M,8.1350478,29,Asian,Married,Some College,60,105,36,31,White,High School Grad.
+02,F,7.2531998,35,Black,Married,Unknown,64,190,25,37,Black,Unknown
+02,M,6.283167,36,White,Married,8th Grade,61,107,31,29,White,High School Grad.
+02,M,9.3806581,34,Mixed,Unmarried,Associate,66,140,65,41,Mixed,Bachelor
+02,F,7.5618466,36,Mixed,Married,Bachelor,68,155,52,37,White,Bachelor
+02,F,8.5539256,34,White,Married,Some College,62,173,12,40,White,High School Grad.
+02,M,9.1271268,33,NHOPI,Unmarried,High School Grad.,63,125,45,33,White,Associate
+02,M,7.0327378000000005,31,White,Married,Bachelor,62,218,20,37,Asian,Bachelor
+02,F,7.0217147,30,Asian,Married,Unknown,65,109,41,55,Asian,Unknown
+02,F,7.1980843,19,White,Unmarried,Some College,61,163,42,19,White,9-12th Grade
+02,F,7.0878533,38,White,Married,Bachelor,67,140,14,42,White,Bachelor
+02,F,7.8374241,35,White,Married,Bachelor,68,145,35,32,White,Doctorate
+02,F,6.2060053,23,White,Unmarried,High School Grad.,58,120,40,29,White,9-12th Grade
+02,F,8.2783481,39,White,Unmarried,9-12th Grade,60,116,34,36,White,Some College
+02,M,8.5759718,40,White,Unmarried,9-12th Grade,62,199,00,41,White,Associate
+02,F,8.046863,31,White,Married,Associate,60,124,49,31,Mixed,Associate
+02,M,6.1178205,35,White,Married,Unknown,61,113,27,38,,Unknown
+02,F,6.8122758,28,White,Unmarried,9-12th Grade,66,213,23,33,White,9-12th Grade
+02,M,7.4626387,20,White,Unmarried,High School Grad.,66,140,30,21,White,9-12th Grade
+02,M,7.5067311,26,Asian,Unmarried,Bachelor,64,106,40,25,Black,Bachelor
+02,F,7.8043548000000005,39,White,Married,Bachelor,61,165,39,35,White,Some College
+02,M,8.2452788,26,White,Married,Associate,66,140,19,28,White,Some College
+02,F,9.5570277,41,White,Married,Bachelor,66,170,59,38,White,Some College
+02,F,6.6910217,34,White,Married,Bachelor,60,152,00,33,White,9-12th Grade
+02,M,8.3003943,24,White,Unmarried,Some College,63,145,35,23,White,Some College
+02,M,8.4767639,24,White,Unmarried,High School Grad.,61,155,18,35,White,8th Grade
+02,M,6.6028369,36,White,Married,Bachelor,65,140,40,37,White,Master
+02,F,7.0437609,29,White,Married,Some College,65,157,31,31,White,Associate
+02,F,7.9476551,28,Mixed,Married,Bachelor,64,145,55,39,Asian,Associate
+02,M,7.7712855,39,White,Married,Unknown,63,123,27,40,White,Unknown
+02,F,7.8925396,38,White,Married,Unknown,66,158,21,40,,Unknown
+02,F,7.936632,30,White,Unmarried,8th Grade,61,138,13,32,White,8th Grade
+02,M,7.3193384,33,Asian,Married,Bachelor,63,143,41,38,Asian,Bachelor
+02,M,6.7020448,33,White,Unmarried,Unknown,63,175,31,42,White,Unknown
+02,M,8.1901633,26,White,Unmarried,High School Grad.,62,136,21,29,White,9-12th Grade
+02,M,7.0768302,39,White,Unmarried,High School Grad.,60,162,18,42,White,High School Grad.
+02,M,7.6720776,33,White,Married,Bachelor,69,175,35,36,White,Bachelor
+02,F,6.2721439,30,White,Married,Bachelor,64,140,42,39,White,Bachelor
+02,M,8.1460709,31,White,Married,High School Grad.,64,161,30,36,White,High School Grad.
+02,F,7.5728697,31,White,Married,Bachelor,67,140,35,33,White,Master
+02,M,5.8312199,32,White,Married,Unknown,65,140,19,31,White,Unknown
+02,F,3.8139926,30,Black,Married,Unknown,66,158,19,31,Black,Unknown
+02,F,3.8250157000000002,30,Black,Married,Unknown,66,158,19,31,Black,Unknown
+02,F,8.1791402,34,White,Married,Some College,64,225,23,39,Mixed,Some College
+02,F,6.3052132,20,Asian,Unmarried,High School Grad.,63,165,31,23,Asian,High School Grad.
+02,M,6.4705597,35,White,Unmarried,High School Grad.,60,100,36,27,White,High School Grad.
+02,M,6.2611208000000005,35,White,Unmarried,High School Grad.,60,100,36,27,White,High School Grad.
+02,M,7.5287773,27,White,Married,High School Grad.,60,208,20,27,White,High School Grad.
+02,M,7.2311536,23,Black,Unmarried,Some College,65,180,35,25,Black,Some College
+02,M,8.0137937,38,White,Married,Bachelor,64,118,24,34,Mixed,Bachelor
+02,F,8.2232326,22,White,Unmarried,9-12th Grade,63,190,20,27,White,High School Grad.
+02,F,7.275246,35,White,Unmarried,8th Grade,63,149,48,49,White,8th Grade
+02,M,7.1980843,35,White,Married,Bachelor,65,151,35,35,White,Bachelor
+02,F,6.0406588,23,White,Unmarried,High School Grad.,65,145,62,28,White,High School Grad.
+02,M,7.3303615,20,White,Unmarried,Some College,59,165,17,19,White,9-12th Grade
+02,M,6.2611208000000005,29,White,Married,Doctorate,63,120,23,32,White,Doctorate
+02,M,8.653133500000001,29,White,Married,Bachelor,66,177,41,33,White,Master
+02,M,6.4595366,36,Asian,Married,Doctorate,64,142,22,36,Asian,Some College
+02,M,8.6310873,32,White,Unmarried,Unknown,63,150,22,32,White,Unknown
+02,F,8.1901633,21,White,Unmarried,Some College,67,205,48,23,White,Some College
+02,M,6.4264673,32,Mixed,Married,Some College,62,125,20,33,White,Some College
+02,F,6.8453451,38,White,Married,Bachelor,61,182,18,41,White,Bachelor
+02,M,3.7699002,37,White,Unmarried,Master,64,103,29,44,White,Master
+02,M,7.2531998,29,White,Unmarried,Associate,65,185,23,34,White,High School Grad.
+02,F,7.0658071,22,White,Married,Some College,67,185,20,24,White,Some College
+02,F,7.1429688,29,White,Married,Unknown,64,189,23,33,White,Unknown
+02,F,7.826401,38,White,Married,Bachelor,70,147,52,36,White,Some College
+02,F,5.9194047,33,White,Married,Bachelor,70,200,32,34,White,Doctorate
+02,F,6.0406588,33,White,Married,Bachelor,70,230,02,34,White,Doctorate
+02,F,6.6799986,39,White,Married,Doctorate,67,161,08,38,White,Some College
+02,M,6.6359062,38,White,Married,Bachelor,63,151,38,39,White,Bachelor
+02,F,6.9004606,32,White,Married,Bachelor,69,123,39,32,White,Bachelor
+02,F,6.503629,33,Asian,Married,Some College,62,118,22,44,Asian,Master
+02,M,6.2500977,30,White,Married,High School Grad.,64,123,38,37,White,Master
+02,F,3.5714844,34,White,Married,Unknown,62,125,40,31,White,Unknown
+02,M,9.149173,35,White,Married,Master,67,186,48,35,White,Bachelor
+02,M,6.4374904,30,Asian,Married,Master,64,110,23,33,Asian,Bachelor
+02,F,7.6500314000000005,28,White,Unmarried,Some College,60,130,36,33,White,High School Grad.
+02,F,5.5446193,33,Asian,Married,Master,66,104,32,32,Asian,Bachelor
+02,F,3.5935306000000002,27,White,Married,Some College,63,100,38,28,White,Some College
+02,F,7.8043548000000005,36,White,Married,Bachelor,63,155,32,38,White,Bachelor
+02,M,8.0909554,30,White,Unmarried,Some College,68,145,33,35,White,Bachelor
+02,F,9.0058727,18,White,Unmarried,9-12th Grade,62,125,15,23,White,High School Grad.
+02,M,7.9035627,31,White,Married,Bachelor,66,122,51,32,White,Bachelor
+02,M,6.9225068,35,White,Married,Unknown,66,200,05,38,White,Unknown
+02,M,6.8122758,32,White,Married,Master,64,117,20,36,White,Bachelor
+02,M,7.5618466,26,White,Married,Bachelor,66,120,32,35,White,Bachelor
+02,M,8.86036778,31,White,Married,Master,73,280,28,34,White,Bachelor
+02,F,6.172936,26,Asian,Married,Some College,64,115,22,27,Asian,Some College
+02,F,7.2091074,22,White,Unmarried,High School Grad.,67,260,63,22,White,High School Grad.
+02,M,8.2893712,27,Asian,Married,Unknown,64,127,49,29,Asian,Unknown
+02,F,8.3334636,42,White,Married,Master,65,150,53,42,White,Bachelor
+02,F,7.054784,28,White,Married,Bachelor,62,120,28,28,White,Some College
+02,F,2.3258741,32,White,Married,Master,65,160,23,33,White,Bachelor
+02,F,2.4030358,32,White,Married,Master,65,160,23,33,White,Bachelor
+02,M,8.3114174,38,White,Married,Bachelor,70,204,11,31,White,Bachelor
+02,M,7.0437609,30,Asian,Married,Associate,61,120,39,35,Asian,Associate
+02,F,6.0847512,26,White,Married,Bachelor,64,190,28,27,White,Bachelor
+02,F,6.5918138,28,White,Married,Bachelor,66,235,07,29,Mixed,High School Grad.
+02,M,7.6169621,27,White,Married,Bachelor,67,125,35,39,White,Doctorate
+02,M,7.6941238,36,White,Married,Bachelor,68,160,23,39,White,Associate
+02,M,5.8863354,19,White,Unmarried,High School Grad.,62,125,20,23,Mixed,High School Grad.
+02,F,4.5856096,19,White,Married,High School Grad.,65,148,38,19,White,High School Grad.
+02,F,4.960395,19,White,Married,High School Grad.,65,148,38,19,White,High School Grad.
+02,M,8.1240247,33,White,Married,Master,64,130,52,33,White,Master
+02,F,7.4736618,28,White,Married,High School Grad.,63,125,27,27,Black,High School Grad.
+02,F,6.3823749,17,White,Unmarried,Some College,66,112,40,19,White,Some College
+02,M,6.8673913,28,Asian,Married,Bachelor,62,105,22,26,Asian,Some College
+02,M,8.7854107,28,White,Married,Some College,64,168,12,27,White,Some College
+02,M,6.5807907,29,White,Married,Bachelor,68,160,26,33,White,Bachelor
+02,F,8.1350478,30,White,Married,Bachelor,69,154,28,32,White,Doctorate
+02,M,6.9665992,26,White,Married,Some College,61,114,25,30,White,Some College
+02,M,7.4626387,28,Black,Married,Some College,63,153,18,30,Black,High School Grad.
+02,M,8.9066648,29,White,Married,Master,70,148,31,32,White,Bachelor
+02,F,7.7602624,21,White,Married,Some College,65,122,35,21,White,High School Grad.
+02,M,5.8091737,30,White,Married,Bachelor,64,128,17,32,White,Bachelor
+02,F,7.5618466,40,White,Married,High School Grad.,65,156,11,41,White,9-12th Grade
+02,F,8.3555098,25,White,Unmarried,Some College,66,180,50,28,White,High School Grad.
+02,M,5.1036953,34,Asian,Unmarried,Some College,60,120,40,35,White,Some College
+02,M,4.6958406,34,Asian,Unmarried,Some College,60,120,40,35,White,Some College
+02,F,7.5067311,31,White,Married,Bachelor,67,237,33,40,White,High School Grad.
+02,M,8.046863,26,White,Unmarried,High School Grad.,66,203,49,42,White,High School Grad.
+02,M,9.1271268,35,Mixed,Married,Master,65,244,61,30,White,High School Grad.
+02,M,8.1130016,35,White,Married,Bachelor,68,163,32,35,White,Bachelor
+02,F,7.92119966,28,White,Married,High School Grad.,68,265,33,32,Mixed,High School Grad.
+02,M,8.0027706,25,White,Married,Some College,63,143,37,26,White,High School Grad.
+02,M,8.4657408,37,White,Married,Some College,66,140,47,37,White,Associate
+02,F,8.9066648,40,White,Married,Bachelor,69,237,38,39,White,Bachelor
+02,M,7.3634308,34,White,Married,Master,69,190,60,36,White,Master
+02,F,7.3303615,23,White,Unmarried,High School Grad.,61,180,19,31,NHOPI,High School Grad.
+02,F,7.5508235,30,White,Unmarried,9-12th Grade,62,140,17,32,White,Some College
+02,F,7.9697013,25,White,Married,High School Grad.,62,180,15,33,White,High School Grad.
+02,M,7.2201305,32,Asian,Married,High School Grad.,63,264,30,39,Asian,High School Grad.
+02,F,7.5508235,37,White,Married,Bachelor,67,150,28,45,White,Bachelor
+02,F,7.2201305,35,White,Married,Bachelor,62,120,24,37,White,High School Grad.
+02,F,6.9996685,27,White,Married,Bachelor,62,126,24,32,White,Some College
+02,M,8.6421104,33,Asian,Married,Some College,59,175,29,29,Black,Bachelor
+02,M,8.1350478,35,White,Married,Some College,64,138,08,38,White,Master
+02,F,7.7602624,35,White,Married,9-12th Grade,65,187,13,49,White,High School Grad.
+02,F,7.0768302,31,White,Married,Bachelor,67,180,14,32,White,High School Grad.
+02,F,6.834322,31,White,Married,Master,61,105,30,30,White,Master
+02,F,7.48027566,30,White,Married,Bachelor,66,143,32,32,White,Master
+02,F,8.0689092,38,White,Married,Master,63,153,23,38,Asian,Master
+02,F,8.39078372,31,White,Married,High School Grad.,67,204,02,29,White,9-12th Grade
+02,M,7.0878533,28,White,Married,Some College,64,130,41,28,White,Some College
+02,F,7.3413846000000005,34,White,Married,Master,62,180,11,32,White,High School Grad.
+02,F,7.85726568,32,White,Married,Bachelor,67,216,00,32,Asian,Some College
+02,M,6.2390746,18,White,Unmarried,High School Grad.,66,120,33,19,AIAN,High School Grad.
+02,M,6.7681834,21,White,Unmarried,Some College,67,183,44,31,Asian,Some College
+02,F,7.5067311,24,White,Unmarried,Some College,66,150,50,30,White,Some College
+02,F,6.1178205,38,Asian,Married,Bachelor,62,102,30,44,White,Doctorate
+02,M,7.4736618,22,White,Unmarried,High School Grad.,62,185,38,33,White,9-12th Grade
+02,M,8.2783481,27,White,Married,Master,63,144,41,29,White,Bachelor
+02,F,7.8594703,31,White,Married,Master,62,125,31,31,Mixed,High School Grad.
+02,F,8.2011864,33,White,Married,Bachelor,65,150,34,28,White,9-12th Grade
+02,F,6.3493056,26,White,Married,9-12th Grade,62,127,11,34,White,9-12th Grade
+02,F,7.1870612000000005,33,White,Unmarried,8th Grade,60,120,18,32,White,8th Grade
+02,M,7.6610545,23,White,Married,Some College,64,165,53,32,White,Some College
+02,F,7.2201305,27,White,Unmarried,Some College,65,165,25,31,White,Some College
+02,M,7.73601158,32,White,Unmarried,High School Grad.,67,180,10,31,White,High School Grad.
+02,F,7.40531858,30,White,Unmarried,High School Grad.,62,220,19,33,White,9-12th Grade
+02,M,8.54731174,24,White,Unmarried,High School Grad.,57,200,06,25,White,Some College
+02,F,8.5318794,38,Asian,Married,Master,62,145,26,37,Asian,High School Grad.
+02,M,9.3916812,24,White,Married,Bachelor,65,180,26,24,Black,High School Grad.
