@@ -13,11 +13,12 @@ pip install -r python/requirements.txt
 
 ## Demo 
 
-You can see the demos for using clustering, dimension reduction, and regression here:
+Demos for using declarative specifications with clustering, dimension reduction, and regression here:
 
 * [K-Means Clustering and PCA](http://stream.cs.ucdavis.edu:8888/#clustering)
 * [RandomForest Regressor](http://stream.cs.ucdavis.edu:8888/#regression)
 * [Hierarchical Clustering and Multiple Views](http://stream.cs.ucdavis.edu:8888/#multiview)
+* [Brushing and Linking with Dimension Reductions](http://stream.cs.ucdavis.edu:8888/#triviewbrush)
 
 ## Development and Examples
 
