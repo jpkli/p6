@@ -2,14 +2,6 @@
 
 P6 is a research project for developing a declarative language to specify visual analytics processes that integrate machine learning methods with interactive visualization for data analysis and exploration. P6 uses [P4](https://github.com/jpkli/p4) for GPU accelerated data processing and rendering, and leverages [Scikit-Learn](https://scikit-learn.org/stable/) and other Python libraries for supporting machine learning algorithms.
 
-## Installation
-
-To run P6, first install both the JavaScript and Python dependencies and libraries:
-
-```
-npm install
-pip install -r python/requirements.txt
-```
 
 ## Demo 
 
@@ -19,6 +11,16 @@ Demos for using declarative specifications with clustering, dimension reduction,
 * [RandomForest Regressor](http://stream.cs.ucdavis.edu:8888/#regression)
 * [Hierarchical Clustering and Multiple Views](http://stream.cs.ucdavis.edu:8888/#multiview)
 * [Brushing and Linking with Dimension Reductions](http://stream.cs.ucdavis.edu:8888/#triviewbrush)
+
+
+## Installation
+
+To run P6, first install both the JavaScript and Python dependencies and libraries:
+
+```
+npm install
+pip install -r python/requirements.txt
+```
 
 ## Development and Examples
 
