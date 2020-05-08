@@ -8,7 +8,7 @@ To run P6, first install both the JavaScript and Python dependencies and librari
 
 ```
 npm install
-pip install python/requirements.txt
+pip install -r python/requirements.txt
 ```
 
 ## Development and Examples
