@@ -187,19 +187,19 @@ export default function(arg = {}) {
   }
 
   p6.requestData = async (dataProps) => {
-    let response = await axios.post('/api/data/request', dataProps)
+    let response = await axios.post('/data/request', dataProps)
     p6.metadata = response.data
     return p6.metadata
   }
 
   p6.download = async (format) => {
     await p6.requestData()
-    let response = await axios.get('/api/data/' + format)
+    let response = await axios.get('/data/' + format)
     return response.data
   }
 
   p6.upload = (data) => {
-    return axios.post('/api/data/upload', {data})
+    return axios.post('/data/upload', {data})
   }
 
   p6.train = (specs) => {
@@ -207,7 +207,7 @@ export default function(arg = {}) {
       return {id: k, ...specs[k]}
     })
     // console.log(trainSpec)
-    let jobs = trainSpec.map(spec => axios.post('/api/analysis/train', spec))
+    let jobs = trainSpec.map(spec => axios.post('/analysis/train', spec))
     return Promise.all(jobs)
   }
 
@@ -318,9 +318,9 @@ export default function(arg = {}) {
     let analysisSpec = spec || p6.spec.analyses
     let analyses = setupAnalytics(analysisSpec)
     // console.log(analyses)
-    let url = '/api/analysis/result?spec=' + JSON.stringify(analyses)
+    let url = '/analysis/result?spec=' + JSON.stringify(analyses)
     let analysisResults = await fetchFromUrl(url)
-    let metadata = await axios.get('/api/analysis/metadata')
+    let metadata = await axios.get('/analysis/metadata')
     let nColumns = analysisResults.shape[1]
     let nRows = analysisResults.shape[0]
     // console.log(metadata)

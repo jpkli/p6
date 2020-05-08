@@ -1,12 +1,13 @@
 'use strict'
-process.env.NODE_ENV = 'production'
+// process.env.NODE_ENV = 'production'
 
 const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.config')
 
-webpackConfig.mode = 'production'
+// webpackConfig.mode = 'production'
+webpackConfig.mode = 'development'
 webpack(webpackConfig, (err, stats) => {
   if (err) throw err
   

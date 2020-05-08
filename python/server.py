@@ -19,14 +19,14 @@ import joblib
 from importlib import import_module
 
 client = Client(processes=False)
-# client = Client('35.202.164.129:8786') 
+# client = Client('<cluster-address>') 
 
 define("http", default=8888, help="run on the given port", type=int)
 define("stream", default=8000, help="streaming on the given port", type=int)
-define("appdir", default="../apps", help="serving app in given directory", type=str)
+define("appdir", default="../dist", help="serving app in given directory", type=str)
 
 class Application(tornado.web.Application):
-  def __init__(self, appdir = 'app'):
+  def __init__(self, appdir = '../dist'):
     handlers = [
       (r"/", MainHandler),
       (r"/analysis/([^/]+)", AnalyticsHandler),
@@ -37,7 +37,7 @@ class Application(tornado.web.Application):
       cookie_secret="'a6u^=-sr5ph027bg576b3rl@#^ho5p1ilm!q50h0syyiw#zjxwxy0&gq2j*(ofew0zg03c3cyfvo'",
       template_path=os.path.join(os.path.dirname(__file__), appdir),
       static_path=os.path.join(os.path.dirname(__file__), appdir),
-      static_url_prefix='/static/',
+      static_url_prefix='/dist/',
       xsrf_cookies=False,
     )
     super(Application, self).__init__(handlers, **settings)

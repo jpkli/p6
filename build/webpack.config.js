@@ -35,12 +35,13 @@ module.exports = {
     proxy: {
 
       // proxy all requests starting with /api to jsonplaceholder
-      '/api': {
+      '/analysis': {
         target: 'http://localhost:8888',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        changeOrigin: true
+      },
+      '/data': {
+        target: 'http://localhost:8888',
+        changeOrigin: true
       }
     }
   }
