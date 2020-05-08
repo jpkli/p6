@@ -2,6 +2,7 @@ import p4 from 'p4';
 import p3 from 'p3'
 import axios from 'axios';
 import {fetchFromUrl} from './numpyArrayLoader';
+import {csvParse, autoType} from 'd3-dsv'
 
 const analysisMethods = {
   clustering: ['KMeans', 'DBSCAN', 'AgglomerativeClustering'],
@@ -145,7 +146,7 @@ export default function(arg = {}) {
   p6.result = p4x.result
 
   p6.data = (props) => {
-    if (props.url) {
+    if (props.url && props.url.slice(0,4) !== 'http') {
       p6.dataProps = props
     }
     if (props.json) {
@@ -154,12 +155,27 @@ export default function(arg = {}) {
     if (props.schema) {
       p6.dataSchema = props.schema
     }
+    // if (props.format && props.url) {
+    //   let rawData = await fetch(props.url)
+    //   if (props.format === 'csv') {
+    //     let csvTexts = await rawData.text()
+    //     p6.jsonData = csvParse(csvTexts, autoType)
+    //   } else {
+    //     p6.jsonData = await rawData.json()
+    //   }
+    // }
+    if (props.schema) {
+      p6.dataSchema = props.schema
+    }
+    
     return p6
   }
 
   p6.preprocess = (opts) => {
     if (typeof opts === 'function') {
-      p6.jsonData = opts(p6.jsonData)
+      const {schema, data} = opts(p6.jsonData)
+      p6.jsonData = data
+      p6.dataSchema = schema
     } else if (typeof opts === 'object') {
       let job = p3.pipeline(p6.jsonData)
       for (let opt of opts) {
@@ -167,6 +183,7 @@ export default function(arg = {}) {
       }
       p6.jsonData = job.execute()
     }
+    return p6
   }
 
   p6.requestData = async (dataProps) => {
