@@ -11,6 +11,14 @@ npm install
 pip install -r python/requirements.txt
 ```
 
+## Demo 
+
+You can see the demos for using clustering, dimension reduction, and regression here:
+
+* [K-Means Clustering and PCA](http://stream.cs.ucdavis.edu:8888/#clustering)
+* [RandomForest Regressor](http://stream.cs.ucdavis.edu:8888/#regression)
+* [Hierarchical Clustering and Multiple Views](http://stream.cs.ucdavis.edu:8888/#multiview)
+
 ## Development and Examples
 
 For development and trying the example applications, use the following commands for starting the server and client
