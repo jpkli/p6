@@ -52,3 +52,5 @@ The example applications can be accessed at http://localhost:8080/examples/
     })
 
   ```
+### Parameters for analysis methods
+For setting the parameters for the `.analyze` specifications, use the same name as the functions in Python libraries. As shown in the example shown above, `n_component` is directly passed to sklearn.decomposition.PCA. More parameters can be set in this way. 
