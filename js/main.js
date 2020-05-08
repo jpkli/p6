@@ -1,5 +1,5 @@
-import p4 from 'p4';
-import p3 from 'p3'
+import p4 from 'p4.js';
+import p3 from 'p3.js'
 import axios from 'axios';
 import {fetchFromUrl} from './numpyArrayLoader';
 import {csvParse, autoType} from 'd3-dsv'
