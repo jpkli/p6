@@ -54,7 +54,7 @@ class DataManagement(tornado.web.RequestHandler):
 
   def post(self, opt):
     params = tornado.escape.json_decode(self.request.body)
-    print('load data', opt, params)
+    # print('load data', opt, params)
     res = {}
     if opt == 'upload':
       AnalyticsHandler.data = pd.DataFrame.from_dict(params['data'])
@@ -94,7 +94,7 @@ class AnalyticsHandler(tornado.web.RequestHandler):
 
   def get(self, opt):
     if (opt == 'metadata'):
-      print(AnalyticsHandler.program.metadata())
+      # print(AnalyticsHandler.program.metadata())
       self.write(json.dumps(AnalyticsHandler.program.metadata()))
     else:
       params = self.get_argument('spec', None, True)
@@ -134,7 +134,7 @@ class AnalyticsHandler(tornado.web.RequestHandler):
     method = getattr(module, spec['method'])
     parameters = spec['parameters'] if 'parameters' in spec else {} 
     model = method(**parameters).fit(X.values, y.values)
-    print(X.columns)
+    # print(X.columns)
     AnalyticsHandler.predictors[spec['id']] = {
       'model': model,
       'features': X.columns.values
@@ -158,8 +158,6 @@ def main():
       # app_path = os.path.join(os.path.dirname(__file__), options.appdir),
       server_path = os.path.join(os.path.dirname(__file__), '.'),
   )
-
-  print(options.appdir)
 
   #automatically restart server on code change.
   tornado.autoreload.start()
