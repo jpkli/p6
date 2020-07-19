@@ -1,14 +1,8 @@
 import io
 import numpy as np
 import pandas as pd
-# import sklearn 
-# from sklearn.cluster import KMeans, DBSCAN
 from importlib import import_module
-
 from sklearn.preprocessing import StandardScaler
-
-# import sklearn.cluster as Clustering
-# import sklearn.manifold as Manifold
 import ruptures as rpt
 
 DATA_TYPES = {
@@ -22,16 +16,19 @@ class Analytics:
     self._result = self.data
     self.useDictForResult = False
     self.categories = {}
-    self.predictors = predictors
     self.resultColumns = []
     for col in self.data.select_dtypes(include=['object']).columns:
       categoryColumn = self.data[col].astype('category').cat
       self.data[col] = categoryColumn.codes
       self.categories[col] = list(categoryColumn.categories)
 
-    # print(self.data.dtypes)
     if index is not None:
       self.data.set_index(index)
+
+    self.predictors = predictors
+    self.predictorAttributes = {}
+    for predictorName in predictors:
+      self.predictorAttributes[predictorName] = predictors[predictorName]['attributes']
 
   def schema(self):
     s = {}
@@ -69,18 +66,16 @@ class Analytics:
       columns = list(self.data.columns),
       dtypes =  [str(x) for x in self.data.dtypes],
       categories = self.categories,
-      results = self.resultColumns
+      results = self.resultColumns,
+      predictors = self.predictorAttributes
     )
 
   def numpyArray(self):
-    # for k, v in dict(self.data.dtypes).items():
-      # if str(v) == 'int64':
-      #   self.data.astype({k: 'int32'})
+    
 
     for col in self.data.columns:
       self.data[col] = self.data[col].astype(np.float32)
 
-    print(self.data.dtypes)
     memfile = io.BytesIO()
     np.save(memfile, self.data)
     memfile.seek(0)
@@ -109,7 +104,7 @@ class Analytics:
   def predict(self, predictorName, out = None):
     if predictorName in self.predictors:
       model = self.predictors[predictorName]['model']
-      features = self.predictors[predictorName]['features']
+      features = self.predictorAttributes[predictorName]['features']
       data = self.data[features]
       outputName = predictorName if out == None else out
       self.data[outputName] = model.predict(data)

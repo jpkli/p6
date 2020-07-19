@@ -20,7 +20,7 @@ export default async function () {
       target: 'BabyWeight'
     }
   })
-
+  
   app.data({url: './data/babies.csv'})
     .analyze({
       PredictedWeight: '$BabyWeightRegressor',

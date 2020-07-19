@@ -12,7 +12,6 @@ from analytics import Analytics
 
 import pandas as pd
 import numpy as np
-from sklearn.datasets import load_digits
 
 from dask.distributed import Client
 import joblib
@@ -99,7 +98,7 @@ class AnalyticsHandler(tornado.web.RequestHandler):
     else:
       params = self.get_argument('spec', None, True)
       specs = json.loads(params)
-      print(specs)
+      print('processing spec: ', specs)
       with joblib.parallel_backend('dask'):
         for spec in specs:
           opt = list(spec)[0]
@@ -112,7 +111,6 @@ class AnalyticsHandler(tornado.web.RequestHandler):
 
           else:
             method = getattr(AnalyticsHandler.program, opt)
-            print(spec[opt])
             result = method(**spec[opt])
       
       # result = AnalyticsHandler.program.result()
@@ -134,17 +132,27 @@ class AnalyticsHandler(tornado.web.RequestHandler):
     method = getattr(module, spec['method'])
     parameters = spec['parameters'] if 'parameters' in spec else {} 
     model = method(**parameters).fit(X.values, y.values)
-    # print(X.columns)
     AnalyticsHandler.predictors[spec['id']] = {
       'model': model,
-      'features': X.columns.values
+      'attributes': {'features': list(X.columns.values)}
     }
+
+    for x in [key for key in dir(model) if not key.startswith('__')]:
+      
+      attr = getattr(model, x)
+      # print(x, isinstance(attr, np.ndarray))
+      if isinstance(attr, np.ndarray):
+        AnalyticsHandler.predictors[spec['id']]['attributes'][x] = list(attr)
+      if type(attr) in [int, float, str]:
+        AnalyticsHandler.predictors[spec['id']]['attributes'][x] = attr
+      
     print('training complete for %s' % spec['id'])
     # except:
     #   self.set_status(400)
     #   print(spec)
 
-    self.write('ok')
+    # return model attributes after training is completed
+    self.write(json.dumps(AnalyticsHandler.predictors[spec['id']]['attributes']))
 
 
 def main():

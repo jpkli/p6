@@ -16,20 +16,20 @@ export default function () {
       }
     })
     .visualize({
-      $forEach: {
-        $value: ['MotherAge', 'FatherAge'],
+      $rows: {
+        $select: ['MotherAge', 'FatherAge'],
         $transform: {
           $aggregate: {
-            $group: ['$value', 'clusters'],
+            $group: ['$select', 'clusters'],
             $collect: { AvgBabyWeight: {$avg: 'BabyWeight'}},
           },
           $match: {
-            $value: [18, 40],
+            $select: [18, 40],
             AvgBabyWeight: [6, 9]
           },
         },
         mark: 'spline',
-        x: '$value', y: 'AvgBabyWeight',
+        x: '$select', y: 'AvgBabyWeight',
         color: 'clusters', opacity: 1, size: 2
       }
     })

@@ -1,8 +1,7 @@
-import p4 from 'p4.js';
+import p4 from 'p4.js'
 import p3 from 'p3.js'
-import axios from 'axios';
-import {fetchFromUrl} from './numpyArrayLoader';
-import {csvParse, autoType} from 'd3-dsv'
+import axios from 'axios'
+import {fetchFromUrl} from './numpyArrayLoader'
 
 const analysisMethods = {
   clustering: ['KMeans', 'DBSCAN', 'AgglomerativeClustering'],
@@ -35,6 +34,7 @@ export default function(arg = {}) {
   p6.client = null
   p6.dataFrame = null
   p6.operations = {}
+  p6.variables = {}
   p6.spec = {
     analyses: {},
     vis: {}
@@ -125,6 +125,7 @@ export default function(arg = {}) {
     padding = {left: 0, right: 0, top: 0, bottom: 0},
     gridlines = {x: false, y: false}
   }) => {
+    console.log(layout)
     let views = new Array(count)
     let calcOffset
     let height = p6.height
@@ -189,6 +190,7 @@ export default function(arg = {}) {
   p6.requestData = async (dataProps) => {
     let response = await axios.post('/data/request', dataProps)
     p6.metadata = response.data
+    console.log(p6.metadata)
     return p6.metadata
   }
 
@@ -263,20 +265,49 @@ export default function(arg = {}) {
     Object.keys(specs).forEach(viewId => {      
       let params = Array.isArray(specs[viewId]) ? specs[viewId] : [specs[viewId]]
       params.forEach(param => {
-        if (viewId === '$forEach' && Array.isArray(param.$value)) {
+        if (viewId === '$rows' || viewId === '$cols') {
           let repeatedOpts = []
+          let forValues
+
+          if (Array.isArray(param.$select)) {
+            forValues = param.$select
+          } else if (typeof param.$select === 'object') {
+            let model = param.$select.model
+            let attribute = param.$select.attribute
+            let features =  p6.metadata.predictors[model].features.map((name, index) => {
+              let feature = {feature: name}
+              feature[attribute] = p6.metadata.predictors[model][attribute][index]
+              return feature
+            })
+            
+            if (param.$select.sort === 'asc') {
+              features.sort((a, b) => a[attribute] - b[attribute])
+            } else {
+              features.sort((a, b) => b[attribute] - a[attribute])
+            }
+
+            let featureNames = features.map(f => f.feature)
+
+            if (param.$select.limit) {
+              featureNames = featureNames.slice(0, param.$select.limit)
+            }
+            console.log(features)
+            forValues = featureNames
+          }
+
           p6.generateViews({
-            count: param.$value.length,
-            layout: param.layout,
+            count: forValues.length,
+            layout: viewId.slice(1),
             padding: p6.padding,
             gridlines: {y: true}
           })
 
-          param.$value.forEach((value, vi) => {
-            let opt = JSON.parse(
-              JSON.stringify({ops, params: Object.assign({}, param)})
-              .replace(/\$value/g, value)
-            )
+          forValues.forEach((value, vi) => {
+            let optString = JSON.stringify({ops, params: Object.assign({}, param)})
+              .replace(/\$select/g, value)
+
+            let opt = JSON.parse(optString)
+
             delete opt.repeat
             opt.params.id = 'p6-view-' + vi
             if (opt.params.$transform) {
@@ -366,5 +397,11 @@ export default function(arg = {}) {
     })
     // pipeline = []
   }
+
+  p6.parameters = function (variables) {
+    Object.assign(p6.variables, variables)
+    return p6
+  }
+
   return p6
 }
