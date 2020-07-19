@@ -1,6 +1,8 @@
 import clustering from './clustering.js'
 import regression from './regression.js'
 import multiview from './multiview.js'
+import featuring from './featuring.js'
+import linearmodel from './linearmodel.js'
 import triviewbrush from './triviewbrush.js'
 
 import hljs from 'highlight.js'
@@ -18,6 +20,10 @@ if (app === 'regression') {
   example = multiview
 } else if (app === 'triviewbrush') {
   example = triviewbrush
+} else if (app === 'featuring') {
+  example = featuring
+} else if (app === 'linearmodel') {
+  example = linearmodel
 } 
 
 example()
