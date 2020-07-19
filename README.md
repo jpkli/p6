@@ -27,7 +27,7 @@ pip install -r python/requirements.txt
 For development and trying the example applications, use the following commands for starting the server and client
 
 ```
-npm run server && npm run client
+npm start
 ```
 
 The example applications can be accessed at http://localhost:8080/examples/
