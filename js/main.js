@@ -1,4 +1,4 @@
-import p4 from 'p4.js'
+import p4 from 'p4'
 import p3 from 'p3.js'
 import axios from 'axios'
 import {fetchFromUrl} from './numpyArrayLoader'
@@ -213,6 +213,15 @@ export default function(arg = {}) {
     return Promise.all(jobs)
   }
 
+  p6.gridSearch = (specs) => {
+    let trainSpec = Object.keys(specs).map(k => {
+      return {id: k, ...specs[k]}
+    })
+    console.log(trainSpec)
+    let jobs = trainSpec.map(spec => axios.post('/analysis/gridsearch', spec))
+    return Promise.all(jobs)
+  }
+
   p6.analyze = (specs) => {
     p6.spec.analyses = specs
     Object.keys(specs).map(outputKey => {
@@ -272,11 +281,11 @@ export default function(arg = {}) {
           if (Array.isArray(param.$select)) {
             forValues = param.$select
           } else if (typeof param.$select === 'object') {
-            let model = param.$select.model
+            let modelName = param.$select.model
             let attribute = param.$select.attribute
-            let features =  p6.metadata.predictors[model].features.map((name, index) => {
+            let features =  p6.metadata.models[modelName].features.map((name, index) => {
               let feature = {feature: name}
-              feature[attribute] = p6.metadata.predictors[model][attribute][index]
+              feature[attribute] = p6.metadata.models[modelName][attribute][index]
               return feature
             })
             

@@ -5,6 +5,8 @@ import featuring from './featuring.js'
 import linearmodel from './linearmodel.js'
 import triviewbrush from './triviewbrush.js'
 
+import gridsearch from './gridsearch.js'
+
 import hljs from 'highlight.js'
 import javascript from 'highlight.js/lib/languages/javascript'
 import 'highlight.js/styles/xcode.css';
@@ -24,6 +26,8 @@ if (app === 'regression') {
   example = featuring
 } else if (app === 'linearmodel') {
   example = linearmodel
+} else if (app === 'gridsearch') {
+  example = gridsearch
 } 
 
 example()

@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from importlib import import_module
 from sklearn.preprocessing import StandardScaler
+import sklearn.preprocessing as preprocessors
 import ruptures as rpt
 
 DATA_TYPES = {
@@ -11,7 +12,7 @@ DATA_TYPES = {
 }
 
 class Analytics:
-  def __init__(self, data, predictors = {}, index = None, excludes = []):
+  def __init__(self, data, models = {}, index = None, excludes = []):
     self.data = pd.DataFrame(data).drop(excludes, axis=1)
     self._result = self.data
     self.useDictForResult = False
@@ -25,10 +26,7 @@ class Analytics:
     if index is not None:
       self.data.set_index(index)
 
-    self.predictors = predictors
-    self.predictorAttributes = {}
-    for predictorName in predictors:
-      self.predictorAttributes[predictorName] = predictors[predictorName]['attributes']
+    self.models = models
 
   def schema(self):
     s = {}
@@ -40,11 +38,6 @@ class Analytics:
         s[k] = ''.join(i for i in s[k] if not i.isdigit())
     return s
 
-  # def _operation(ops):
-  #   def execution(self, *args, **kwargs): 
-  #     ops(self, *args, **kwargs)
-  #     return self
-  #   return execution
 
   def numerical(self):
     self.data = self.data.select_dtypes(include=['int', 'float'])
@@ -62,17 +55,19 @@ class Analytics:
     return self._result
 
   def metadata(self):
+    modelAttributes = {}
+    for modelName in self.models:
+      modelAttributes[modelName] = self.models[modelName].attributes
+
     return dict(
       columns = list(self.data.columns),
       dtypes =  [str(x) for x in self.data.dtypes],
       categories = self.categories,
       results = self.resultColumns,
-      predictors = self.predictorAttributes
+      models = modelAttributes
     )
 
   def numpyArray(self):
-    
-
     for col in self.data.columns:
       self.data[col] = self.data[col].astype(np.float32)
 
@@ -93,35 +88,48 @@ class Analytics:
   def groupby(self, keys, metric = 'count'):
     groups = self.data.groupby(keys, as_index=keys, sort=False, group_keys=True)
     measure = getattr(groups, metric)
-    self.data = measure()
-    # new_schema = {}
-    # for k in self.data.columns.values:
-    #   new_schema[k] = self.schema[k]
-    # self.schema = new_schema
+    self._result = measure()
     return self
 
-
-  def predict(self, predictorName, out = None):
-    if predictorName in self.predictors:
-      model = self.predictors[predictorName]['model']
-      features = self.predictorAttributes[predictorName]['features']
+  def predict(self, modelName, out = None):
+    if modelName in self.models:
+      model = self.models[modelName]
+      features = model.attributes['features']
       data = self.data[features]
-      outputName = predictorName if out == None else out
+      outputName = modelName if out == None else out
       self.data[outputName] = model.predict(data)
     
     return self
 
-  def clustering(self, methodName, parameters = {}, columns = None, out = None):
-    module = import_module('sklearn.cluster')
-    method = getattr(module, methodName)
+  def applyML(self, moduleName, methodName, preprocessing, columns, parameters = {}, transform = True):
+    module = import_module(moduleName)
+    try:
+      method = getattr(module, methodName)
+    except:
+      raise Exception({'arg': 'method', 'type': 'InvalidMethod', 'name': methodName})
 
     if columns == None:
       features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
       input_data = self.data[features]
     else:
       input_data = self.data[columns]
-      
-    output = method(**parameters).fit(input_data)
+
+    if preprocessing != None:
+      try:
+        preprocess = getattr(preprocessors, preprocessing)
+      except:
+        raise Exception({'arg': 'proprocessing', 'type': 'InvalidMethod', 'name': preprocessing})
+
+      input_data = preprocess().fit_transform(input_data)
+
+    if transform:
+      return method(**parameters).fit_transform(input_data)
+    else:
+      return method(**parameters).fit(input_data)
+
+
+  def clustering(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
+    output = self.applyML('sklearn.cluster', methodName, preprocessing, columns, parameters, False)
     output_name = methodName if out == None else out
     self.data[output_name] =  output.labels_
     self._result = output.labels_
@@ -130,22 +138,14 @@ class Analytics:
 
     return self
 
-  def decomposition(self, methodName, parameters = {}, columns = None,  out = None):
-    module = import_module('sklearn.decomposition')
-    method = getattr(module, methodName)
-
-    if columns == None:
-      features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
-      input_data = self.data[features]
-    else:
-      input_data = self.data[columns]
-
-    std_data = StandardScaler().fit_transform(input_data)
-    output = method(**parameters).fit_transform(std_data)
+  def decomposition(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
+    output = self.applyML('sklearn.decomposition', methodName, preprocessing, columns, parameters)
     output_name = methodName if out == None else out
     n_components = 2
+    
     if 'n_components' in parameters:
       n_components = parameters['n_components'] 
+    
     result  = pd.DataFrame(data = output, columns = ['%s%d'%(output_name, x) for x in range(0,  n_components)])
 
     for pc in result.columns.values:
@@ -156,18 +156,8 @@ class Analytics:
     self._result = result
     return self
 
-  def manifold(self, methodName, parameters = {}, columns = None,  out = None):
-    module = import_module('sklearn.manifold')
-    method = getattr(module, methodName)
-
-    if columns == None:
-      features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
-      input_data = self.data[features]
-    else:
-      input_data = self.data[columns]
-
-    std_data = StandardScaler().fit_transform(input_data)
-    output = method(**parameters).fit_transform(std_data)
+  def manifold(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
+    output = self.applyML('sklearn.manifold', methodName, preprocessing, columns, parameters)
     output_name = methodName if out == None else out
     n_components = 2
     if 'n_components' in parameters:

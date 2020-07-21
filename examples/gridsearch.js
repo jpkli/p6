@@ -11,17 +11,24 @@ export default async function () {
     }
   })
 
-  await app.train({
+  await app.gridSearch({
     $BabyWeightRegressor: {
       module: 'ensemble',
       method: 'RandomForestRegressor',
       data: './data/babies-train.csv',
-      // features: ['MotherWeight', 'MotherHeight', 'MotherAge', 'FatherAge'],
-      parameters: {max_depth: 3, random_state: 0},
-      target: 'BabyWeight'
+      target: 'BabyWeight',
+      parameters: {
+        param_grid: {
+          n_estimators: [10, 20, 40, 60],
+          max_depth: [3, 4, 5, 6, 8]
+        },
+        cv: 5,
+        scoring: 'r2'
+      }
     }
   })
   
+  // app.data({url: './data/babies.csv'})
   app.data({url: '../p4/data/Nat2015result-200k.csv'})
     .analyze({
       PredictedWeight: '$BabyWeightRegressor',
@@ -38,8 +45,7 @@ export default async function () {
             $aggregate: {
               $bin: 'MotherWeight',
               $collect: {
-                PredictedWeight: {$avg: 'PredictedWeight'},
-                AvgBabyWeight: {$avg: 'BabyWeight'}
+                PredictedWeight: {$avg: 'PredictedWeight'}
               }
             }
           },

@@ -1,21 +1,25 @@
 import logging
 import json
-import tornado.escape
-import tornado.ioloop
-import tornado.options
-import tornado.web
-# import tornado.websocket
-import tornado.autoreload
+import joblib
 import os.path
-from tornado.options import define, options
-from analytics import Analytics
 
 import pandas as pd
 import numpy as np
 
+import tornado.escape
+import tornado.ioloop
+import tornado.options
+import tornado.web
+import tornado.autoreload
+from tornado.options import define, options
+
 from dask.distributed import Client
-import joblib
 from importlib import import_module
+
+from sklearn.preprocessing import StandardScaler
+
+from analytics import Analytics
+from model import Model
 
 client = Client(processes=False)
 # client = Client('<cluster-address>') 
@@ -57,7 +61,7 @@ class DataManagement(tornado.web.RequestHandler):
     res = {}
     if opt == 'upload':
       AnalyticsHandler.data = pd.DataFrame.from_dict(params['data'])
-      AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.predictors)
+      AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.models)
       res = AnalyticsHandler.program.metadata()
     else:
       try:
@@ -68,7 +72,7 @@ class DataManagement(tornado.web.RequestHandler):
           AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows).sample(n=int(params['sample']))
         else:
           AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows)
-        AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.predictors)
+        AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.models)
         res = AnalyticsHandler.program.metadata()
       except:
         self.set_status(400)
@@ -84,7 +88,7 @@ class DataManagement(tornado.web.RequestHandler):
 class AnalyticsHandler(tornado.web.RequestHandler):
   program = None
   data = None
-  predictors = {}
+  models = {}
   
   def set_default_headers(self):
     self.set_header("Access-Control-Allow-Origin", "*")
@@ -93,18 +97,17 @@ class AnalyticsHandler(tornado.web.RequestHandler):
 
   def get(self, opt):
     if (opt == 'metadata'):
-      # print(AnalyticsHandler.program.metadata())
+      logging.info(AnalyticsHandler.program.metadata())
       self.write(json.dumps(AnalyticsHandler.program.metadata()))
     else:
       params = self.get_argument('spec', None, True)
       specs = json.loads(params)
-      print('processing spec: ', specs)
+      logging.info('processing spec: ', specs)
       with joblib.parallel_backend('dask'):
         for spec in specs:
           opt = list(spec)[0]
           if opt[0] == '$':
-            print(opt, opt in AnalyticsHandler.program.predictors[opt])
-            if opt in AnalyticsHandler.program.predictors:
+            if opt in AnalyticsHandler.program.models:
               result = AnalyticsHandler.program.predict(opt, spec[opt]['out'])
             else:
               self.set_status(400)
@@ -116,43 +119,24 @@ class AnalyticsHandler(tornado.web.RequestHandler):
       # result = AnalyticsHandler.program.result()
       self.write(result.numpyArray())
 
-  def post(self, spec):
+  def post(self, opt):
+    """Allow client to save models and set parameters on the server side"""
     spec = tornado.escape.json_decode(self.request.body)
-
+    logging.info(opt, spec)
     # try:
-    data = pd.read_csv(spec['data'])
-    for col in data.select_dtypes(include=['object']).columns:
-      categoryColumn = data[col].astype('category').cat
-      data[col] = categoryColumn.codes
-      # ategories[col] = list(categoryColumn.categories)
-
-    y = data[spec['target']]
-    X =  data[spec['features']] if 'features' in spec else data[filter(lambda x: x != spec['target'], data.columns)]
-    module = import_module('sklearn.' + spec['module'])
-    method = getattr(module, spec['method'])
-    parameters = spec['parameters'] if 'parameters' in spec else {} 
-    model = method(**parameters).fit(X.values, y.values)
-    AnalyticsHandler.predictors[spec['id']] = {
-      'model': model,
-      'attributes': {'features': list(X.columns.values)}
-    }
-
-    for x in [key for key in dir(model) if not key.startswith('__')]:
-      
-      attr = getattr(model, x)
-      # print(x, isinstance(attr, np.ndarray))
-      if isinstance(attr, np.ndarray):
-        AnalyticsHandler.predictors[spec['id']]['attributes'][x] = list(attr)
-      if type(attr) in [int, float, str]:
-        AnalyticsHandler.predictors[spec['id']]['attributes'][x] = attr
-      
-    print('training complete for %s' % spec['id'])
+    spec['data'] = pd.read_csv(spec['data'])
+    model = Model(**spec)
+    if opt == 'gridsearch' and 'parameters' in spec:
+      model.grid_search(**spec['parameters'])
+    else:
+      model.train()
+    AnalyticsHandler.models[spec['id']] = model
+        
     # except:
     #   self.set_status(400)
-    #   print(spec)
 
     # return model attributes after training is completed
-    self.write(json.dumps(AnalyticsHandler.predictors[spec['id']]['attributes']))
+    self.write('test')
 
 
 def main():
@@ -170,11 +154,11 @@ def main():
   #automatically restart server on code change.
   tornado.autoreload.start()
   for key, path in watch_paths.items():
-      print("Watching {0} ({1}) for changes".format(key, path))
+      logging.info("Watching {0} ({1}) for changes".format(key, path))
       for dir, _, files in os.walk(path):
           [tornado.autoreload.watch(path + '/' + f) for f in files if not f.startswith('.')]
 
-  print('http server is running on ', options.http)
+  logging.info('http server is running on ', options.http)
   tornado.ioloop.IOLoop.current().start()
 
 if __name__ == "__main__":
