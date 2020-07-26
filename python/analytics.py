@@ -1,54 +1,29 @@
 import io
 import numpy as np
 import pandas as pd
-from importlib import import_module
-from sklearn.preprocessing import StandardScaler
+
 import sklearn.preprocessing as preprocessors
 import ruptures as rpt
 
-DATA_TYPES = {
-  'numerical': ['int', 'float'],
-  'categorical': ['object']
-}
+from importlib import import_module
+from dataset import Dataset
 
 class Analytics:
-  def __init__(self, data, models = {}, index = None, excludes = []):
-    self.data = pd.DataFrame(data).drop(excludes, axis=1)
-    self._result = self.data
-    self.useDictForResult = False
-    self.categories = {}
+  def __init__(self, data, models = {}):
+    
+    if isinstance(data, Dataset):
+      self.dataset = data
+    elif isinstance(data, pd.DataFrame) or type(data) == str:
+      self.dataset = Dataset(data)
+    else:
+      raise Exception({'arg': 'data', 'type': 'InvalidData'})
+
+    self._result = self.dataset.data
     self.resultColumns = []
-    for col in self.data.select_dtypes(include=['object']).columns:
-      categoryColumn = self.data[col].astype('category').cat
-      self.data[col] = categoryColumn.codes
-      self.categories[col] = list(categoryColumn.categories)
-
-    if index is not None:
-      self.data.set_index(index)
-
     self.models = models
 
-  def schema(self):
-    s = {}
-    for k, v in dict(self.data.dtypes).items():
-      s[k] = str(v)
-      if s[k] == 'object':
-        s[k] = 'string'
-      else:
-        s[k] = ''.join(i for i in s[k] if not i.isdigit())
-    return s
-
-
-  def numerical(self):
-    self.data = self.data.select_dtypes(include=['int', 'float'])
-    return self
-
-  def categorical(self):
-    self.data = self.data.select_dtypes(include=['object'])
-    return self
-
   def corr(self, columns = None):
-    input_data = self.data if columns == None else self.data[columns]
+    input_data = self.dataset.data if columns == None else self.dataset.data[columns]
     self._result = input_data.corr()
 
   def result(self):
@@ -60,44 +35,29 @@ class Analytics:
       modelAttributes[modelName] = self.models[modelName].attributes
 
     return dict(
-      columns = list(self.data.columns),
-      dtypes =  [str(x) for x in self.data.dtypes],
-      categories = self.categories,
+      columns = list(self.dataset.data.columns),
+      dtypes =  [str(x) for x in self.dataset.data.dtypes],
+      categories = self.dataset.categories,
       results = self.resultColumns,
       models = modelAttributes
     )
 
   def numpyArray(self):
-    for col in self.data.columns:
-      self.data[col] = self.data[col].astype(np.float32)
+    for col in self.dataset.data.columns:
+      self.dataset.data[col] = self.dataset.data[col].astype(np.float32)
 
     memfile = io.BytesIO()
-    np.save(memfile, self.data)
+    np.save(memfile, self.dataset.data)
     memfile.seek(0)
     return memfile.read()
-
-  def select(self, columns = None, dtype = None):
-    if type(columns) == list:
-      self.data = self.data[columns]
-     
-    if dtype == 'categorical' or dtype == 'numerical':
-      self.data = self.data.select_dtypes(include=DATA_TYPES[dtype])
-    # self.data.filter(items=columns)
-    return self
-
-  def groupby(self, keys, metric = 'count'):
-    groups = self.data.groupby(keys, as_index=keys, sort=False, group_keys=True)
-    measure = getattr(groups, metric)
-    self._result = measure()
-    return self
 
   def predict(self, modelName, out = None):
     if modelName in self.models:
       model = self.models[modelName]
       features = model.attributes['features']
-      data = self.data[features]
+      data = self.dataset.data[features]
       outputName = modelName if out == None else out
-      self.data[outputName] = model.predict(data)
+      self.dataset.data[outputName] = model.predict(data)
     
     return self
 
@@ -109,10 +69,10 @@ class Analytics:
       raise Exception({'arg': 'method', 'type': 'InvalidMethod', 'name': methodName})
 
     if columns == None:
-      features = filter(lambda x: x  not in self.resultColumns, self.data.columns)
-      input_data = self.data[features]
+      features = filter(lambda x: x  not in self.resultColumns, self.dataset.data.columns)
+      input_data = self.dataset.data[features]
     else:
-      input_data = self.data[columns]
+      input_data = self.dataset.data[columns]
 
     if preprocessing != None:
       try:
@@ -131,7 +91,7 @@ class Analytics:
   def clustering(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
     output = self.applyML('sklearn.cluster', methodName, preprocessing, columns, parameters, False)
     output_name = methodName if out == None else out
-    self.data[output_name] =  output.labels_
+    self.dataset.data[output_name] =  output.labels_
     self._result = output.labels_
     if output_name not in self.resultColumns:
       self.resultColumns.append(output_name)
@@ -149,7 +109,7 @@ class Analytics:
     result  = pd.DataFrame(data = output, columns = ['%s%d'%(output_name, x) for x in range(0,  n_components)])
 
     for pc in result.columns.values:
-      self.data[pc] = result[pc].values
+      self.dataset.data[pc] = result[pc].values
       if pc in self.resultColumns:
         self.resultColumns.append(pc)
 
@@ -165,7 +125,7 @@ class Analytics:
     result = pd.DataFrame(data = output, columns = ['%s%d'%(output_name, x) for x in range(0,  n_components)])
 
     for dim in result.columns.values:
-      self.data[dim] = result[dim].values
+      self.dataset.data[dim] = result[dim].values
       if dim not in self.resultColumns:
         self.resultColumns.append(dim)
 
@@ -175,7 +135,7 @@ class Analytics:
   def CPD(self, attribute, n = 7,  method = 'Binseg', model = 'l2', width = 3, out = None, gradient = False):
     # methods: Pelt, Window, 
     cpdMethod = getattr(rpt, method)
-    input_data = self.data[attribute].values
+    input_data = self.dataset.data[attribute].values
     if gradient == True:
       input_data = np.gradient(input_data)
 
@@ -195,8 +155,7 @@ class Analytics:
     for idx in changePoints[:-1]:
       output[idx] = 1 + offset
       offset += 1
-    self.data[output_name] = output
+    self.dataset.data[output_name] = output
     self._result = output
+    
     return self
-
-

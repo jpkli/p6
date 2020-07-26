@@ -19,6 +19,7 @@ from importlib import import_module
 from sklearn.preprocessing import StandardScaler
 
 from analytics import Analytics
+from dataset import Dataset
 from model import Model
 
 client = Client(processes=False)
@@ -33,8 +34,7 @@ class Application(tornado.web.Application):
     handlers = [
       (r"/", MainHandler),
       (r"/analysis/([^/]+)", AnalyticsHandler),
-      (r"/data/([^/]+)", DataManagement),
-      # (r"/websocket", WebSocketHandler)
+      (r"/data/([^/]+)", DataManagement)
     ]
     settings = dict(
       cookie_secret="'a6u^=-sr5ph027bg576b3rl@#^ho5p1ilm!q50h0syyiw#zjxwxy0&gq2j*(ofew0zg03c3cyfvo'",
@@ -57,26 +57,30 @@ class DataManagement(tornado.web.RequestHandler):
 
   def post(self, opt):
     params = tornado.escape.json_decode(self.request.body)
-    # print('load data', opt, params)
+    logging.info('load data', opt, params)
     res = {}
     if opt == 'upload':
-      AnalyticsHandler.data = pd.DataFrame.from_dict(params['data'])
-      AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.models)
-      res = AnalyticsHandler.program.metadata()
+      AnalyticsHandler.data = Dataset(pd.DataFrame.from_dict(params['data']))
     else:
-      try:
-        nrows = None 
-        if 'nrows' in params and not np.isnan(params['nrows']):
-          nrows = int(params['nrows'])
-        if 'sample' in params:
-          AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows).sample(n=int(params['sample']))
-        else:
-          AnalyticsHandler.data = pd.read_csv(params['url'], nrows=nrows)
-        AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.models)
-        res = AnalyticsHandler.program.metadata()
-      except:
-        self.set_status(400)
+      nrows = None 
+      if 'nrows' in params and not np.isnan(params['nrows']):
+        nrows = int(params['nrows'])
+      if 'sample' in params:
+        AnalyticsHandler.data = Dataset(pd.read_csv(params['url'], nrows=nrows).sample(n=int(params['sample'])))
+      else:
+        AnalyticsHandler.data = Dataset(pd.read_csv(params['url'], nrows=nrows))
     
+    if '$select' in params:
+      AnalyticsHandler.data.select(**params['$select'])
+
+    if '$preprocess' in params:
+      AnalyticsHandler.data.preprocess(**params['$preprocess'])
+
+    if '$transform' in params:
+      AnalyticsHandler.data.transform(**params['$transform'])
+
+    AnalyticsHandler.program = Analytics(AnalyticsHandler.data, AnalyticsHandler.models)
+    res = AnalyticsHandler.program.metadata()
     self.write(res)
 
   def get(self, format):
@@ -123,20 +127,18 @@ class AnalyticsHandler(tornado.web.RequestHandler):
     """Allow client to save models and set parameters on the server side"""
     spec = tornado.escape.json_decode(self.request.body)
     logging.info(opt, spec)
-    # try:
-    spec['data'] = pd.read_csv(spec['data'])
-    model = Model(**spec)
-    if opt == 'gridsearch' and 'parameters' in spec:
-      model.grid_search(**spec['parameters'])
-    else:
-      model.train()
-    AnalyticsHandler.models[spec['id']] = model
-        
-    # except:
-    #   self.set_status(400)
-
-    # return model attributes after training is completed
-    self.write('test')
+    try:
+      spec['data'] = pd.read_csv(spec['data'])
+      model = Model(**spec)
+      if opt == 'gridsearch' and 'parameters' in spec:
+        model.grid_search(**spec['parameters'])
+      else:
+        model.train()
+      AnalyticsHandler.models[spec['id']] = model
+      self.write('succeed')
+    except:
+      self.set_status(400)
+      self.write('error')
 
 
 def main():
@@ -146,17 +148,17 @@ def main():
   app.listen(options.http)
 
   watch_paths = dict(
-      # client_path = os.path.join(os.path.dirname(__file__), '../js'),
-      # app_path = os.path.join(os.path.dirname(__file__), options.appdir),
-      server_path = os.path.join(os.path.dirname(__file__), '.'),
+    # client_path = os.path.join(os.path.dirname(__file__), '../js'),
+    # app_path = os.path.join(os.path.dirname(__file__), options.appdir),
+    server_path = os.path.join(os.path.dirname(__file__), '.'),
   )
 
   #automatically restart server on code change.
   tornado.autoreload.start()
   for key, path in watch_paths.items():
-      logging.info("Watching {0} ({1}) for changes".format(key, path))
-      for dir, _, files in os.walk(path):
-          [tornado.autoreload.watch(path + '/' + f) for f in files if not f.startswith('.')]
+    logging.info("Watching {0} ({1}) for changes".format(key, path))
+    for dir, _, files in os.walk(path):
+      [tornado.autoreload.watch(path + '/' + f) for f in files if not f.startswith('.')]
 
   logging.info('http server is running on ', options.http)
   tornado.ioloop.IOLoop.current().start()
