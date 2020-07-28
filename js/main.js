@@ -3,26 +3,13 @@ import p3 from 'p3.js'
 import axios from 'axios'
 import {fetchFromUrl} from './numpyArrayLoader'
 
-const analysisMethods = {
-  clustering: ['KMeans', 'DBSCAN', 'AgglomerativeClustering'],
-  decomposition: ['PCA', 'ICA', 'KernelPCA'],
-  manifold: ['MDS', 'LocallyLinearEmbedding', 'Isomap', 'SpectralEmbedding', 'TSNE']
-}
+import vis from './vis'
+import analytics from './analytics'
 
-let getMethodType = (methodName) => {
-  let methodType = null
-  Object.keys(analysisMethods).forEach(mt => {
-    let methodIdx = analysisMethods[mt].indexOf(methodName)
-    if (methodIdx !== -1) {
-      methodType = mt
-    }
-  })
-  return methodType
-}
 
-export default function(arg = {}) {
-  let p4x = p4(arg)
- 
+
+export default function(arg = false) {
+  let p4x = (arg) ? p4(arg) : {};
   let p6 = {}
   p6.pipeline = []
   p6.dataProps = null
@@ -43,6 +30,17 @@ export default function(arg = {}) {
   p6.height = arg.viewport[1]
   p6.padding = arg.padding || {left: 0, right: 0, top: 0, bottom: 0}
   
+
+  const interpretVis = vis.bind(p6)
+  const interpretAnalytics = analytics.bind(p6)
+
+  p6.layout = (config) => {
+    p4x = p4(config)
+    if (config.padding) {
+      p6.padding = config.padding
+    }
+  }
+
   const reactiveAnalysisHandler = {
     get: function(target, property) {
       return target[property];
@@ -67,7 +65,7 @@ export default function(arg = {}) {
       p6.spec.vis[target.id][property] = value
       let vis = {}
       vis[target.id] = p6.spec.vis[target.id]
-      let pipeline = setupVis(vis)
+      let pipeline = interpretVis(vis)
       pipeline.forEach(p => {
         p6.client[p.ops](p.params)
       })
@@ -76,7 +74,7 @@ export default function(arg = {}) {
     }
   };
 
-  p4x.operations.forEach(ops => {
+  p4.operations.forEach(ops => {
     p6[ops] = (spec) => {
       let params = Object.assign({}, spec)
       if (ops === 'visualize') {
@@ -114,34 +112,14 @@ export default function(arg = {}) {
   }
 
   p6.view = (viewSpec) => {
-    let views = Object.keys(viewSpec).map(k => { return {id: k, ...viewSpec[k]}})
+    let views = Object.keys(viewSpec)
+      .filter(k => k !== '$layout')
+      .map(k => { return {id: k, ...viewSpec[k]}})
+    if (viewSpec.$layout) {
+      p6.layout(viewSpec.$layout)
+    }
     p4x.view(views)
     return p6
-  }
-
-  p6.generateViews = ({
-    layout = 'rows',
-    count = 1,
-    padding = {left: 0, right: 0, top: 0, bottom: 0},
-    gridlines = {x: false, y: false}
-  }) => {
-    console.log(layout)
-    let views = new Array(count)
-    let calcOffset
-    let height = p6.height
-    let width = p6.width
-    if (layout == 'rows') {
-      height = height / count
-      calcOffset = (index) => [0, index * height]
-    } else {
-      width = width / count
-      calcOffset = (index) => [index * width, 0]
-    }
-    for (let i = 0; i < count; i++) {
-      let offset = calcOffset(i)
-      views[i] = {width, height, padding, offset, gridlines, id: 'p6-view-'+i}
-    }
-    return p6.view(views)
   }
 
   p6.result = p4x.result
@@ -238,117 +216,6 @@ export default function(arg = {}) {
     return p6
   }
 
-  const setupAnalytics = (specs) => {
-    return Object.keys(specs).map(outputKey => {
-      let analysis = {}
-      if (typeof specs[outputKey] === 'string') {
-        // console.log(specs[outputKey])
-        analysis[specs[outputKey]] = {out: outputKey}
-      } else {
-        let spec = Object.assign({}, specs[outputKey])
-        let methodName = spec.technique || spec.algorithm
-        let methodType = getMethodType(methodName)
-        if (methodType === null) {
-          methodType = methodName
-          analysis[methodType] = spec
-        } else {
-          analysis[methodType] = {methodName}
-          analysis[methodType].parameters = spec
-
-        }
-        if (spec.features) {
-          analysis[methodType].columns = spec.features
-          delete spec.features
-        }
-        delete spec.technique
-        delete spec.algorithm
-        analysis[methodType].out = outputKey
-      }
-      return analysis
-    })
-  }
-
-  const setupVis = (specs) => {
-    let pipeline = []
-    let ops = 'visualize'
-    Object.keys(specs).forEach(viewId => {      
-      let params = Array.isArray(specs[viewId]) ? specs[viewId] : [specs[viewId]]
-      params.forEach(param => {
-        if (viewId === '$rows' || viewId === '$cols') {
-          let repeatedOpts = []
-          let forValues
-
-          if (Array.isArray(param.$select)) {
-            forValues = param.$select
-          } else if (typeof param.$select === 'object') {
-            let modelName = param.$select.model
-            let attribute = param.$select.attribute
-            let features =  p6.metadata.models[modelName].features.map((name, index) => {
-              let feature = {feature: name}
-              feature[attribute] = p6.metadata.models[modelName][attribute][index]
-              return feature
-            })
-            
-            if (param.$select.sort === 'asc') {
-              features.sort((a, b) => a[attribute] - b[attribute])
-            } else {
-              features.sort((a, b) => b[attribute] - a[attribute])
-            }
-
-            let featureNames = features.map(f => f.feature)
-
-            if (param.$select.limit) {
-              featureNames = featureNames.slice(0, param.$select.limit)
-            }
-            console.log(features)
-            forValues = featureNames
-          }
-
-          p6.generateViews({
-            count: forValues.length,
-            layout: viewId.slice(1),
-            padding: p6.padding,
-            gridlines: {y: true}
-          })
-
-          forValues.forEach((value, vi) => {
-            let optString = JSON.stringify({ops, params: Object.assign({}, param)})
-              .replace(/\$select/g, value)
-
-            let opt = JSON.parse(optString)
-
-            delete opt.repeat
-            opt.params.id = 'p6-view-' + vi
-            if (opt.params.$transform) {
-              let extraOpts = Object.keys(opt.params.$transform).map(ops => {
-                let optName = ops[0] === '$' ? ops.slice(1) : ops
-                return {ops: optName, params: opt.params.$transform[ops]}
-              })
-              repeatedOpts = repeatedOpts.concat(extraOpts)
-            }
-            repeatedOpts.push(opt)
-          })
-          pipeline = pipeline.concat(repeatedOpts)
-          
-        } else if (param.$transform) {
-          let extraOpts = Object.keys(param.$transform).map(ops => {
-            let optName = ops[0] === '$' ? ops.slice(1) : ops
-            return {ops: optName, params: param.$transform[ops]}
-          })
-          pipeline = pipeline.concat(extraOpts)
-          let props = {id: viewId, ...param}
-          pipeline.push({ops, params: props})
-
-        } else {
-          let props = {id: viewId, ...param}
-          pipeline.push({ops, params: props})
-        }
-      })
-      
-    })
-    return pipeline
-  }
-
   p6.execute = async (spec) => {
     if (p6.dataProps) {
       await p6.requestData(p6.dataProps)
@@ -356,7 +223,7 @@ export default function(arg = {}) {
       await p6.upload(p6.jsonData)
     }
     let analysisSpec = spec || p6.spec.analyses
-    let analyses = setupAnalytics(analysisSpec)
+    let analyses = interpretAnalytics(analysisSpec)
     // console.log(analyses)
     let url = '/analysis/result?spec=' + JSON.stringify(analyses)
     let analysisResults = await fetchFromUrl(url)
@@ -399,7 +266,7 @@ export default function(arg = {}) {
       p6.client = p4x.replaceData(GpuDataFrame)
     }
     p6.dataFrame = GpuDataFrame
-    let pipeline = setupVis(p6.spec.vis).concat(p6.pipeline)
+    let pipeline = interpretVis(p6.spec.vis).concat(p6.pipeline)
     // console.log(pipeline)
     pipeline.forEach(p => {
       p6.client[p.ops](p.params)
