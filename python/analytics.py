@@ -61,7 +61,7 @@ class Analytics:
     
     return self
 
-  def applyML(self, moduleName, methodName, preprocessing, columns, parameters = {}, transform = True):
+  def applyML(self, moduleName, methodName, scaling, columns, parameters = {}, transform = True):
     module = import_module(moduleName)
     try:
       method = getattr(module, methodName)
@@ -74,11 +74,11 @@ class Analytics:
     else:
       input_data = self.dataset.data[columns]
 
-    if preprocessing != None:
+    if scaling != None:
       try:
-        preprocess = getattr(preprocessors, preprocessing)
+        preprocess = getattr(preprocessors, scaling)
       except:
-        raise Exception({'arg': 'proprocessing', 'type': 'InvalidMethod', 'name': preprocessing})
+        raise Exception({'arg': 'proprocessing', 'type': 'InvalidMethod', 'name': scaling})
 
       input_data = preprocess().fit_transform(input_data)
 
@@ -88,8 +88,8 @@ class Analytics:
       return method(**parameters).fit(input_data)
 
 
-  def clustering(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
-    output = self.applyML('sklearn.cluster', methodName, preprocessing, columns, parameters, False)
+  def clustering(self, methodName, scaling = 'StandardScaler', columns = None, parameters = {}, out = None):
+    output = self.applyML('sklearn.cluster', methodName, scaling, columns, parameters, False)
     output_name = methodName if out == None else out
     self.dataset.data[output_name] =  output.labels_
     self._result = output.labels_
@@ -98,8 +98,8 @@ class Analytics:
 
     return self
 
-  def decomposition(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
-    output = self.applyML('sklearn.decomposition', methodName, preprocessing, columns, parameters)
+  def decomposition(self, methodName, scaling = 'StandardScaler', columns = None, parameters = {}, out = None):
+    output = self.applyML('sklearn.decomposition', methodName, scaling, columns, parameters)
     output_name = methodName if out == None else out
     n_components = 2
     
@@ -116,8 +116,8 @@ class Analytics:
     self._result = result
     return self
 
-  def manifold(self, methodName, preprocessing = 'StandardScaler', columns = None, parameters = {}, out = None):
-    output = self.applyML('sklearn.manifold', methodName, preprocessing, columns, parameters)
+  def manifold(self, methodName, scaling = 'StandardScaler', columns = None, parameters = {}, out = None):
+    output = self.applyML('sklearn.manifold', methodName, scaling, columns, parameters)
     output_name = methodName if out == None else out
     n_components = 2
     if 'n_components' in parameters:

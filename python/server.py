@@ -16,8 +16,6 @@ from tornado.options import define, options
 from dask.distributed import Client
 from importlib import import_module
 
-from sklearn.preprocessing import StandardScaler
-
 from analytics import Analytics
 from dataset import Dataset
 from model import Model
@@ -62,20 +60,12 @@ class DataManagement(tornado.web.RequestHandler):
     if opt == 'upload':
       AnalyticsHandler.data = Dataset(pd.DataFrame.from_dict(params['data']))
     else:
-      nrows = None 
-      if 'nrows' in params and not np.isnan(params['nrows']):
-        nrows = int(params['nrows'])
-      if 'sample' in params:
-        AnalyticsHandler.data = Dataset(pd.read_csv(params['url'], nrows=nrows).sample(n=int(params['sample'])))
-      else:
-        AnalyticsHandler.data = Dataset(pd.read_csv(params['url'], nrows=nrows))
+      AnalyticsHandler.data = Dataset(pd.read_csv(params['url']))
     
     if '$select' in params:
       AnalyticsHandler.data.select(**params['$select'])
-
     if '$preprocess' in params:
       AnalyticsHandler.data.preprocess(**params['$preprocess'])
-
     if '$transform' in params:
       AnalyticsHandler.data.transform(**params['$transform'])
 

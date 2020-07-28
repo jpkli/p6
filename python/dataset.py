@@ -16,10 +16,7 @@ class Dataset:
     self.raw_data = pd.DataFrame(data)
     self.data = self.raw_data
     self.categories = {}
-    for col in self.data.select_dtypes(include=['object']).columns:
-      categoryColumn = self.data[col].astype('category').cat
-      self.data[col] = categoryColumn.codes
-      self.categories[col] = list(categoryColumn.categories)
+    self.preporcess()
 
     if index is not None:
       self.data.set_index(index)
@@ -34,18 +31,20 @@ class Dataset:
         s[k] = ''.join(i for i in s[k] if not i.isdigit())
     return s
 
-  def select(self, nrows = 0, columns = None, dtype = None, excludes = []):
+  def select(self, nrows = 0, columns = None, sample = None, dtype = None, excludes = []):
+    selected_data = self.raw_data
     if type(columns) == list:
-      self.data = self.raw_data[columns]
-     
+      selected_data = selected_data[columns]
     if dtype == 'categorical' or dtype == 'numerical':
-      self.data = self.raw_data.select_dtypes(include=DATA_TYPES[dtype])
-
+      selected_data = selected_data.select_dtypes(include=DATA_TYPES[dtype])
     if excludes != None and type(excludes) == list:
-      self.data = self.raw_data.drop(excludes, axis=1)
-
+      selected_data = selected_data.drop(excludes, axis=1)
     if nrows > 0:
-      self.data = self.raw_data.head(nrows)
+      selected_data = selected_data.head(nrows)
+    if sample != None:
+      selected_data = selected_data.sample(n=int(params['sample']))
+
+    self.data = selected_data
 
     return self
 
@@ -65,28 +64,41 @@ class Dataset:
     return memfile.read()
 
 
-  def preporcess(self, dropna = False, fillna = None):
-    if dropna:
-      self.data.dropna(inplace=True)
+  def preporcess(self, spec = {'categorical': 'IntegerCodes'}):  
+    if 'categorical' in spec:
+      if spec['categorical'] == 'IntegerCodes':
+        for col in self.data.select_dtypes(include=['object']).columns:
+          categoryColumn = self.data[col].astype('category').cat
+          self.data[col] = categoryColumn.codes
+          self.categories[col] = list(categoryColumn.categories)
+      if spec['categorical'] == 'OneHot':
+        self.data = pd.get_dummies(self.data, columns=self.data.select_dtypes(include=['object']).columns)
 
-    if type(dropna) == list:
-      self.data.dropna(subset=dropna, inplace=True)
+    if 'null' in spec:
+      if spec['null'] == 'drop':
+        self.data.dropna(inplace=True)
 
-    if fillna != None and type(fillna) != list:
-      self.data.fillna(value=fillna)
-    
-    elif type(fillna) == list:
-      for val in fillna:
-        col = val.keys()[0]
-        self.data[col] = self.data[col].fillna(val[col])
-  
+      if type(spec['null']) == list:
+        self.data.dropna(subset=spec['null'], inplace=True)
+
+      if type(spec['null']) == dict and 'fill' in spec['null']:
+        if type(spec['null']['fill']) in [str, int, float]:
+          self.data.fillna(value=spec['null']['fill'])
+        elif type(spec['null']['fill']) == dict:
+          for col,val in spec['null']['fill'].items():
+            self.data[col] = self.data[col].fillna(val)
+
     return self
 
 
   def transform(self, ops):
     for opt in ops:
-      if type(opt.aggregate) == dict and '$group' in opt.aggregate and '$collect' in opt.aggregate:
-        self.data = self.data.groupby(aggregate['$group']).agg(aggregate['$collect']).reset_index()
+      if (type(opt.aggregate) == dict and
+        '$group' in opt.aggregate and
+        '$collect' in opt.aggregate):
+          self.data = self.data.groupby(
+              opt.aggregate['$group']
+            ).agg(opt.aggregate['$collect']).reset_index()
 
     return self
 
