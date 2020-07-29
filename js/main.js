@@ -1,23 +1,21 @@
-import p4 from 'p4'
+import p4 from 'p4.js'
 import p3 from 'p3.js'
 import axios from 'axios'
-import {fetchFromUrl} from './numpyArrayLoader'
 
 import vis from './vis'
 import analytics from './analytics'
-
-
+import numpy from './numpy'
 
 export default function(arg = false) {
-  let p4x = (arg) ? p4(arg) : {};
+  let p4x = {}
   let p6 = {}
   p6.pipeline = []
+  p6.analyses = []
+  p6.vis = []
   p6.dataProps = null
   p6.jsonData = null
   p6.dataSchema = null
   p6.metadata = null
-  p6.analyses = []
-  p6.vis = []
   p6.client = null
   p6.dataFrame = null
   p6.operations = {}
@@ -26,20 +24,21 @@ export default function(arg = false) {
     analyses: {},
     vis: {}
   }
-  p6.width = arg.viewport[0]
-  p6.height = arg.viewport[1]
-  p6.padding = arg.padding || {left: 0, right: 0, top: 0, bottom: 0}
-  
+  p6.layout = (arg) => {
+    p6.width = arg.viewport[0]
+    p6.height = arg.viewport[1]
+    p6.padding = arg.padding || {left: 0, right: 0, top: 0, bottom: 0}
+    p4x = p4(arg)
+    return p6
+  }
+
+  if (arg) {
+    p6.layout(arg)
+  }
 
   const interpretVis = vis.bind(p6)
-  const interpretAnalytics = analytics.bind(p6)
 
-  p6.layout = (config) => {
-    p4x = p4(config)
-    if (config.padding) {
-      p6.padding = config.padding
-    }
-  }
+  const interpretAnalytics = analytics.bind(p6)
 
   const reactiveAnalysisHandler = {
     get: function(target, property) {
@@ -81,13 +80,11 @@ export default function(arg = false) {
         p6.spec.vis = spec
         if (typeof params === 'object' && !params.id && !params.repeat) {
           Object.keys(params).map(viewId => {
-            // console.log(viewId)
             p6.vis[viewId] = new Proxy(
               {id: viewId, ...params[viewId]},
               reactiveVisHandler
             )
           })
-
           params = Object.keys(params).map(k => {
             if (Array.isArray(params[k])) {
               return params[k].map(param => {
@@ -96,7 +93,6 @@ export default function(arg = false) {
             }
             return {id: k, ...params[k]}
           })
-          
         }
       } else {
         p6.pipeline.push({ops, params: spec})
@@ -134,19 +130,9 @@ export default function(arg = false) {
     if (props.schema) {
       p6.dataSchema = props.schema
     }
-    // if (props.format && props.url) {
-    //   let rawData = await fetch(props.url)
-    //   if (props.format === 'csv') {
-    //     let csvTexts = await rawData.text()
-    //     p6.jsonData = csvParse(csvTexts, autoType)
-    //   } else {
-    //     p6.jsonData = await rawData.json()
-    //   }
-    // }
     if (props.schema) {
       p6.dataSchema = props.schema
     }
-    
     return p6
   }
 
@@ -186,7 +172,6 @@ export default function(arg = false) {
     let trainSpec = Object.keys(specs).map(k => {
       return {id: k, ...specs[k]}
     })
-    // console.log(trainSpec)
     let jobs = trainSpec.map(spec => axios.post('/analysis/train', spec))
     return Promise.all(jobs)
   }
@@ -224,13 +209,13 @@ export default function(arg = false) {
     }
     let analysisSpec = spec || p6.spec.analyses
     let analyses = interpretAnalytics(analysisSpec)
-    // console.log(analyses)
+
     let url = '/analysis/result?spec=' + JSON.stringify(analyses)
-    let analysisResults = await fetchFromUrl(url)
+    let analysisResults = await numpy.fetchFromUrl(url)
     let metadata = await axios.get('/analysis/metadata')
     let nColumns = analysisResults.shape[1]
     let nRows = analysisResults.shape[0]
-    // console.log(metadata)
+
     let categories = metadata.data.categories
     let categoryAttrs = Object.keys(categories)
     let strValues = {}
@@ -240,12 +225,11 @@ export default function(arg = false) {
         strValues[col][val] = i
       })
     })
-    // console.log(categories, strValues)
+
     let cData = p4.cstore({strValues})
     for (let i = 0; i < nColumns; i++) {
       let rowData = analysisResults.data.slice(i * nRows, i * nRows + nRows)
       if (categoryAttrs.indexOf(metadata.data.columns[i]) !== -1) {
-        // console.log(metadata.data.columns[i])
         rowData = Uint16Array.from(rowData)
       }
       cData.addColumn({
@@ -256,7 +240,6 @@ export default function(arg = false) {
     }
  
     let GpuDataFrame = cData.data()
-    // console.log(GpuDataFrame)
     if (p6.dataSchema) {
       GpuDataFrame.schema = p6.dataSchema
     }
@@ -267,11 +250,9 @@ export default function(arg = false) {
     }
     p6.dataFrame = GpuDataFrame
     let pipeline = interpretVis(p6.spec.vis).concat(p6.pipeline)
-    // console.log(pipeline)
     pipeline.forEach(p => {
       p6.client[p.ops](p.params)
     })
-    // pipeline = []
   }
 
   p6.parameters = function (variables) {

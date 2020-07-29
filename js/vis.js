@@ -7,7 +7,6 @@ export default function (specs) {
   Object.keys(specs).forEach(viewId => {      
     let params = Array.isArray(specs[viewId]) ? specs[viewId] : [specs[viewId]]
     params.forEach(param => {
-      console.log(viewId)
       if (viewId === '$rows' || viewId === '$cols') {
         let repeatedOpts = []
         let forValues
@@ -36,20 +35,22 @@ export default function (specs) {
           }
           forValues = featureNames
         }
-        let views = generateViews({
-          width: this.width,
-          height: this.height,
-          padding: this.padding,
-          count: forValues.length,
-          layout: viewId.slice(1),
-          gridlines: {y: true}
-        })
-        console.log(views)
-        this.view(views)
+
+        this.view(
+          generateViews({
+            width: this.width,
+            height: this.height,
+            padding: this.padding,
+            count: forValues.length,
+            layout: viewId.slice(1),
+            gridlines: {y: true}
+          })
+        )
 
         forValues.forEach((value, vi) => {
-          let optString = JSON.stringify({ops, params: Object.assign({}, param)})
-            .replace(/\$select/g, value)
+          let optString = JSON.stringify({
+            ops, params: Object.assign({}, param)
+          }).replace(/\$select/g, value)
 
           let opt = JSON.parse(optString)
 
