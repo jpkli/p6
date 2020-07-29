@@ -1,9 +1,5 @@
 export default async function () {
-  let app = p6({
-    container: "app",
-    viewport: [1200, 400],    
-    padding: {left: 90, right: 20, top: 30, bottom: 50}
-  })
+  let app = p6()
 
   await app.train({
     $BabyWeightRegressor: {
@@ -19,6 +15,11 @@ export default async function () {
     .analyze({
       PredictedWeight: '$BabyWeightRegressor',
     })
+    .layout({
+      container: "app",
+      viewport: [1200, 400],    
+      padding: {left: 90, right: 20, top: 30, bottom: 50}
+    })
     .visualize({
       $cols: {
         $select: {
@@ -33,27 +34,4 @@ export default async function () {
       }
     })
     .execute()
-    // app.visualize({
-    //   $rows: {
-    //     $select: {
-    //       model: '$BabyWeightRegressor',
-    //       attribute: 'feature_importances_',
-    //       sort: 'desc',
-    //       limit: 3
-    //     },
-    //     $transform: {
-    //       $aggregate: {
-    //         $bin: '$select',
-    //         $collect: {
-    //           PredictedWeight: {$avg: 'PredictedWeight'}
-    //         }
-    //       }
-    //     },
-    //     mark: 'bar', size: 6,
-    //     x: '$select', height: 'PredictedWeight',
-    //     color: 'steelblue', opacity: 0.33
-    //   }
-    // })
-    // .execute()
-
 }

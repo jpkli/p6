@@ -1,15 +1,9 @@
 export default async function () {
-  let app = p6({
-    container: "app",
-    viewport: [500, 500]    
-  })
-  .view({
-    c1: {
-      width: 500, height: 500, 
-      gridlines: {x: true, y: true},
-      padding: {left: 60, right: 20, top: 30, bottom: 50}
-    }
-  })
+  /*
+    Uses grid search to find the best parameter set for fitting a RandomForest model for regression.
+  */
+  
+  let app = p6()
 
   await app.gridSearch({
     $BabyWeightRegressor: {
@@ -28,10 +22,21 @@ export default async function () {
     }
   })
   
-  // app.data({url: './data/babies.csv'})
-  app.data({url: '../p4/data/Nat2015result-200k.csv'})
+  app.data({url: './data/babies.csv'})
     .analyze({
       PredictedWeight: '$BabyWeightRegressor',
+    })
+  
+  app.layout({
+      container: "app",
+      viewport: [500, 500]    
+    })
+    .view({
+      c1: {
+        width: 500, height: 500, 
+        gridlines: {x: true, y: true},
+        padding: {left: 60, right: 20, top: 30, bottom: 50}
+      }
     })
     .visualize({
       c1: [

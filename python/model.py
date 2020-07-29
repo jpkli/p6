@@ -10,16 +10,16 @@ from sklearn.model_selection import GridSearchCV
 class Model:
   def __init__(
   self, id, module, method, data, target,
-  features = None, preprocess = None,  parameters = {}
+  features = None, scaling = None,  parameters = {}
   ):
     self.id = id
     self.module = import_module('sklearn.' + module)
     self.method = getattr(self.module, method)
     self.model = None
     self.parameters = parameters
-    self.preprocessor_name = preprocess
-    if preprocess != None:
-      self.preprocess = getattr(preprocessors, preprocess)
+    self.preprocessor_name = scaling
+    if scaling != None:
+      self.preprocess = getattr(preprocessors, scaling)
     else:
       self.preprocess = None
 

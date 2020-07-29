@@ -1,11 +1,11 @@
-export default function () {
+export default async function () {
   let app = p6({
     container: "app",
     viewport: [600, 600],
     padding: {left: 80, right: 30, top: 30, bottom: 50},
   })
 
-  app.data({url: '../p4/data/Nat2015result-200k.csv', nrows: 10000})
+  app.data({url: '../p4/data/Nat2015result-200k.csv', $select: {nrows: 10000}})
 
   app.analyze({
       clusters: {
@@ -23,10 +23,10 @@ export default function () {
             $group: ['$select', 'clusters'],
             $collect: { AvgBabyWeight: {$avg: 'BabyWeight'}},
           },
-          $match: {
-            $select: [18, 40],
-            AvgBabyWeight: [6, 9]
-          },
+          // $match: {
+          //   $select: [18, 40],
+          //   AvgBabyWeight: [6, 9]
+          // },
         },
         mark: 'spline',
         x: '$select', y: 'AvgBabyWeight',

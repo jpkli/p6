@@ -1,6 +1,6 @@
 {
   "name": "p6",
-  "version": "0.3.2",
+  "version": "0.4.1",
   "description": "Declarative Specifications of Visual Analytics Processes",
   "main": "index.js",
   "directories": {
@@ -30,6 +30,6 @@
   "dependencies": {
     "axios": "^0.19.0",
     "p3.js": "^0.8.8",
-    "p4.js": "^0.6.12"
+    "p4.js": "^0.6.13"
   }
 }

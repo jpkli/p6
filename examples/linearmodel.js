@@ -1,25 +1,29 @@
 export default async function () {
-  let app = p6({
-    container: "app",
-    viewport: [600, 800],    
-    padding: {left: 80, right: 20, top: 30, bottom: 60}
-  })
+  /*
+    Train a linear regression model and use its coefficients to select the top three features. 
+    Show the average prediction values over the top three features using three bar charts.
+  */
+
+  let app = p6()
 
   await app.train({
     $BabyWeightRegressor: {
       module: 'linear_model',
       method: 'LinearRegression',
       data: './data/babies-train.csv',
-      preprocess: 'StandardScaler',
-      // parameters: {max_depth: 3, random_state: 0},
+      scaling: 'StandardScaler',
       target: 'BabyWeight'
     }
   })
-  
-  // app.data({url: './data/babies.csv'})
-  app.data({url: '../p4/data/Nat2015result-200k.csv'})
+
+  app.data({url: './data/babies.csv'})
     .analyze({
       PredictedWeight: '$BabyWeightRegressor',
+    })
+    .layout({
+      container: "app",
+      viewport: [400, 600],    
+      padding: {left: 80, right: 20, top: 30, bottom: 40}
     })
     .visualize({
       $rows: {

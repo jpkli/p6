@@ -1,6 +1,6 @@
 import clustering from './clustering.js'
 import regression from './regression.js'
-import multiview from './multiview.js'
+
 import featuring from './featuring.js'
 import linearmodel from './linearmodel.js'
 import triviewbrush from './triviewbrush.js'
@@ -13,24 +13,41 @@ import 'highlight.js/styles/xcode.css';
 
 hljs.registerLanguage('javascript', javascript);
 
-let app = window.location.hash.slice(1)
+const examples = [
+  {id: 'clustering', module: clustering, name: 'Clustering'},
+  {id: 'triviewbrush', module: triviewbrush, name: 'Comparing Dimension Reductions'},
+  {id: 'regression', module: regression, name: 'Regression'},
+  {id: 'linearmodel', module: linearmodel, name: 'Top Features'},
+  {id: 'gridsearch', module: gridsearch, name: 'Grid Search'},
+]
+
+let exampleId = window.location.href.split('?').pop()
+
 let example = clustering
 
-if (app === 'regression') {
-  example = regression
-} else if (app === 'multiview') {
-  example = multiview
-} else if (app === 'triviewbrush') {
-  example = triviewbrush
-} else if (app === 'featuring') {
-  example = featuring
-} else if (app === 'linearmodel') {
-  example = linearmodel
-} else if (app === 'gridsearch') {
-  example = gridsearch
-} 
+if (exampleId) {
+  let matchExample = examples.find(e => e.id === exampleId)
+  if (matchExample) {
+    example = matchExample.module
+  }
+}
 
-example()
+console.log(exampleId)
+
+example().then( () => {
+  document.getElementById('page-loader').style.display = 'none'
+})
+
+let exampleList = document.getElementById('menu')
+examples.forEach(ex => {
+  let link = document.createElement('a')
+  link.innerText = ex.name
+  link.setAttribute('href', '?' + ex.id)
+  if (exampleId === ex.id) {
+    link.setAttribute('class', 'active')
+  }
+  exampleList.appendChild(link)
+})
 
 let codeDiv = document.getElementById('codes')
 let codes = example.toString().split('\n')
@@ -40,4 +57,4 @@ codeDiv.innerHTML = codes.join('\n')
   .replace(/ /g, '&nbsp;')
   .replace(/\n/g, '<br />')
 
-hljs.highlightBlock(codeDiv);
+hljs.highlightBlock(codeDiv)
