@@ -124,4 +124,8 @@ To visualize data or analysis result, call `visualize' to transform data (option
 visualize({transform, visualMark, [encoding]})
 ```
 
+## Publication
+Jianping Kelvin Li and Kwan-Liu Ma. P6: A Declarative Language for Integrating Machine Learning in Visual Analytics. IEEE Transactions on Visualization and Computer Graphics (Proc: VAST), 2020
 
+## Acknowledgement
+This research was sponsored in part by the U.S. National Science Foundation through grant NSF IIS-1528203 and U.S. Department of Energy through grant DE-SC0014917.
