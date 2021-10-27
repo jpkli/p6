@@ -1,7 +1,7 @@
 bokeh==2.0.2
 click==7.1.2
 cloudpickle==1.4.1
-dask==2.15.0
+dask==2021.10.0
 distributed==2.15.1
 fsspec==0.7.3
 HeapDict==1.0.1
